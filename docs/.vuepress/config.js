@@ -3,7 +3,7 @@ import { defineUserConfig,defaultTheme } from "vuepress"
 export default {
   title: "strongking",
   description: "strongking博客",
-  // base: "./",
+  base: "/vuepress-java/",
   theme: defaultTheme({
     // sidebar:'auto',
     // Public 文件路径
@@ -183,8 +183,14 @@ export default {
           link: "/java/java-03/day01/讲义/mysql基础.md",
           collapsable: false, // 不折叠
           children: [
-            { text: "mysql基础", link: "/java/java-03/day01/讲义/mysql基础.md" },
-            { text: "mysql高级", link: "/java/java-03/day02/讲义/mysql高级.md" },
+            {
+              text: "mysql基础",
+              link: "/java/java-03/day01/讲义/mysql基础.md",
+            },
+            {
+              text: "mysql高级",
+              link: "/java/java-03/day02/讲义/mysql高级.md",
+            },
             {
               text: "JDBC",
               link: "/java/java-03/day03-JDBC/讲义/JDBC.md",
