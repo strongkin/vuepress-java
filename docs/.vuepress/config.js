@@ -18,6 +18,7 @@ export default {
       { text: "java", link: "/java/" },
       { text: "java面试", link: "/interview/" },
       { text: "GitRedis", link: "/gitredis/" },
+      { text: "java分布式", link: "/java8-9/" },
     ],
     sidebar: {
       "/java/": [
@@ -376,6 +377,33 @@ export default {
             {
               text: "strongking项目优化",
               link: "/gitredis/项目优化/讲义/瑞吉外卖项目优化-day03/瑞吉外卖项目优化-Day03.md",
+            },
+          ],
+        },
+      ],
+      "/java8-9/": [
+        {
+          text: "java分布式",
+          children: [
+            {
+              text: "微服务",
+              link: "/java8-9/day01-微服务保护/讲义/微服务保护.md",
+            },
+            {
+              text: "分布式事务",
+              link: "/java8-9/day02-分布式事务/讲义/分布式事务.md",
+            },
+            {
+              text: "分布式缓存",
+              link: "/java8-9/day03-分布式缓存/讲义/分布式缓存.md",
+            },
+            {
+              text: "多级缓存",
+              link: "/java8-9/day04-多级缓存/讲义/多级缓存.md",
+            },
+            {
+              text: "RabbitMQ-高级篇",
+              link: "/java8-9/day05/讲义/RabbitMQ-高级篇.md",
             },
           ],
         },
