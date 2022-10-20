@@ -22,14 +22,14 @@
 <p>前面我们已经完成了后台系统的员工登录功能开发，但是目前还存在一个问题，接下来我们来说明一个这个问题， 以及如何处理。</p>
 <p><strong>1). 目前现状</strong></p>
 <p>用户如果不登录，直接访问系统首页面，照样可以正常访问。</p>
-<p><img src="assets/image-20210727232226862.png" alt="image-20210727232226862"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210727232226862.png" alt="image-20210727232226862"></p>
 <p><strong>2). 理想效果</strong></p>
 <p>上述这种设计并不合理，我们希望看到的效果应该 是，只有登录成功后才可以访问系统中的页面，如果没有登录, 访问系统中的任何界面都直接跳转到登录页面。</p>
-<img src="assets/image-20210727232747276.png" alt="image-20210727232747276" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210727232747276.png" alt="image-20210727232747276" style="zoom:80%;" /> 
 <p><strong>那么，具体应该怎么实现呢？</strong></p>
 <p>可以使用我们之前讲解过的 过滤器、拦截器来实现，在过滤器、拦截器中拦截前端发起的请求，判断用户是否已经完成登录，如果没有登录则返回提示信息，跳转到登录页面。</p>
 <h3 id="_1-2-思路分析" tabindex="-1"><a class="header-anchor" href="#_1-2-思路分析" aria-hidden="true">#</a> 1.2 思路分析</h3>
-<img src="assets/image-20210727233554707.png" alt="image-20210727233554707" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210727233554707.png" alt="image-20210727233554707" style="zoom:80%;" /> 
 <p><strong>过滤器具体的处理逻辑如下：</strong></p>
 <p>A. 获取本次请求的URI</p>
 <p>B. 判断本次请求, 是否需要登录, 才可以访问</p>
@@ -37,7 +37,7 @@
 <p>D. 判断登录状态，如果已登录，则直接放行</p>
 <p>E. 如果未登录, 则返回未登录结果</p>
 <p>如果未登录,我们需要给前端返回什么样的结果呢? 这个时候, 我们可以去看看前端是如何处理的 ?</p>
-<img src="assets/image-20210728001324901.png" alt="image-20210728001324901" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210728001324901.png" alt="image-20210728001324901" style="zoom:80%;" /> 
 <h3 id="_1-3-代码实现" tabindex="-1"><a class="header-anchor" href="#_1-3-代码实现" aria-hidden="true">#</a> 1.3 代码实现</h3>
 <p><strong>1). 定义登录校验过滤器</strong></p>
 <p>自定义一个过滤器 LoginCheckFilter 并实现 Filter 接口, 在doFilter方法中完成校验的逻辑。 那么接下来, 我们就根据上述分析的步骤, 来完成具体的功能代码实现:</p>
@@ -162,23 +162,23 @@
 </blockquote>
 <h3 id="_1-4-功能测试" tabindex="-1"><a class="header-anchor" href="#_1-4-功能测试" aria-hidden="true">#</a> 1.4 功能测试</h3>
 <p>代码编写完毕之后，我们需要将工程重启一下，然后在浏览器地址栏直接输入系统管理后台首页，然后看看是否可以跳转到登录页面即可。我们也可以通过debug的形式来跟踪一下代码执行的过程。</p>
-<p><img src="assets/image-20210728000838992.png" alt="image-20210728000838992"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210728000838992.png" alt="image-20210728000838992"></p>
 <p>对于前端的代码, 也可以进行debug调试。</p>
 <p>F12打开浏览器的调试工具, 找到我们前面提到的request.js, 在request.js的响应拦截器位置打上断点。</p>
-<p><img src="assets/image-20210728001929657.png" alt="image-20210728001929657"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210728001929657.png" alt="image-20210728001929657"></p>
 <h2 id="_2-新增员工" tabindex="-1"><a class="header-anchor" href="#_2-新增员工" aria-hidden="true">#</a> 2. 新增员工</h2>
 <h3 id="_2-1-需求分析" tabindex="-1"><a class="header-anchor" href="#_2-1-需求分析" aria-hidden="true">#</a> 2.1 需求分析</h3>
 <p>后台系统中可以管理员工信息，通过新增员工来添加后台系统用户。点击[添加员工]按钮跳转到新增页面，如下：</p>
-<img src="assets/image-20210728002442334.png" alt="image-20210728002442334" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210728002442334.png" alt="image-20210728002442334" style="zoom:80%;" /> 
 <p>当填写完表单信息, 点击&quot;保存&quot;按钮后, 会提交该表单的数据到服务端, 在服务端中需要接受数据, 然后将数据保存至数据库中。</p>
 <h3 id="_2-2-数据模型" tabindex="-1"><a class="header-anchor" href="#_2-2-数据模型" aria-hidden="true">#</a> 2.2 数据模型</h3>
 <p>新增员工，其实就是将我们新增页面录入的员工数据插入到employee表。employee表中的status字段已经设置了默认值1，表示状态正常。</p>
-<img src="assets/image-20210728004144521.png" alt="image-20210728004144521" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210728004144521.png" alt="image-20210728004144521" style="zoom:80%;" /> 
 <p>需要注意，employee表中对username字段加入了唯一约束，因为username是员工的登录账号，必须是唯一的。</p>
-<img src="assets/image-20210728004250254.png" alt="image-20210728004250254" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210728004250254.png" alt="image-20210728004250254" style="zoom:80%;" /> 
 <h3 id="_2-3-程序执行流程" tabindex="-1"><a class="header-anchor" href="#_2-3-程序执行流程" aria-hidden="true">#</a> 2.3 程序执行流程</h3>
 <p>在开发代码之前，我们需要结合着前端页面发起的请求， 梳理一下整个程序的执行过程：</p>
-<img src="assets/image-20210728005638224.png" alt="image-20210728005638224" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210728005638224.png" alt="image-20210728005638224" style="zoom:80%;" /> 
 <p>A. 点击&quot;保存&quot;按钮, 页面发送ajax请求，将新增员工页面中输入的数据以json的形式提交到服务端, 请求方式POST, 请求路径 /employee</p>
 <p>B. 服务端Controller接收页面提交的数据并调用Service将数据进行保存</p>
 <p>C. Service调用Mapper操作数据库，保存数据</p>
@@ -213,16 +213,16 @@
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2-5-功能测试" tabindex="-1"><a class="header-anchor" href="#_2-5-功能测试" aria-hidden="true">#</a> 2.5 功能测试</h3>
 <p>代码编写完毕之后，我们需要将工程重启, 完毕之后直接访问管理系统首页, 点击 &quot;员工管理&quot; 页面中的 &quot;添加员工&quot; 按钮, 输入员工基本信息, 然后点击 &quot;保存&quot; 进行数据保存, 保存完毕后, 检查数据库中是否录入员工数据。</p>
 <p>当我们在测试中，添加用户时， 输入了一个已存在的用户名时，前端界面出现错误提示信息：</p>
-<img src="assets/image-20210728010841569.png" alt="image-20210728010841569" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210728010841569.png" alt="image-20210728010841569" style="zoom:80%;" /> 
 <p>而此时，服务端已经报错了， 报错信息如下：</p>
-<p><img src="assets/image-20210728010938086.png" alt="image-20210728010938086"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210728010938086.png" alt="image-20210728010938086"></p>
 <p>出现上述的错误， 主要就是因为在 employee 表结构中，我们针对于username字段，建立了唯一索引，添加重复的username数据时，违背该约束，就会报错。但是此时前端提示的信息并不具体，用户并不知道是因为什么原因造成的该异常，我们需要给用户提示详细的错误信息 。</p>
 <h3 id="_2-6-全局异常处理" tabindex="-1"><a class="header-anchor" href="#_2-6-全局异常处理" aria-hidden="true">#</a> 2.6 全局异常处理</h3>
 <h4 id="_2-6-1-思路分析" tabindex="-1"><a class="header-anchor" href="#_2-6-1-思路分析" aria-hidden="true">#</a> 2.6.1 思路分析</h4>
 <p>要想解决上述测试中存在的问题，我们需要对程序中可能出现的异常进行捕获，通常有两种处理方式：</p>
 <p><strong>A. 在Controller方法中加入 try...catch 进行异常捕获</strong></p>
 <p>形式如下：</p>
-<img src="assets/image-20210729094125294.png" alt="image-20210729094125294" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210729094125294.png" alt="image-20210729094125294" style="zoom:80%;" /> 
 <p>如果采用这种方式，虽然可以解决，但是存在弊端，需要我们在保存其他业务数据时，也需要在Controller方法中加上try...catch进行处理，代码冗余，不通用。</p>
 <p><strong>B. 使用异常处理器进行全局异常捕获</strong></p>
 <p>采用这种方式来实现，我们只需要在项目中定义一个通用的全局异常处理器，就可以解决本项目的所有异常。</p>
@@ -236,7 +236,7 @@
 <li>组装错误信息并返回</li>
 </ul>
 </blockquote>
-<img src="assets/image-20210729100232642.png" alt="image-20210729100232642" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210729100232642.png" alt="image-20210729100232642" style="zoom:80%;" /> 
 <p>所属包: com.itheima.reggie.common</p>
 <div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code><span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Controller</span></span><span class="token punctuation">;</span>
@@ -275,15 +275,15 @@
 <p>​	@ResponseBody: 将方法的返回值 R 对象转换为json格式的数据, 响应给页面;</p>
 <p>​</p>
 <p>​	上述使用的两个注解, 也可以合并成为一个注解 @RestControllerAdvice</p>
-<p>​	<img src="assets/image-20210729100052940.png" alt="image-20210729100052940" style="zoom:80%;" /></p>
+<p>​	<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210729100052940.png" alt="image-20210729100052940" style="zoom:80%;" /></p>
 </blockquote>
 <h4 id="_2-6-3-测试" tabindex="-1"><a class="header-anchor" href="#_2-6-3-测试" aria-hidden="true">#</a> 2.6.3 测试</h4>
 <p>全局异常处理器编写完毕之后，我们需要将项目重启, 完毕之后直接访问管理系统首页, 点击 &quot;员工管理&quot; 页面中的 &quot;添加员工&quot; 按钮。当我们在测试中，添加用户时， 输入了一个已存在的用户名时，前端界面出现如下错误提示信息：</p>
-<img src="assets/image-20210729102220135.png" alt="image-20210729102220135" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210729102220135.png" alt="image-20210729102220135" style="zoom:80%;" /> 
 <h2 id="_3-员工分页查询" tabindex="-1"><a class="header-anchor" href="#_3-员工分页查询" aria-hidden="true">#</a> 3. 员工分页查询</h2>
 <h3 id="_3-1-需求分析" tabindex="-1"><a class="header-anchor" href="#_3-1-需求分析" aria-hidden="true">#</a> 3.1 需求分析</h3>
 <p>系统中的员工很多的时候，如果在一个页面中全部展示出来会显得比较乱，不便于查看，所以一般的系统中都会以分页的方式来展示列表数据。而在我们的分页查询页面中, 除了分页条件以外，还有一个查询条件 &quot;员工姓名&quot;。</p>
-<p><img src="assets/image-20210729134904625.png" alt="image-20210729134904625"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210729134904625.png" alt="image-20210729134904625"></p>
 <ul>
 <li>
 <p>请求参数</p>
@@ -312,9 +312,9 @@
 <h4 id="_3-2-1-页面流程分析" tabindex="-1"><a class="header-anchor" href="#_3-2-1-页面流程分析" aria-hidden="true">#</a> 3.2.1 页面流程分析</h4>
 <p>在开发代码之前，需要梳理一下整个程序的执行过程。</p>
 <p>A. 点击菜单，打开员工管理页面时，执行查询：</p>
-<img src="assets/image-20210729163400772.png" alt="image-20210729163400772" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210729163400772.png" alt="image-20210729163400772" style="zoom:80%;" /> 
 <p>B. 搜索栏输入员工姓名,回车,执行查询:</p>
-<p><img src="assets/image-20210729164259997.png" alt="image-20210729164259997"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210729164259997.png" alt="image-20210729164259997"></p>
 <p>1). 页面发送ajax请求，将分页查询参数(page、pageSize、name)提交到服务端</p>
 <p>2). 服务端Controller接收页面提交的数据, 并组装条件调用Service查询数据</p>
 <p>3). Service调用Mapper操作数据库，查询分页数据</p>
@@ -322,14 +322,14 @@
 <p>5). 页面接收到分页数据, 并通过ElementUI的Table组件展示到页面上</p>
 <h4 id="_3-2-2-前端代码介绍" tabindex="-1"><a class="header-anchor" href="#_3-2-2-前端代码介绍" aria-hidden="true">#</a> 3.2.2 前端代码介绍</h4>
 <p>1). 访问员工列表页面/member/list.html时, 会触发Vuejs中的钩子方法, 在页面初始化时调用created方法</p>
-<img src="assets/image-20210729231639034.png" alt="image-20210729231639034" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210729231639034.png" alt="image-20210729231639034" style="zoom:80%;" /> 
 <p>从上述的前端代码中我们可以看到, 执行完分页查询, 我们需要给前端返回的信息中需要包含两项 : records 中封装结果列表, total中封装总记录数 。</p>
 <p>而在组装请求参数时 , page、pageSize 都是前端分页插件渲染时的参数；</p>
-<img src="assets/image-20210729232916380.png" alt="image-20210729232916380" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210729232916380.png" alt="image-20210729232916380" style="zoom:80%;" /> 
 <p>2). 在getMemberList方法中, 通过axios发起异步请求</p>
-<p><img src="assets/image-20210729231745143.png" alt="image-20210729231745143"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210729231745143.png" alt="image-20210729231745143"></p>
 <p>axios发起的异步请求会被声明在 request.js 中的request拦截器拦截, 在其中对get请求进行进一步的封装处理</p>
-<p><img src="assets/image-20210729232036767.png" alt="image-20210729232036767"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210729232036767.png" alt="image-20210729232036767"></p>
 <p><strong>最终发送给服务端的请求为 :</strong> GET请求 , 请求链接 /employee/page?page=1&amp;pageSize=10&amp;name=xxx</p>
 <h3 id="_3-3-代码实现" tabindex="-1"><a class="header-anchor" href="#_3-3-代码实现" aria-hidden="true">#</a> 3.3 代码实现</h3>
 <h4 id="_3-3-1-分页插件配置" tabindex="-1"><a class="header-anchor" href="#_3-3-1-分页插件配置" aria-hidden="true">#</a> 3.3.1 分页插件配置</h4>
@@ -379,7 +379,7 @@
 </table>
 <p>那么查询完毕后我们需要给前端返回什么样的结果呢?</p>
 <p>在上述我们也分析了, 查询返回的结果数据data中应该封装两项信息, 分别为: records 封装分页列表数据, total 中封装符合条件的总记录数。 那么这个时候, 在定义controller方法的返回值类型R时, 我们可以直接将 MybatisPlus 分页查询的结果 Page 直接封装返回, 因为Page中的属性如下:</p>
-<img src="assets/image-20210729235403154.png" alt="image-20210729235403154" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210729235403154.png" alt="image-20210729235403154" style="zoom:80%;" /> 
 <p>那么接下来就依据于这些已知的需求和条件完成分页查询的代码实现。 具体的逻辑如下:</p>
 <p>A. 构造分页条件</p>
 <p>B. 构建搜索条件 - name进行模糊匹配</p>
@@ -414,33 +414,33 @@
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_3-4-功能测试" tabindex="-1"><a class="header-anchor" href="#_3-4-功能测试" aria-hidden="true">#</a> 3.4 功能测试</h3>
 <p>代码编写完毕之后，我们需要将工程重启, 完毕之后直接访问管理系统首页, 默认就会打开员工管理的列表页面, 我们可以查看列表数据是否可以正常展示, 也可以通过分页插件来测试分页功能, 及员工姓名的模糊查询功能。</p>
 <p>在进行测试时，可以使用浏览器的监控工具查看页面和服务端的数据交互细节。 并借助于debug的形式， 根据服务端参数接收及逻辑执行情况。</p>
-<p><img src="assets/image-20210730000855072.png" alt="image-20210730000855072"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730000855072.png" alt="image-20210730000855072"></p>
 <p>测试过程中可以发现，对于员工状态字段（status）服务端返回的是状态码（1或者0），但是页面上显示的则是“正常”或者“已禁用”，这是因为页面中在展示数据时进行了处理。</p>
-<img src="assets/image-20210730010606005.png" alt="image-20210730010606005" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730010606005.png" alt="image-20210730010606005" style="zoom:80%;" /> 
 <h2 id="_4-启用-禁用员工账号" tabindex="-1"><a class="header-anchor" href="#_4-启用-禁用员工账号" aria-hidden="true">#</a> 4. 启用/禁用员工账号</h2>
 <h3 id="_4-1-需求分析" tabindex="-1"><a class="header-anchor" href="#_4-1-需求分析" aria-hidden="true">#</a> 4.1 需求分析</h3>
 <p>在员工管理列表页面，可以对某个员工账号进行<font color='gree'>启用</font>或者<font color='red'>禁用</font>操作。账号禁用的员工不能登录系统，启用后的员工可以正常登录。如果某个员工账号状态为正常，则按钮显示为 &quot;禁用&quot;，如果员工账号状态为已禁用，则按钮显示为&quot;启用&quot;。</p>
 <p>==需要注意，只有管理员（admin用户）可以对其他普通用户进行启用、禁用操作，所以普通用户登录系统后启用、禁用按钮不显示。==</p>
 <p><strong>A. admin 管理员登录</strong></p>
-<img src="assets/image-20210730010858705.png" alt="image-20210730010858705" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730010858705.png" alt="image-20210730010858705" style="zoom:80%;" /> 
 <p><strong>B. 普通用户登录</strong></p>
-<img src="assets/image-20210730010941399.png" alt="image-20210730010941399" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730010941399.png" alt="image-20210730010941399" style="zoom:80%;" /> 
 <h3 id="_4-2-程序执行流程" tabindex="-1"><a class="header-anchor" href="#_4-2-程序执行流程" aria-hidden="true">#</a> 4.2 程序执行流程</h3>
 <h4 id="_4-2-1-页面按钮动态展示" tabindex="-1"><a class="header-anchor" href="#_4-2-1-页面按钮动态展示" aria-hidden="true">#</a> 4.2.1 页面按钮动态展示</h4>
 <p>在上述的需求中,我们提到需要实现的效果是 : <strong>只有管理员（admin用户）可以对其他普通用户进行启用、禁用操作，所以普通用户登录系统后启用、禁用按钮不显示</strong> , 页面中是怎么做到只有管理员admin能够看到启用、禁用按钮的？</p>
 <p>1). 在列表页面(list.html)加载时, 触发钩子函数created, 在钩子函数中, 会从localStorage中获取到用户登录信息, 然后获取到用户名</p>
-<img src="assets/image-20210730012044171.png" alt="image-20210730012044171" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730012044171.png" alt="image-20210730012044171" style="zoom:80%;" /> 
 <p>2). 在页面中, 通过Vue指令v-if进行判断,如果登录用户为admin将展示 启用/禁用 按钮, 否则不展示</p>
-<img src="assets/image-20210730012256779.png" alt="image-20210730012256779" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730012256779.png" alt="image-20210730012256779" style="zoom:80%;" /> 
 <h4 id="_4-2-2-执行流程分析" tabindex="-1"><a class="header-anchor" href="#_4-2-2-执行流程分析" aria-hidden="true">#</a> 4.2.2 执行流程分析</h4>
 <p>1). 当管理员admin点击 &quot;启用&quot; 或 &quot;禁用&quot; 按钮时, 调用方法statusHandle</p>
-<img src="assets/image-20210730012723560.png" alt="image-20210730012723560" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730012723560.png" alt="image-20210730012723560" style="zoom:80%;" /> 
 <blockquote>
 <p>scope.row : 获取到的是这一行的数据信息 ;</p>
 </blockquote>
 <p>2). statusHandle方法中进行二次确认, 然后发起ajax请求, 传递id、status参数</p>
-<img src="assets/image-20210730013011861.png" alt="image-20210730013011861" style="zoom:80%;" /> 
-<img src="assets/image-20210730013210948.png" alt="image-20210730013210948" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730013011861.png" alt="image-20210730013011861" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730013210948.png" alt="image-20210730013210948" style="zoom:80%;" /> 
 <p>最终发起异步请求, 请求服务端, 请求信息如下：</p>
 <table>
 <thead>
@@ -492,17 +492,17 @@
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-4-功能测试" tabindex="-1"><a class="header-anchor" href="#_4-4-功能测试" aria-hidden="true">#</a> 4.4 功能测试</h3>
 <p>代码编写完毕之后，我们需要将工程重启。 然后访问前端页面， 进行 &quot;启用&quot; 或 &quot;禁用&quot; 的测试。</p>
-<p><img src="assets/image-20210730123213103.png" alt="image-20210730123213103"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730123213103.png" alt="image-20210730123213103"></p>
 <p>测试过程中没有报错，但是功能并没有实现，查看数据库中的数据也没有变化。但是从控制台输出的日志， 可以看出确实没有更新成功。</p>
-<p><img src="assets/image-20210730123307452.png" alt="image-20210730123307452"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730123307452.png" alt="image-20210730123307452"></p>
 <p>而在我们的数据库表结构中， 并不存在该ID， 数据库中 风清扬 对应的ID为 1420038345634918401</p>
-<p><img src="assets/image-20210730123519468.png" alt="image-20210730123519468"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730123519468.png" alt="image-20210730123519468"></p>
 <h3 id="_4-5-代码修复" tabindex="-1"><a class="header-anchor" href="#_4-5-代码修复" aria-hidden="true">#</a> 4.5 代码修复</h3>
 <h4 id="_4-5-1-原因分析" tabindex="-1"><a class="header-anchor" href="#_4-5-1-原因分析" aria-hidden="true">#</a> 4.5.1 原因分析</h4>
-<p><img src="assets/image-20210730123833129.png" alt="image-20210730123833129"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730123833129.png" alt="image-20210730123833129"></p>
 <p>通过观察控制台输出的SQL发现页面传递过来的员工id的值和数据库中的id值不一致，这是怎么回事呢？</p>
 <p>在分页查询时，服务端会将返回的R对象进行json序列化，转换为json格式的数据，而员工的ID是一个Long类型的数据，而且是一个长度为 19 位的长整型数据， 该数据返回给前端是没有问题的。</p>
-<p><img src="assets/image-20210730124036415.png" alt="image-20210730124036415"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730124036415.png" alt="image-20210730124036415"></p>
 <p><strong>那么具体的问题出现在哪儿呢？</strong></p>
 <p>问题实际上， 就出现在前端JS中， js在对长度较长的长整型数据进行处理时， 会损失精度， 从而导致提交的id和数据库中的id不一致。 这里，我们也可以做一个简单的测试，代码如下：</p>
 <div class="language-html ext-html line-numbers-mode"><pre v-pre class="language-html"><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
@@ -532,7 +532,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>那么在我们的业务中, 我们只需要让分页查询返回的json格式数据库中, long类型的属性, 不直接转换为数字类型, 转换为字符串类型就可以解决这个问题了 , 最终返回的结果为 :</p>
-<p><img src="assets/image-20210730125138652.png" alt="image-20210730125138652"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730125138652.png" alt="image-20210730125138652"></p>
 <h4 id="_4-5-3-代码修复" tabindex="-1"><a class="header-anchor" href="#_4-5-3-代码修复" aria-hidden="true">#</a> 4.5.3 代码修复</h4>
 <p>由于在SpringMVC中, 将Controller方法返回值转换为json对象, 是通过jackson来实现的, 涉及到SpringMVC中的一个消息转换器MappingJackson2HttpMessageConverter, 所以我们要解决这个问题, 就需要对该消息转换器的功能进行拓展。</p>
 <p><strong>具体实现步骤：</strong></p>
@@ -606,23 +606,23 @@
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_5-编辑员工信息" tabindex="-1"><a class="header-anchor" href="#_5-编辑员工信息" aria-hidden="true">#</a> 5. 编辑员工信息</h2>
 <h3 id="_5-1-需求分析" tabindex="-1"><a class="header-anchor" href="#_5-1-需求分析" aria-hidden="true">#</a> 5.1 需求分析</h3>
 <p>在员工管理列表页面点击 &quot;编辑&quot; 按钮，跳转到编辑页面，在编辑页面回显员工信息并进行修改，最后点击 &quot;保存&quot; 按钮完成编辑操作。</p>
-<p><img src="assets/image-20210730181733784.png" alt="image-20210730181733784"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730181733784.png" alt="image-20210730181733784"></p>
 <p>那么从上述的分析中，我们可以看出当前实现的编辑功能,我们需要实现两个方法:</p>
 <p>A. 根据ID查询, 用于页面数据回显</p>
 <p>B. 保存修改</p>
 <h3 id="_5-2-程序执行流程" tabindex="-1"><a class="header-anchor" href="#_5-2-程序执行流程" aria-hidden="true">#</a> 5.2 程序执行流程</h3>
 <p>在开发代码之前需要梳理一下操作过程和对应的程序的执行流程：</p>
 <p>1). 点击编辑按钮时，页面跳转到add.html，并在url中携带参数[员工id]</p>
-<p><img src="assets/image-20210730225514330.png" alt="image-20210730225514330"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730225514330.png" alt="image-20210730225514330"></p>
 <p>2). 在add.html页面获取url中的参数[员工id]</p>
 <p>3). 发送ajax请求，请求服务端，同时提交员工id参数</p>
 <p>4). 服务端接收请求，根据员工id查询员工信息，将员工信息以json形式响应给页面</p>
-<p><img src="assets/image-20210730230005437.png" alt="image-20210730230005437"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730230005437.png" alt="image-20210730230005437"></p>
 <p>5). 页面接收服务端响应的json数据，通过VUE的数据绑定进行员工信息回显</p>
 <p>6). 点击保存按钮，发送ajax请求，将页面中的员工信息以json方式提交给服务端</p>
 <p>7). 服务端接收员工信息，并进行处理，完成后给页面响应</p>
 <p>8). 页面接收到服务端响应信息后进行相应处理</p>
-<img src="assets/image-20210730230533123.png" alt="image-20210730230533123" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day02/assets/image-20210730230533123.png" alt="image-20210730230533123" style="zoom:80%;" /> 
 <blockquote>
 <p>注意：add.html页面为公共页面，新增员工和编辑员工都是在此页面操作</p>
 </blockquote>

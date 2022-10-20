@@ -19,7 +19,7 @@
 
 文件上传，也称为upload，是指将本地图片、视频、音频等文件上传到服务器上，可以供其他用户浏览或下载的过程。文件上传在项目中应用非常广泛，我们经常发微博、发微信朋友圈都用到了文件上传功能。
 
-<img src="assets/image-20210803081955246.png" alt="image-20210803081955246" style="zoom:80%;" /> 
+<img src="./assets//image-20210803081955246.png" alt="image-20210803081955246" style="zoom:80%;" /> 
 
 
 
@@ -52,7 +52,7 @@
 
 目前一些前端组件库也提供了相应的上传组件，但是底层原理还是基于form表单的文件上传。
 
-![image-20210803084742416](assets/image-20210803084742416.png) 
+![image-20210803084742416](./assets//image-20210803084742416.png) 
 
 
 
@@ -89,7 +89,7 @@ public R<String> upload(MultipartFile file){
 
 **1). 以附件形式下载，弹出保存对话框，将文件保存到指定磁盘目录**
 
-![image-20210803123858691](assets/image-20210803123858691.png) 
+![image-20210803123858691](./assets//image-20210803123858691.png) 
 
 
 
@@ -97,7 +97,7 @@ public R<String> upload(MultipartFile file){
 
 而我们在今天所需要实现的菜品展示，表现形式为在浏览器中直接打开。
 
-![image-20210803124220869](assets/image-20210803124220869.png)  
+![image-20210803124220869](./assets//image-20210803124220869.png)  
 
 通过浏览器进行文件下载，本质上就是服务端将文件以流的形式写回浏览器的过程。
 
@@ -111,17 +111,17 @@ public R<String> upload(MultipartFile file){
 
 http://localhost:8080/backend/page/demo/upload.html
 
-<img src="assets/image-20210803125619732.png" alt="image-20210803125619732" style="zoom:80%;" /> 
+<img src="./assets//image-20210803125619732.png" alt="image-20210803125619732" style="zoom:80%;" /> 
 
 
 
 在上述的浏览器抓取的网络请求中，上传文件的调用url，在哪里配置的呢，这个时候，我们需要去看一下前端上传组件。
 
-<img src="assets/image-20210803125942295.png" alt="image-20210803125942295" style="zoom:80%;" /> 
+<img src="./assets//image-20210803125942295.png" alt="image-20210803125942295" style="zoom:80%;" /> 
 
 虽然上述是ElementUI封装的代码，但是实际上最终还通过file域上传文件，如果未指定上传文件的参数名，默认为file。
 
-<img src="assets/image-20210803130455590.png" alt="image-20210803130455590" style="zoom:80%;" /> 
+<img src="./assets//image-20210803130455590.png" alt="image-20210803130455590" style="zoom:80%;" /> 
 
 
 
@@ -218,11 +218,11 @@ public class CommonController {
 
 代码编写完成之后，我们重新启动项目，访问上传页面 http://localhost:8080/backend/page/demo/upload.html，然后点击上传图片，选择图片上传时，会发现图片并不能正常的上传，而且在浏览器中可以抓取到响应的数据，从图中我们可以判断出需要登录才可以操作。
 
-<img src="assets/image-20210803232054156.png" alt="image-20210803232054156" style="zoom:80%;" /> 
+<img src="./assets//image-20210803232054156.png" alt="image-20210803232054156" style="zoom:80%;" /> 
 
 而这样的话，就要求我们在测试时，每一次都需要先登录，登录完成后在进行图片上传的测试，为了简化我们的测试，我们可以在 LoginCheckFilter 的doFilter方法中，在不需要处理的请求路径的数组中再加入请求路径 /common/** , 如下: 
 
-<img src="assets/image-20210803232433983.png" alt="image-20210803232433983" style="zoom:80%;" /> 
+<img src="./assets//image-20210803232433983.png" alt="image-20210803232433983" style="zoom:80%;" /> 
 
 然后，我们在测试文件的上传功能时，就不需要登录就可以操作了。 
 
@@ -230,7 +230,7 @@ public class CommonController {
 
 我们在测试文件上传时，可以通过debug的形式来跟踪上传的整个过程，验证一下临时文件是否存在，以及上传完成之后，临时文件是否会自动删除。
 
-![image-20210805160234154](assets/image-20210805160234154.png) 
+![image-20210805160234154](./assets//image-20210805160234154.png) 
 
 
 
@@ -250,7 +250,7 @@ public class CommonController {
 
 那么，通过<img>标签如何展示图片数据呢，接下来我们来解析一下具体的流程：
 
-![image-20210803224818828](assets/image-20210803224818828.png) 
+![image-20210803224818828](./assets//image-20210803224818828.png) 
 
 在文件上传成功后，在 handleAvatarSuccess 方法中获取文件上传成功之后返回的数据(文件名)，然后调用 /common/download?name=xxx 进行文件的下载。在这里，我们想让上传的照片能够在页面展示出来，所以我们就需要在服务端将文件以流的形式写回浏览器。
 
@@ -315,11 +315,11 @@ public void download(String name, HttpServletResponse response){
 
 访问页面 http://localhost:8080/backend/page/demo/upload.html , 点击上传图片 , 选择图片进行上传, 上传完毕之后, 查看图片是否可以展示出来。
 
-<img src="assets/image-20210803231134157.png" alt="image-20210803231134157"  /> 
+<img src="./assets//image-20210803231134157.png" alt="image-20210803231134157"  /> 
 
 通过F12查询页面发起的请求及响应的数据：
 
-![image-20210803231302464](assets/image-20210803231302464.png) 
+![image-20210803231302464](./assets//image-20210803231302464.png) 
 
 
 
@@ -333,13 +333,13 @@ public void download(String name, HttpServletResponse response){
 
 后台系统中可以管理菜品信息，通过 新增功能来添加一个新的菜品，在添加菜品时需要选择当前菜品所属的菜品分类，并且需要上传菜品图片，在移动端会按照菜品分类来展示对应的菜品信息 。
 
-![image-20210803234122966](assets/image-20210803234122966.png) 
+![image-20210803234122966](./assets//image-20210803234122966.png) 
 
 
 
 ### 2.2 数据模型
 
-<img src="assets/image-20210803235329340.png" alt="image-20210803235329340" style="zoom:80%;" /> 
+<img src="./assets//image-20210803235329340.png" alt="image-20210803235329340" style="zoom:80%;" /> 
 
 新增菜品，其实就是将新增页面录入的菜品信息插入到dish表，如果添加了口味做法，还需要向dish_flavor表插入数据。所以在新增菜品时，涉及到两个表：
 
@@ -352,13 +352,13 @@ public void download(String name, HttpServletResponse response){
 
 **1). 菜品表:dish**
 
-<img src="assets/image-20210803235459347.png" alt="image-20210803235459347" style="zoom:80%;" /> 
+<img src="./assets//image-20210803235459347.png" alt="image-20210803235459347" style="zoom:80%;" /> 
 
 
 
 **2). 菜品口味表:dish_flavor**
 
-<img src="assets/image-20210803235749393.png" alt="image-20210803235749393" style="zoom:80%;" /> 
+<img src="./assets//image-20210803235749393.png" alt="image-20210803235749393" style="zoom:80%;" /> 
 
 
 
@@ -502,7 +502,7 @@ public class DishController {
 
 1). 点击新建菜品按钮, 访问页面(backend/page/food/add.html), 页面加载时发送ajax请求，请求服务端获取菜品分类数据并展示到下拉框中
 
-![image-20210804003343531](assets/image-20210804003343531.png) 
+![image-20210804003343531](./assets//image-20210804003343531.png) 
 
 
 
@@ -510,7 +510,7 @@ public class DishController {
 
 3). 页面发送请求进行图片下载，将上传的图片进行回显(下载功能已实现)
 
-<img src="assets/image-20210804003752632.png" alt="image-20210804003752632" style="zoom:80%;" /> 
+<img src="./assets//image-20210804003752632.png" alt="image-20210804003752632" style="zoom:80%;" /> 
 
 
 
@@ -518,11 +518,11 @@ public class DishController {
 
 页面代码:
 
-<img src="assets/image-20210804004529310.png" alt="image-20210804004529310" style="zoom:80%;" /> 
+<img src="./assets//image-20210804004529310.png" alt="image-20210804004529310" style="zoom:80%;" /> 
 
 浏览器抓取请求:
 
-<img src="assets/image-20210804005030527.png" alt="image-20210804005030527" style="zoom:80%;" /> 
+<img src="./assets//image-20210804005030527.png" alt="image-20210804005030527" style="zoom:80%;" /> 
 
 
 
@@ -584,7 +584,7 @@ public R<List<Category>> list(Category category){
 
 代码编写完毕之后，我们可以打开新增菜品页面，查看响应的数据，及页面下拉列表的渲染情况： 
 
-<img src="assets/image-20210804180408584.png" alt="image-20210804180408584" style="zoom:80%;" /> 
+<img src="./assets//image-20210804180408584.png" alt="image-20210804180408584" style="zoom:80%;" /> 
 
 
 
@@ -763,17 +763,17 @@ public class ReggieApplication {
 
 代码编写完毕之后，我们重新启动服务，访问项目，然后登陆到系统中，进行菜品的新增测试，在测试时，我们可以通过debug断点跟踪的形式，查看我们传输的数据，及数据的封装。
 
-<img src="assets/image-20210804174956706.png" alt="image-20210804174956706" style="zoom:80%;" /> 
+<img src="./assets//image-20210804174956706.png" alt="image-20210804174956706" style="zoom:80%;" /> 
 
 debug跟踪数据的封装情况: 
 
-![image-20210804175034622](assets/image-20210804175034622.png) 
+![image-20210804175034622](./assets//image-20210804175034622.png) 
 
 
 
 然后在测试完毕后, 我们可以检查一下数据库中的数据保存情况:
 
-![image-20210804175658010](assets/image-20210804175658010.png) 
+![image-20210804175658010](./assets//image-20210804175658010.png) 
 
 
 
@@ -787,7 +787,7 @@ debug跟踪数据的封装情况:
 
 系统中的菜品数据很多的时候，如果在一个页面中全部展示出来会显得比较乱，不便于查看，所以一般的系统中都会以分页的方式来展示列表数据。
 
-<img src="assets/image-20210804223703893.png" alt="image-20210804223703893" style="zoom:80%;" /> 
+<img src="./assets//image-20210804223703893.png" alt="image-20210804223703893" style="zoom:80%;" /> 
 
 在菜品列表展示时，除了菜品的基本信息(名称、售价、售卖状态、更新时间)外，还有两个字段略微特殊，第一个是图片字段 ，我们从数据库查询出来的仅仅是图片的名字，图片要想在表格中回显展示出来，就需要下载这个图片。第二个是菜品分类，这里展示的是分类名称，而不是分类ID，此时我们就需要根据菜品的分类ID，去分类表中查询分类信息，然后在页面展示。
 
@@ -803,9 +803,9 @@ debug跟踪数据的封装情况:
 
 2). 页面发送请求，请求服务端进行图片下载，用于页面图片展示
 
-![image-20210804224842336](assets/image-20210804224842336.png) 
+![image-20210804224842336](./assets//image-20210804224842336.png) 
 
-<img src="assets/image-20210804225259854.png" alt="image-20210804225259854" style="zoom:94%;" /> 
+<img src="./assets//image-20210804225259854.png" alt="image-20210804225259854" style="zoom:94%;" /> 
 
 
 
@@ -919,7 +919,7 @@ public R<Page> page(int page,int pageSize,String name){
 
 在测试的过程中，我们发现有一些菜品图片并没有展示出来，如下： 
 
-![image-20210805100944028](assets/image-20210805100944028.png) 
+![image-20210805100944028](./assets//image-20210805100944028.png) 
 
 这是因为我们在导入sql脚本时，导入了一部分菜品的数据，而菜品的图片在我们的磁盘目录中并不存在，所以才会出现图片展示不出来的情况，而我们后续自己添加的菜品信息是没有问题的。
 
@@ -935,7 +935,7 @@ public R<Page> page(int page,int pageSize,String name){
 
 在菜品管理列表页面点击修改按钮，跳转到修改菜品页面，在修改页面回显菜品相关信息并进行修改，最后点击确定按钮完成修改操作。
 
-<img src="assets/image-20210804232447587.png" alt="image-20210804232447587" style="zoom:80%;" /> 
+<img src="./assets//image-20210804232447587.png" alt="image-20210804232447587" style="zoom:80%;" /> 
 
 
 
@@ -945,7 +945,7 @@ public R<Page> page(int page,int pageSize,String name){
 
 1). 点击菜品列表的中的修改按钮，携带菜品id跳转至add.html
 
-<img src="assets/image-20210804233459252.png" alt="image-20210804233459252" style="zoom:80%;" /> 
+<img src="./assets//image-20210804233459252.png" alt="image-20210804233459252" style="zoom:80%;" /> 
 
 
 
@@ -953,19 +953,19 @@ public R<Page> page(int page,int pageSize,String name){
 
 3). add.html获取id, 发送ajax请求，请求服务端，根据id查询当前菜品信息，用于菜品信息回显
 
-<img src="assets/image-20210804234104633.png" alt="image-20210804234104633" style="zoom:80%;" /> 
+<img src="./assets//image-20210804234104633.png" alt="image-20210804234104633" style="zoom:80%;" /> 
 
 
 
 4). 页面发送请求，请求服务端进行图片下载，用于页图片回显(**已实现**)
 
-![image-20210804234226201](assets/image-20210804234226201.png) 
+![image-20210804234226201](./assets//image-20210804234226201.png) 
 
 
 
 5). 点击保存按钮，页面发送ajax请求，将修改后的菜品相关数据以json形式提交到服务端
 
-<img src="assets/image-20210804234442923.png" alt="image-20210804234442923" style="zoom:80%;" /> 
+<img src="./assets//image-20210804234442923.png" alt="image-20210804234442923" style="zoom:80%;" /> 
 
 
 
@@ -1119,7 +1119,7 @@ public R<DishDto> get(@PathVariable Long id){
 
 编写完代码后，重启服务进行测试，点击列表的修改按钮，查询数据回显情况。
 
-![image-20210805101812209](assets/image-20210805101812209.png) 
+![image-20210805101812209](./assets//image-20210805101812209.png) 
 
 
 

@@ -21,7 +21,7 @@
 <h3 id="_1-1-需求分析" tabindex="-1"><a class="header-anchor" href="#_1-1-需求分析" aria-hidden="true">#</a> 1.1 需求分析</h3>
 <p>套餐就是菜品的集合。</p>
 <p>后台系统中可以管理套餐信息，通过新增套餐功能来添加一个新的套餐，在添加套餐时需要选择当前套餐所属的套餐分类和包含的菜品，并且需要上传套餐对应的图片，在移动端会按照套餐分类来展示对应的套餐。</p>
-<img src="assets/image-20210805232711418.png" alt="image-20210805232711418" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210805232711418.png" alt="image-20210805232711418" style="zoom:80%;" /> 
 <h3 id="_1-2-数据模型" tabindex="-1"><a class="header-anchor" href="#_1-2-数据模型" aria-hidden="true">#</a> 1.2 数据模型</h3>
 <p>新增套餐，其实就是将新增页面录入的套餐信息插入到setmeal表，还需要向setmeal_dish表插入套餐和菜品关联数据。所以在新增套餐时，涉及到两个表：</p>
 <table>
@@ -47,11 +47,11 @@
 </table>
 <p>两张表具体的表结构如下:</p>
 <p><strong>1). 套餐表setmeal</strong></p>
-<p><img src="assets/image-20210805233615067.png" alt="image-20210805233615067"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210805233615067.png" alt="image-20210805233615067"></p>
 <p>在该表中，套餐名称name字段是不允许重复的，在建表时，已经创建了唯一索引。</p>
-<p><img src="assets/image-20210805234059563.png" alt="image-20210805234059563"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210805234059563.png" alt="image-20210805234059563"></p>
 <p><strong>2). 套餐菜品关系表setmeal_dish</strong></p>
-<p><img src="assets/image-20210805233807009.png" alt="image-20210805233807009"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210805233807009.png" alt="image-20210805233807009"></p>
 <p>在该表中，菜品的名称name,菜品的原价price 实际上都是冗余字段,因为我们在这张表中存储了菜品的ID(dish_id),根据该ID我们就可以查询出name,price的数据信息,而这里我们又存储了name,price,这样的话,我们在后续的查询展示操作中,就不需要再去查询数据库获取菜品名称和原价了,这样可以简化我们的操作。</p>
 <h3 id="_1-3-准备工作" tabindex="-1"><a class="header-anchor" href="#_1-3-准备工作" aria-hidden="true">#</a> 1.3 准备工作</h3>
 <p>在开发业务功能前，先将需要用到的类和接口基本结构创建好，在做这一块儿的准备工作时，我们无需准备Setmeal的相关实体类、Mapper接口、Service接口及实现，因为之前在做分类管理的时候，我们已经引入了Setmeal的相关基础代码。 接下来，我们就来完成以下的几步准备工作：</p>
@@ -175,19 +175,19 @@
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_1-4-前端页面分析" tabindex="-1"><a class="header-anchor" href="#_1-4-前端页面分析" aria-hidden="true">#</a> 1.4 前端页面分析</h3>
 <p>服务端的基础准备工作我们准备完毕之后，在进行代码开发之前，需要梳理一下新增套餐时前端页面和服务端的交互过程：</p>
 <p>1). 点击新建套餐按钮，访问页面(backend/page/combo/add.html)，页面加载发送ajax请求，请求服务端获取<strong>套餐分类</strong>数据并展示到下拉框中(==已实现==)</p>
-<p><img src="assets/image-20210806002144537.png" alt="image-20210806002144537"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806002144537.png" alt="image-20210806002144537"></p>
 <p>获取套餐分类列表的功能我们不用开发，之前已经开发完成了，之前查询时type传递的是1，查询菜品分类; 本次查询时，传递的type为2，查询套餐分类列表。</p>
 <p>2). 访问页面(backend/page/combo/add.html)，页面加载时发送ajax请求，请求服务端获取<strong>菜品分类</strong>数据并展示到添加菜品窗口中(==已实现==)</p>
-<p><img src="assets/image-20210806002730820.png" alt="image-20210806002730820"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806002730820.png" alt="image-20210806002730820"></p>
 <p>本次查询分类列表，传递的type为1，表示需要查询的是菜品的分类。查询菜品分类的目的，是添加套餐关联的菜品时，我们需要根据菜品分类，来过滤查询菜品信息。查询菜品分类列表的代码已经实现， 具体展示效果如下：</p>
-<p><img src="assets/image-20210806003318531.png" alt="image-20210806003318531"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806003318531.png" alt="image-20210806003318531"></p>
 <p>3). 当点击添加菜品窗口左侧菜单的某一个分类, 页面发送ajax请求，请求服务端，根据菜品分类查询对应的<strong>菜品</strong>数据并展示到添加菜品窗口中</p>
-<p><img src="assets/image-20210806004116496.png" alt="image-20210806004116496"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806004116496.png" alt="image-20210806004116496"></p>
 <p>4). 页面发送请求进行<strong>图片上传</strong>，请求服务端将图片保存到服务器(==已实现==)</p>
 <p>5). 页面发送请求进行<strong>图片下载</strong>，将上传的图片进行回显(==已实现==)</p>
-<p><img src="assets/image-20210806004434277.png" alt="image-20210806004434277"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806004434277.png" alt="image-20210806004434277"></p>
 <p>6). 点击保存按钮，发送ajax请求，将<strong>套餐</strong>相关数据以json形式提交到服务端</p>
-<p><img src="assets/image-20210806005028874.png" alt="image-20210806005028874"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806005028874.png" alt="image-20210806005028874"></p>
 <p>经过上述的页面解析及流程分析，我们发送这里需要发送的请求有5个，分别是 ：</p>
 <p>A. 根据传递的参数,查询套餐分类列表</p>
 <p>B. 根据传递的参数,查询菜品分类列表</p>
@@ -287,7 +287,7 @@
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5 id="_1-5-1-2-功能测试" tabindex="-1"><a class="header-anchor" href="#_1-5-1-2-功能测试" aria-hidden="true">#</a> 1.5.1.2 功能测试</h5>
 <p>代码编写完毕，我们重新启动服务器，进行测试，可以通过debug断点跟踪的形式查看页面传递的参数封装情况，及响应给页面的数据信息。</p>
-<p><img src="assets/image-20210806012153982.png" alt="image-20210806012153982"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806012153982.png" alt="image-20210806012153982"></p>
 <h4 id="_1-5-2-保存套餐" tabindex="-1"><a class="header-anchor" href="#_1-5-2-保存套餐" aria-hidden="true">#</a> 1.5.2 保存套餐</h4>
 <h5 id="_1-5-2-1-功能实现" tabindex="-1"><a class="header-anchor" href="#_1-5-2-1-功能实现" aria-hidden="true">#</a> 1.5.2.1 功能实现</h5>
 <p>在进行套餐信息保存时，前端提交的数据，不仅包含套餐的基本信息，还包含套餐关联的菜品列表数据 setmealDishes。所以这个时候我们使用Setmeal就不能完成参数的封装了，我们需要在Setmeal的基本属性的基础上，再扩充一个属性 setmealDishes 来接收页面传递的套餐关联的菜品列表，而我们在准备工作中，导入进来的SetmealDto能够满足这个需求。</p>
@@ -335,22 +335,22 @@
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5 id="_1-5-2-2-功能测试" tabindex="-1"><a class="header-anchor" href="#_1-5-2-2-功能测试" aria-hidden="true">#</a> 1.5.2.2 功能测试</h5>
 <p>代码编写完毕，我们重新启动服务器，进行测试，可以通过debug断点跟踪的形式查看页面传递的参数封装情况，及套餐相关数据的保存情况。</p>
 <p>录入表单数据:</p>
-<p><img src="assets/image-20210806014328575.png" alt="image-20210806014328575"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806014328575.png" alt="image-20210806014328575"></p>
 <p>debug跟踪数据封装:</p>
-<p><img src="assets/image-20210806014508310.png" alt="image-20210806014508310"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806014508310.png" alt="image-20210806014508310"></p>
 <p>跟踪数据库保存的数据:</p>
-<p><img src="assets/image-20210806014807017.png" alt="image-20210806014807017"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806014807017.png" alt="image-20210806014807017"></p>
 <h2 id="_2-套餐分页查询" tabindex="-1"><a class="header-anchor" href="#_2-套餐分页查询" aria-hidden="true">#</a> 2. 套餐分页查询</h2>
 <h3 id="_2-1-需求分析" tabindex="-1"><a class="header-anchor" href="#_2-1-需求分析" aria-hidden="true">#</a> 2.1 需求分析</h3>
 <p>系统中的套餐数据很多的时候，如果在一个页面中全部展示出来会显得比较乱，不便于查看，所以一般的系统中都会以分页的方式来展示列表数据。</p>
-<p><img src="assets/image-20210806073710653.png" alt="image-20210806073710653"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806073710653.png" alt="image-20210806073710653"></p>
 <p>在进行套餐数据的分页查询时，除了传递分页参数以外，还可以传递一个可选的条件(套餐名称)。查询返回的字段中，包含套餐的基本信息之外，还有一个套餐的分类名称，在查询时，需要关联查询这个字段。</p>
 <h3 id="_2-2-前端页面分析" tabindex="-1"><a class="header-anchor" href="#_2-2-前端页面分析" aria-hidden="true">#</a> 2.2 前端页面分析</h3>
 <p>在开发代码之前，需要梳理一下套餐分页查询时前端页面和服务端的交互过程：</p>
 <p>1). 访问页面(backend/page/combo/list.html)，页面加载时，会自动发送ajax请求，将分页查询参数(page、pageSize、name)提交到服务端，获取分页数据</p>
-<img src="assets/image-20210806074846550.png" alt="image-20210806074846550" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806074846550.png" alt="image-20210806074846550" style="zoom:80%;" /> 
 <p>2). 在列表渲染展示时，页面发送请求，请求服务端进行图片下载，用于页面图片展示(<strong>已实现</strong>)</p>
-<p><img src="assets/image-20210806075231072.png" alt="image-20210806075231072"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806075231072.png" alt="image-20210806075231072"></p>
 <p>而对于以上的流程中涉及到2个功能,文件下载功能我们已经实现,本小节我们主要实现列表分页查询功能, 具体的请求信息如下:</p>
 <table>
 <thead>
@@ -406,7 +406,7 @@
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_2-3-2-问题分析" tabindex="-1"><a class="header-anchor" href="#_2-3-2-问题分析" aria-hidden="true">#</a> 2.3.2 问题分析</h4>
 <p>基本分页查询代码编写完毕后，重启服务，测试列表查询，我们发现, 列表页面的数据可以展示出来, 但是套餐分类名称没有展示出来。</p>
-<p><img src="assets/image-20210806082542473.png" alt="image-20210806082542473"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806082542473.png" alt="image-20210806082542473"></p>
 <p>这是因为在服务端仅返回分类ID(categoryId), 而页面展示需要的是categoryName属性。</p>
 <h4 id="_2-3-3-功能完善" tabindex="-1"><a class="header-anchor" href="#_2-3-3-功能完善" aria-hidden="true">#</a> 2.3.3 功能完善</h4>
 <p>在查询套餐信息时, 只包含套餐的基本信息, 并不包含套餐的分类名称, 所以在这里查询到套餐的基本信息后, 还需要根据分类ID(categoryId), 查询套餐分类名称(categoryName)，并最终将套餐的基本信息及分类名称信息封装到SetmealDto(在第一小节已经导入)中。</p>
@@ -462,17 +462,17 @@
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2-4-功能测试" tabindex="-1"><a class="header-anchor" href="#_2-4-功能测试" aria-hidden="true">#</a> 2.4 功能测试</h3>
 <p>代码完善后，重启服务，测试列表查询，我们发现, 抓取浏览器的请求响应数据，我们可以获取到套餐分类名称categoryName，也可以在列表页面展示出来 。</p>
-<p><img src="assets/image-20210806083346578.png" alt="image-20210806083346578"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806083346578.png" alt="image-20210806083346578"></p>
 <h2 id="_3-删除套餐" tabindex="-1"><a class="header-anchor" href="#_3-删除套餐" aria-hidden="true">#</a> 3. 删除套餐</h2>
 <h3 id="_3-1-需求分析" tabindex="-1"><a class="header-anchor" href="#_3-1-需求分析" aria-hidden="true">#</a> 3.1 需求分析</h3>
 <p>在套餐管理列表页面,点击删除按钮，可以删除对应的套餐信息。也可以通过复选框选择多个套餐，点击批量删除按钮一次删除多个套餐。注意，对于状态为售卖中的套餐不能删除，需要先停售，然后才能删除。</p>
-<p><img src="assets/image-20210806214443507.png" alt="image-20210806214443507"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806214443507.png" alt="image-20210806214443507"></p>
 <h3 id="_3-2-前端页面分析" tabindex="-1"><a class="header-anchor" href="#_3-2-前端页面分析" aria-hidden="true">#</a> 3.2 前端页面分析</h3>
 <p>在开发代码之前，需要梳理一下删除套餐时前端页面和服务端的交互过程：</p>
 <p>1). 点击删除, 删除单个套餐时，页面发送ajax请求，根据套餐id删除对应套餐</p>
-<p><img src="assets/image-20210806215911878.png" alt="image-20210806215911878"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806215911878.png" alt="image-20210806215911878"></p>
 <p>2). 删除多个套餐时，页面发送ajax请求，根据提交的多个套餐id删除对应套餐</p>
-<p><img src="assets/image-20210806220406587.png" alt="image-20210806220406587"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806220406587.png" alt="image-20210806220406587"></p>
 <p>开发删除套餐功能，其实就是在服务端编写代码去处理前端页面发送的这2次请求即可，一次请求为根据ID删除，一次请求为根据ID批量删除。</p>
 <p>观察删除单个套餐和批量删除套餐的请求信息可以发现，两种请求的<strong>地址</strong>和<strong>请求方式</strong>都是相同的，不同的则是传递的id个数，所以在服务端可以提供一个方法来统一处理。</p>
 <p>具体的请求信息如下：</p>
@@ -513,7 +513,7 @@
     <span class="token keyword">return</span> <span class="token class-name">R</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token string">"套餐数据删除成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>编写完代码，我们重启服务之后，访问套餐列表页面，勾选复选框，然后点击&quot;批量删除&quot;,我们可以看到服务端可以接收到集合参数ids，并且在控制台也可以输出对应的数据 。</p>
-<p><img src="assets/image-20210806221603303.png" alt="image-20210806221603303"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806221603303.png" alt="image-20210806221603303"></p>
 <p><strong>2). SetmealService接口定义方法removeWithDish</strong></p>
 <div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code><span class="token doc-comment comment">/**
  * 删除套餐，同时需要删除套餐和菜品的关联数据
@@ -569,14 +569,14 @@
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_3-4-功能测试" tabindex="-1"><a class="header-anchor" href="#_3-4-功能测试" aria-hidden="true">#</a> 3.4 功能测试</h3>
 <p>代码完善后，重启服务，测试套餐的删除功能，主要测试以下几种情况。</p>
 <p>1). 删除正在启用的套餐</p>
-<p><img src="assets/image-20210806224121877.png" alt="image-20210806224121877"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806224121877.png" alt="image-20210806224121877"></p>
 <p>2). 执行批量操作, 删除两条记录, 一个启售的, 一个停售的</p>
 <p>由于当前我们并未实现启售/停售功能，所以我们需要手动修改数据库表结构的status状态，将其中的一条记录status修改为0。</p>
-<p><img src="assets/image-20210806224603405.png" alt="image-20210806224603405"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806224603405.png" alt="image-20210806224603405"></p>
 <p>3). 删除已经停售的套餐信息，执行删除之后， 检查数据库表结构 setmeal ， setmeal_dish表中的数据</p>
-<p><img src="assets/image-20210806224807108.png" alt="image-20210806224807108"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806224807108.png" alt="image-20210806224807108"></p>
 <h2 id="_4-短信发送" tabindex="-1"><a class="header-anchor" href="#_4-短信发送" aria-hidden="true">#</a> 4. 短信发送</h2>
-<img src="assets/image-20210806225505074.png" alt="image-20210806225505074" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806225505074.png" alt="image-20210806225505074" style="zoom:80%;" /> 
 <p>在我们接下来要实现的移动端的业务开发中，第一块儿我们需要开发的功能就是移动端的登录功能，而移动端的登录功能，比较流行的方式就是基于短信验证码进行登录，那么这里涉及到了短信发送的知识，所以本章节，我们就来讲解，在项目开发中，我们如何发送短信。</p>
 <h3 id="_4-1-短信服务介绍" tabindex="-1"><a class="header-anchor" href="#_4-1-短信服务介绍" aria-hidden="true">#</a> 4.1 短信服务介绍</h3>
 <p>在项目中，如果我们要实现短信发送功能，我们无需自己实现，也无需和运营商直接对接，只需要调用第三方提供的短信服务即可。目前市面上有很多第三方提供的短信服务，这些第三方短信服务会和各个运营商（移动、联通、电信）对接，我们只需要注册成为会员，并且按照提供的开发文档进行调用就可以发送短信。需要说明的是，这些短信服务一般都是收费服务。</p>
@@ -627,69 +627,69 @@
 </tr>
 </tbody>
 </table>
-<p><img src="assets/image-20210806231422923.png" alt="image-20210806231422923"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806231422923.png" alt="image-20210806231422923"></p>
 <p>阿里云短信服务官方网站： https://www.aliyun.com/product/sms?spm=5176.19720258.J_8058803260.52.5c432c4a11Dcwf</p>
 <p>可以访问官网，熟悉一下短信服务：</p>
-<p><img src="assets/image-20210806231821334.png" alt="image-20210806231821334"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210806231821334.png" alt="image-20210806231821334"></p>
 <h3 id="_4-3-阿里云短信服务准备" tabindex="-1"><a class="header-anchor" href="#_4-3-阿里云短信服务准备" aria-hidden="true">#</a> 4.3 阿里云短信服务准备</h3>
 <h4 id="_4-3-1-注册账号" tabindex="-1"><a class="header-anchor" href="#_4-3-1-注册账号" aria-hidden="true">#</a> 4.3.1 注册账号</h4>
 <p>阿里云官网：https://www.aliyun.com/</p>
-<img src="assets/image-20210807074911618.png" alt="image-20210807074911618" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807074911618.png" alt="image-20210807074911618" style="zoom:80%;" /> 
 <p>点击官网首页注册按钮，跳转到如下注册页面：</p>
-<img src="assets/image-20210807074934251.png" alt="image-20210807074934251" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807074934251.png" alt="image-20210807074934251" style="zoom:80%;" /> 
 <p>当我们把账号注册完毕之后，我们就可以登录到阿里云系统控制台。</p>
 <h4 id="_4-3-2-开通短信服务" tabindex="-1"><a class="header-anchor" href="#_4-3-2-开通短信服务" aria-hidden="true">#</a> 4.3.2 开通短信服务</h4>
 <p>注册成功后，点击登录按钮进行登录。登录后进入控制台, 在左上角的菜单栏中搜索短信服务。第一次使用，需要点击，并开通短信服务。</p>
-<p><img src="assets/image-20210807075321250.png" alt="image-20210807075321250"></p>
-<img src="assets/image-20210807075620990.png" alt="image-20210807075620990" style="zoom:80%;" /> 
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807075321250.png" alt="image-20210807075321250"></p>
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807075620990.png" alt="image-20210807075620990" style="zoom:80%;" /> 
 <h4 id="_4-3-3-设置短信签名" tabindex="-1"><a class="header-anchor" href="#_4-3-3-设置短信签名" aria-hidden="true">#</a> 4.3.3 设置短信签名</h4>
 <p>开通短信服务之后，进入短信服务管理页面，选择国内消息菜单，我们需要在这里添加短信签名。</p>
-<p><img src="assets/image-20210807080406104.png" alt="image-20210807080406104"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807080406104.png" alt="image-20210807080406104"></p>
 <p><strong>那么什么是短信签名呢?</strong></p>
 <p>短信签名是短信发送者的署名，表示发送方的身份。我们要调用阿里云短信服务发送短信，签名是比不可少的部分。</p>
-<img src="assets/image-20210807080659337.png" alt="image-20210807080659337" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807080659337.png" alt="image-20210807080659337" style="zoom:80%;" /> 
 <p>那么接下来，我们就需要来添加短信签名。</p>
-<p><img src="assets/image-20210807081839908.png" alt="image-20210807081839908"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807081839908.png" alt="image-20210807081839908"></p>
 <blockquote>
 <font color='red'>注意：</font> <p>​	<font color='red'>目前，阿里云短信服务申请签名主要针对企业开发，个人申请时有一定难度的，在审核时，会审核资质，需要上传营业执照 ；</font></p>
 <p>​	<font color='red'>所以，我们课程中，主要是演示一下短信验证码如何发送，大家只需要学习这块儿的开发流程、实现方式即可，无需真正的发送短信。如果以后在企业中做项目，需要发送短信，我们会以公司的资质去申请对应的签名。</font></p>
 </blockquote>
 <h4 id="_4-3-4-设置短信模板" tabindex="-1"><a class="header-anchor" href="#_4-3-4-设置短信模板" aria-hidden="true">#</a> 4.3.4 设置短信模板</h4>
 <p>切换到【模板管理】标签页：</p>
-<p><img src="assets/image-20210807082453655.png" alt="image-20210807082453655"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807082453655.png" alt="image-20210807082453655"></p>
 <p><strong>那么什么是模板呢?</strong></p>
 <p>短信模板包含短信发送内容、场景、变量信息。模板的详情如下:</p>
-<img src="assets/image-20210807082639900.png" alt="image-20210807082639900" style="zoom: 80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807082639900.png" alt="image-20210807082639900" style="zoom: 80%;" /> 
 <p>最终我们，给用户发送的短信中，具体的短信内容，就是上面配置的这个模板内容，将${code}占位符替换成对应的验证码数据即可。如下:</p>
 <div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>【xxxxx】您好,您的验证码为173822,5分钟之内有效,不要泄露给他人!
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>我们可以点击右上角的按钮,添加模板,然后填写模板的基本信息及设置的模板内容:</p>
-<img src="assets/image-20210807083306928.png" alt="image-20210807083306928" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807083306928.png" alt="image-20210807083306928" style="zoom:80%;" /> 
 <font color='red'>添加的短信模板，也是需要进行审核的只有审核通过，才可以正常使用。</font><h4 id="_4-3-5-设置accesskey" tabindex="-1"><a class="header-anchor" href="#_4-3-5-设置accesskey" aria-hidden="true">#</a> 4.3.5 设置AccessKey</h4>
 <p>AccessKey 是访问阿里云 API 的密钥，具有账户的完全权限，我们要想在后面通过API调用阿里云短信服务的接口发送短信，那么就必须要设置AccessKey。</p>
 <p>我们点击右上角的用户头像，选择&quot;AccessKey管理&quot;，这时就可以进入到AccessKey的管理界面。</p>
-<p><img src="assets/image-20210807130218414.png" alt="image-20210807130218414"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807130218414.png" alt="image-20210807130218414"></p>
 <p>进入到AccessKey的管理界面之后，提示两个选项 &quot;继续使用AccessKey&quot; 和 &quot;开始使用子用户AccessKey&quot;，两个区别如下:</p>
 <p><strong>1). 继续使用AccessKey</strong></p>
 <p>如果选择的是该选项，我们创建的是阿里云账号的AccessKey，是具有账户的完全权限，有了这个AccessKey以后，我们就可以通过API调用阿里云的服务，不仅是短信服务，其他服务(OSS，语音服务，内容安全服务，视频点播服务...等)也可以调用。 相对来说，并不安全，当前的AccessKey泄露，会影响到我当前账户的其他云服务。</p>
 <p><strong>2). 开始使用子用户AccessKey</strong></p>
 <p>可以创建一个子用户,这个子用户我们可以分配比较低的权限,比如仅分配短信发送的权限，不具备操作其他的服务的权限，即使这个AccessKey泄漏了,也不会影响其他的云服务, 相对安全。</p>
 <p>接下来就来演示一下，如何创建子用户AccessKey。</p>
-<p><img src="assets/image-20210807131340003.png" alt="image-20210807131340003"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807131340003.png" alt="image-20210807131340003"></p>
 <h4 id="_4-3-6-配置权限" tabindex="-1"><a class="header-anchor" href="#_4-3-6-配置权限" aria-hidden="true">#</a> 4.3.6 配置权限</h4>
 <p>上述我们已经创建了子用户, 但是这个子用户,目前没有任何权限,接下来,我们需要为创建的这个用户来分配权限。</p>
-<p><img src="assets/image-20210807183735533.png" alt="image-20210807183735533"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807183735533.png" alt="image-20210807183735533"></p>
 <font color='red'>经过上述的权限配置之后，那么新创建的这个 reggie 用户，仅有短信服务操作的权限，不具备别的权限，即使当前的AccessKey泄漏了，也只会影响短信服务，其他服务是不受影响的。</font><h4 id="_4-3-7-禁用-删除accesskey" tabindex="-1"><a class="header-anchor" href="#_4-3-7-禁用-删除accesskey" aria-hidden="true">#</a> 4.3.7 禁用/删除AccessKey</h4>
 <p>如果在使用的过程中 AccessKey 不小心泄漏了,我们可以在阿里云控制台中, 禁用或者删除该AccessKey。</p>
-<p><img src="assets/image-20210807190005367.png" alt="image-20210807190005367"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807190005367.png" alt="image-20210807190005367"></p>
 <p>然后再创建一个新的AccessKey, 保存好AccessKeyId和AccessKeySecret。</p>
-<p><img src="assets/image-20210807190304136.png" alt="image-20210807190304136"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807190304136.png" alt="image-20210807190304136"></p>
 <p>==注意： 创建好了AccessKey后，请及时保存AccessKeyId 和 AccessKeySecret ，弹窗关闭后将无法再次获取该信息，但您可以随时创建新的 AccessKey。==</p>
 <h3 id="_4-4-代码开发" tabindex="-1"><a class="header-anchor" href="#_4-4-代码开发" aria-hidden="true">#</a> 4.4 代码开发</h3>
 <p>使用阿里云短信服务发送短信，可以参照官方提供的文档即可。</p>
 <p>官方文档: https://help.aliyun.com/product/44282.html?spm=5176.12212571.help.dexternal.57a91cbewHHjKq</p>
-<p><img src="assets/image-20210807193047220.png" alt="image-20210807193047220"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807193047220.png" alt="image-20210807193047220"></p>
 <p>我们根据官方文档的提示，引入对应的依赖，然后再引入对应的java代码，就可以发送消息了。</p>
-<p><img src="assets/image-20210807193829131.png" alt="image-20210807193829131"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807193829131.png" alt="image-20210807193829131"></p>
 <blockquote>
 <p>SDK : SDK 就是 Software Development Kit 的缩写，翻译过来——软件开发工具包，辅助开发某一类软件的相关文档、范例和工具的集合都可以叫做SDK。在我们与第三方接口相互时， 一般都会提供对应的SDK，来简化我们的开发。</p>
 </blockquote>
@@ -752,7 +752,7 @@
 <p>1). 方便快捷，无需注册，直接登录</p>
 <p>2). 使用短信验证码作为登录凭证，无需记忆密码</p>
 <p>3). 安全</p>
-<img src="assets/image-20210807232653592.png" alt="image-20210807232653592" style="zoom:80%;" />  
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807232653592.png" alt="image-20210807232653592" style="zoom:80%;" />  
 <p><strong>登录流程：</strong></p>
 <p>输入手机号 &gt; 获取验证码 &gt; 输入验证码 &gt; 点击登录 &gt; 登录成功</p>
 <blockquote>
@@ -760,13 +760,13 @@
 </blockquote>
 <h3 id="_5-2-数据模型" tabindex="-1"><a class="header-anchor" href="#_5-2-数据模型" aria-hidden="true">#</a> 5.2 数据模型</h3>
 <p>通过手机验证码登录时，涉及的表为user表，即用户表。结构如下:</p>
-<p><img src="assets/image-20210807231948412.png" alt="image-20210807231948412"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807231948412.png" alt="image-20210807231948412"></p>
 <h3 id="_5-3-前端页面分析" tabindex="-1"><a class="header-anchor" href="#_5-3-前端页面分析" aria-hidden="true">#</a> 5.3 前端页面分析</h3>
 <p>在开发代码之前，需要梳理一下登录时前端页面和服务端的交互过程：</p>
 <p>1). 在登录页面(front/page/login.html)输入手机号，点击【获取验证码】按钮，页面发送ajax请求，在服务端调用短信服务API给指定手机号发送验证码短信。</p>
-<img src="assets/image-20210807233018171.png" alt="image-20210807233018171" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807233018171.png" alt="image-20210807233018171" style="zoom:80%;" /> 
 <p>2). 在登录页面输入验证码，点击【登录】按钮，发送ajax请求，在服务端处理登录请求。</p>
-<img src="assets/image-20210807233336029.png" alt="image-20210807233336029" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807233336029.png" alt="image-20210807233336029" style="zoom:80%;" /> 
 <p>如果服务端返回的登录成功，页面将会把当前登录用户的手机号存储在sessionStorage中，并跳转到移动的首页页面。</p>
 <p>开发手机验证码登录功能，其实就是在服务端编写代码去处理前端页面发送的这2次请求即可，分别是获取短信验证码 和 登录请求，具体的请求信息如下：</p>
 <p>1). 获取短信验证码</p>
@@ -893,13 +893,13 @@
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>6). 工具类SMSUtils、ValidateCodeUtils（直接从课程资料中导入即可）</p>
 <p>所属包: com.itheima.reggie.utils</p>
-<p><img src="assets/image-20210807234828051.png" alt="image-20210807234828051"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807234828051.png" alt="image-20210807234828051"></p>
 <p>SMSUtils : 是我们上面改造的阿里云短信发送的工具类 ;</p>
 <p>ValidateCodeUtils : 是验证码生成的工具类 ;</p>
 <h4 id="_5-4-2-功能实现" tabindex="-1"><a class="header-anchor" href="#_5-4-2-功能实现" aria-hidden="true">#</a> 5.4.2 功能实现</h4>
 <h5 id="_5-4-2-1-修改logincheckfilter" tabindex="-1"><a class="header-anchor" href="#_5-4-2-1-修改logincheckfilter" aria-hidden="true">#</a> 5.4.2.1 修改LoginCheckFilter</h5>
 <p>前面我们已经完成了LoginCheckFilter过滤器的开发，此过滤器用于检查用户的登录状态。我们在进行手机验证码登录时，发送的两个请求(获取验证码和登录)需要在此过滤器处理时直接放行。</p>
-<p><img src="assets/image-20210807235349089.png" alt="image-20210807235349089"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210807235349089.png" alt="image-20210807235349089"></p>
 <p>对于移动的端的页面，也是用户登录之后，才可以访问的，那么这个时候就需要在 LoginCheckFilter 中进行判定，如果移动端用户已登录，我们获取到用户登录信息，存入ThreadLocal中(在后续的业务处理中，如果需要获取当前登录用户ID，直接从ThreadLocal中获取)，然后放行。</p>
 <p>增加如下逻辑:</p>
 <div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code><span class="token comment">//4-2、判断登录状态，如果已登录，则直接放行</span>
@@ -987,11 +987,11 @@
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_5-5-功能测试" tabindex="-1"><a class="header-anchor" href="#_5-5-功能测试" aria-hidden="true">#</a> 5.5 功能测试</h3>
 <p>代码完成后，重启服务，测试短信验证码的发送及登录功能。</p>
 <p>1). 测试错误验证码的情况</p>
-<img src="assets/image-20210808001952043.png" alt="image-20210808001952043" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210808001952043.png" alt="image-20210808001952043" style="zoom:80%;" /> 
 <p>2). 测试正确验证码的情况</p>
-<p><img src="assets/image-20210808002356092.png" alt="image-20210808002356092"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210808002356092.png" alt="image-20210808002356092"></p>
 <p>检查user表，用户的数据也插入进来了：</p>
-<p><img src="assets/image-20210808002501618.png" alt="image-20210808002501618"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day05/assets/image-20210808002501618.png" alt="image-20210808002501618"></p>
 </div></template>
 
 

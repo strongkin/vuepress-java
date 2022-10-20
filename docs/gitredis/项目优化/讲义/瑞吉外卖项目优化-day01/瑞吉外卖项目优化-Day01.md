@@ -24,7 +24,7 @@
 
 之前我们已经实现了移动端菜品展示、点餐、购物车、下单等功能，但是由于移动端是面向所有的消费者的，请求压力相对比较大，而我们当前所有的数据查询都是从数据库MySQL中直接查询的，那么可能就存在如下问题： ==频繁访问数据库，数据库访问压力大，系统性能下降，用户体验较差。==
 
-![image-20210819232120838](assets/image-20210819232120838.png) 
+![image-20210819232120838](./assets/image-20210819232120838.png) 
 
 
 
@@ -52,13 +52,13 @@
 
 **1). 创建Gitee远程仓库**
 
-<img src="assets/image-20210820000329886.png" alt="image-20210820000329886" style="zoom:80%;" /> 
+<img src="./assets/image-20210820000329886.png" alt="image-20210820000329886" style="zoom:80%;" /> 
 
 
 
 **2). idea-创建本地仓库**
 
-![image-20210820000700459](assets/image-20210820000700459.png) 
+![image-20210820000700459](./assets/image-20210820000700459.png) 
 
 
 
@@ -66,7 +66,7 @@
 
 在我们的项目中, 有一些文件是无需提交的到git，比如: .idea，target/，*.iml等。我们可以直接将今天课程资料中提供的.gitignore 文件导入到我们的项目中。
 
-![image-20210820001119649](assets/image-20210820001119649.png) 
+![image-20210820001119649](./assets/image-20210820001119649.png) 
 
 
 
@@ -74,27 +74,27 @@
 
 A. 添加项目文件进暂存区
 
-<img src="assets/image-20210820001232154.png" alt="image-20210820001232154"  /> 
+<img src="./assets/image-20210820001232154.png" alt="image-20210820001232154"  /> 
 
 
 
 B. 提交代码
 
-<img src="assets/image-20210820001805504.png" alt="image-20210820001805504"  /> 
+<img src="./assets/image-20210820001805504.png" alt="image-20210820001805504"  /> 
 
-![image-20210820002006653](assets/image-20210820002006653.png) 
+![image-20210820002006653](./assets/image-20210820002006653.png) 
 
 
 
 C. 推送代码到远程仓库 
 
-![image-20210820002159587](assets/image-20210820002159587.png) 
+![image-20210820002159587](./assets/image-20210820002159587.png) 
 
 
 
 **5). 查看gitee远程仓库**
 
-![image-20210820002723619](assets/image-20210820002723619.png) 
+![image-20210820002723619](./assets/image-20210820002723619.png) 
 
 
 
@@ -102,7 +102,7 @@ C. 推送代码到远程仓库
 
 目前默认git中只有一个主分支master，我们接下来进行缓存的优化，就不在master分支来操作了，我们需要在git上创建一个单独的分支v1.0，缓存的优化，我们就在该分支上进行操作。
 
-![image-20210820003303544](assets/image-20210820003303544.png)  
+![image-20210820003303544](./assets/image-20210820003303544.png)  
 
 当前创建的v1.0分支，是基于master分支创建出来的，所以目前master分支的代码， 和v1.0分支的代码是完全一样的，接下来把v1.0的代码也推送至远程仓库。
 
@@ -110,9 +110,9 @@ C. 推送代码到远程仓库
 
 **7). 推送分支代码到远程**
 
-![image-20210820003516900](assets/image-20210820003516900.png) 
+![image-20210820003516900](./assets/image-20210820003516900.png) 
 
-![image-20210820003545764](assets/image-20210820003545764.png) 
+![image-20210820003545764](./assets/image-20210820003545764.png) 
 
 
 
@@ -172,17 +172,17 @@ public class RedisConfig extends CachingConfigurerSupport {
 
 1). 在SpringBoot工程启动时, 会加载一个自动配置类 RedisAutoConfiguration, 在里面已经声明了RedisTemplate这个bean
 
-<img src="assets/image-20210821091441695.png" alt="image-20210821091441695" style="zoom:80%;" /> 
+<img src="./assets/image-20210821091441695.png" alt="image-20210821091441695" style="zoom:80%;" /> 
 
 上述框架默认声明的RedisTemplate用的key和value的序列化方式是默认的 JdkSerializationRedisSerializer，如果key采用这种方式序列化，最终我们在测试时通过redis的图形化界面查询不是很方便，如下形式：
 
-![image-20210822003112692](assets/image-20210822003112692.png) 
+![image-20210822003112692](./assets/image-20210822003112692.png) 
 
 
 
 2). 如果使用我们自定义的RedisTemplate, key的序列化方式使用的是StringRedisSerializer, 也就是字符串形式, 最终效果如下: 
 
-![image-20210822003408377](assets/image-20210822003408377.png) 
+![image-20210822003408377](./assets/image-20210822003408377.png) 
 
  
 
@@ -190,7 +190,7 @@ public class RedisConfig extends CachingConfigurerSupport {
 
 3). 定义了两个bean会不会出现冲突呢? 答案是不会, 因为源码如下:
 
-<img src="assets/image-20210821092401172.png" alt="image-20210821092401172" style="zoom:80%;" /> 
+<img src="./assets/image-20210821092401172.png" alt="image-20210821092401172" style="zoom:80%;" /> 
 
 
 
@@ -238,7 +238,7 @@ private RedisTemplate redisTemplate;
 redisTemplate.opsForValue().set(phone, code, 5, TimeUnit.MINUTES);
 ```
 
-<img src="assets/image-20210821194944557.png" alt="image-20210821194944557"  /> 
+<img src="./assets/image-20210821194944557.png" alt="image-20210821194944557"  /> 
 
 
 
@@ -256,7 +256,7 @@ Object codeInSession = redisTemplate.opsForValue().get(phone);
 redisTemplate.delete(phone);
 ```
 
-![image-20210821195329342](assets/image-20210821195329342.png) 
+![image-20210821195329342](./assets/image-20210821195329342.png) 
 
 
 
@@ -270,23 +270,23 @@ redisTemplate.delete(phone);
 
 **1). 访问前端工程，获取验证码**
 
-![image-20210821200212767](assets/image-20210821200212767.png) 
+![image-20210821200212767](./assets/image-20210821200212767.png) 
 
 通过控制台的日志，我们可以看到生成的验证码：
 
-![image-20210822002439892](assets/image-20210822002439892.png)  
+![image-20210822002439892](./assets/image-20210822002439892.png)  
 
 
 
 **2). 通过Redis的图形化界面工具查看Redis中的数据**
 
-<img src="assets/image-20210822003550941.png" alt="image-20210822003550941" style="zoom:97%;" /> 
+<img src="./assets/image-20210822003550941.png" alt="image-20210822003550941" style="zoom:97%;" /> 
 
 
 
 **3). 在登录界面填写验证码登录完成后,查看Redis中的数据是否删除**
 
-![image-20210822003732542](assets/image-20210822003732542.png) 
+![image-20210822003732542](./assets/image-20210822003732542.png) 
 
 
 
@@ -308,7 +308,7 @@ redisTemplate.delete(phone);
 
 那么,我们又需要思考一个问题, 具体缓存几份数据呢, 所有的菜品缓存一份 , 还是说需要缓存多份呢? 我们可以看一下我们之前做的移动端效果: 
 
-<img src="assets/image-20210822010136819.png" alt="image-20210822010136819" style="zoom:80%;" /> 
+<img src="./assets/image-20210822010136819.png" alt="image-20210822010136819" style="zoom:80%;" /> 
 
 我们点击哪一个分类,展示的就是该分类下的菜品, 其他菜品无需展示。所以，这里面我们在缓存时，可以根据菜品的分类，缓存多份数据，页面在查询时，点击的是哪个分类，我们就查询该分类下的菜品缓存数据。
 
@@ -333,12 +333,12 @@ redisTemplate.delete(phone);
 需要改造的代码为： DishController
 
 #### 3.2.1 查询菜品缓存
-
+```java
 | 改造的方法 | redis的数据类型 | redis缓存的key                              | redis缓存的value |
 | ---------- | --------------- | ------------------------------------------- | ---------------- |
 | list       | string          | dish_分类Id_状态 , 比如: dish_12323232323_1 | List<DishDto>    |
 
-
+```
 
 **1). 在DishController中注入RedisTemplate**
 
@@ -363,7 +363,7 @@ if(dishDtoList != null){
 }
 ```
 
-<img src="assets/image-20210822011323316.png" alt="image-20210822011323316" style="zoom:90%;" /> 
+<img src="./assets/image-20210822011323316.png" alt="image-20210822011323316" style="zoom:90%;" /> 
 
 
 
@@ -374,7 +374,7 @@ if(dishDtoList != null){
 redisTemplate.opsForValue().set(key,dishDtoList,60, TimeUnit.MINUTES);
 ```
 
-<img src="assets/image-20210822011714110.png" alt="image-20210822011714110" style="zoom:90%;" /> 
+<img src="./assets/image-20210822011714110.png" alt="image-20210822011714110" style="zoom:90%;" /> 
 
 
 
@@ -412,7 +412,7 @@ redisTemplate.delete(key);
 
 此处, 我们推荐使用第二种清理的方式, 只清理当前菜品关联的分类下的菜品数据。
 
-<img src="assets/image-20210822013114996.png" alt="image-20210822013114996" style="zoom:80%;" /> 
+<img src="./assets/image-20210822013114996.png" alt="image-20210822013114996" style="zoom:80%;" /> 
 
 
 
@@ -440,7 +440,7 @@ String key = "dish_" + dishDto.getCategoryId() + "_1";
 redisTemplate.delete(key);
 ```
 
-![image-20210822013609299](assets/image-20210822013609299.png) 
+![image-20210822013609299](./assets/image-20210822013609299.png) 
 
 
 
@@ -458,7 +458,7 @@ redisTemplate.delete(key);
 
 1). 访问移动端，根据分类查询菜品列表，然后再检查Redis的缓存数据，是否可以正常缓存；
 
-![image-20210822221038509](assets/image-20210822221038509.png) 
+![image-20210822221038509](./assets/image-20210822221038509.png) 
 
 我们也可以在服务端，通过debug断点的形式一步一步的跟踪代码的执行。
 
@@ -474,9 +474,9 @@ redisTemplate.delete(key);
 
 在v1.0分支中, 将我们已经实现并且测试通过的使用redis缓存验证码和菜品信息的代码,提交并推送至Gitee
 
-<img src="assets/image-20210822222206452.png" alt="image-20210822222206452" style="zoom:80%;" /> 
+<img src="./assets/image-20210822222206452.png" alt="image-20210822222206452" style="zoom:80%;" /> 
 
-<img src="assets/image-20210822222244727.png" alt="image-20210822222244727" style="zoom:80%;" /> 
+<img src="./assets/image-20210822222244727.png" alt="image-20210822222244727" style="zoom:80%;" /> 
 
 
 
@@ -484,21 +484,21 @@ redisTemplate.delete(key);
 
 A. 将代码切换到master分支
 
-<img src="assets/image-20210822222756572.png" alt="image-20210822222756572" style="zoom:80%;" /> 
+<img src="./assets/image-20210822222756572.png" alt="image-20210822222756572" style="zoom:80%;" /> 
 
 
 
 B. 将v1.0分支的代码合并到当前master分支
 
-<img src="assets/image-20210822223314087.png" alt="image-20210822223314087" style="zoom:80%;" /> 
+<img src="./assets/image-20210822223314087.png" alt="image-20210822223314087" style="zoom:80%;" /> 
 
 
 
 C. 将master分支合并后代码推送到Gitee
 
-<img src="assets/image-20210822223837020.png" alt="image-20210822223837020" style="zoom:80%;" /> 
+<img src="./assets/image-20210822223837020.png" alt="image-20210822223837020" style="zoom:80%;" /> 
 
-<img src="assets/image-20210822223912803.png" alt="image-20210822223912803" style="zoom:80%;" /> 
+<img src="./assets/image-20210822223912803.png" alt="image-20210822223912803" style="zoom:80%;" /> 
 
 
 
@@ -559,7 +559,7 @@ Spring Cache只是提供了一层抽象，底层可以切换不同的cache实现
 
 将今天资料中的SQL脚本直接导入数据库中。
 
-![image-20210822230236957](assets/image-20210822230236957.png) 
+![image-20210822230236957](./assets/image-20210822230236957.png) 
 
 
 
@@ -567,7 +567,7 @@ Spring Cache只是提供了一层抽象，底层可以切换不同的cache实现
 
 基础环境的代码，在我们今天的资料中已经准备好了， 大家只需要将这个工程导入进来就可以了。导入进来的工程结构如下： 
 
-![image-20210822225934512](assets/image-20210822225934512.png) 
+![image-20210822225934512](./assets/image-20210822225934512.png) 
 
 由于SpringCache的基本功能是Spring核心(spring-context)中提供的，所以目前我们进行简单的SpringCache测试，是可以不用额外引入其他依赖的。
 
@@ -577,13 +577,13 @@ Spring Cache只是提供了一层抽象，底层可以切换不同的cache实现
 
 我们可以在UserController注入一个CacheManager，在Debug时，我们可以通过CacheManager跟踪缓存中数据的变化。
 
-<img src="assets/image-20210822231333527.png" alt="image-20210822231333527" style="zoom:80%;" /> 
+<img src="./assets/image-20210822231333527.png" alt="image-20210822231333527" style="zoom:80%;" /> 
 
 
 
 我们可以看到CacheManager是一个接口，默认的实现有以下几种 ；
 
-![image-20210822231217450](assets/image-20210822231217450.png) 
+![image-20210822231217450](./assets/image-20210822231217450.png) 
 
 而在上述的这几个实现中，默认使用的是 ConcurrentMapCacheManager。稍后我们可以通过断点的形式跟踪缓存数据的变化。
 
@@ -593,7 +593,7 @@ Spring Cache只是提供了一层抽象，底层可以切换不同的cache实现
 
 在引导类上加该注解，就代表当前项目开启缓存注解功能。
 
-![image-20210822231616569](assets/image-20210822231616569.png) 
+![image-20210822231616569](./assets/image-20210822231616569.png) 
 
 
 
@@ -651,19 +651,19 @@ public User save(User user){
 
 启动服务,通过postman请求访问UserController的方法, 然后通过断点的形式跟踪缓存数据。
 
-![image-20210822233438182](assets/image-20210822233438182.png)
+![image-20210822233438182](./assets/image-20210822233438182.png)
 
 
 
 第一次访问时，缓存中的数据是空的，因为save方法执行完毕后才会缓存数据。 
 
-![image-20210822233724439](assets/image-20210822233724439.png) 
+![image-20210822233724439](./assets/image-20210822233724439.png) 
 
 
 
 第二次访问时，我们通过debug可以看到已经有一条数据了，就是上次保存的数据，已经缓存了，缓存的key就是用户的id。
 
-![image-20210822234105085](assets/image-20210822234105085.png) 
+![image-20210822234105085](./assets/image-20210822234105085.png) 
 
 
 
@@ -714,19 +714,19 @@ public void delete(@PathVariable Long id){
 
 要测试缓存的删除，我们先访问save方法4次，保存4条数据到数据库的同时，也保存到缓存中，最终我们可以通过debug看到缓存中的数据信息。 然后我们在通过postman访问delete方法， 如下： 
 
-![image-20210823000431356](assets/image-20210823000431356.png) 
+![image-20210823000431356](./assets/image-20210823000431356.png) 
 
 
 
 删除数据时，通过debug我们可以看到已经缓存的4条数据：
 
-![image-20210823000458089](assets/image-20210823000458089.png) 
+![image-20210823000458089](./assets/image-20210823000458089.png) 
 
 
 
 当执行完delete操作之后，我们再次保存一条数据，在保存的时候debug查看一下删除的ID值是否已经被删除。
 
-![image-20210823000733218](assets/image-20210823000733218.png) 
+![image-20210823000733218](./assets/image-20210823000733218.png) 
 
 
 
@@ -790,13 +790,13 @@ public User getById(@PathVariable Long id){
 
 我们可以重启服务，然后通过debug断点跟踪程序执行。我们发现，第一次访问，会请求我们controller的方法，查询数据库。后面再查询相同的id，就直接获取到数据库，不用再查询数据库了，就说明缓存生效了。
 
-![image-20210823002517941](assets/image-20210823002517941.png) 
+![image-20210823002517941](./assets/image-20210823002517941.png) 
 
 
 
 当我们在测试时，查询一个数据库不存在的id值，第一次查询缓存中没有，也会查询数据库。而第二次再查询时，会发现，不再查询数据库了，而是直接返回，那也就是说如果根据ID没有查询到数据,那么会自动缓存一个null值。 我们可以通过debug，验证一下： 
 
-![image-20210823002907048](assets/image-20210823002907048.png) 
+![image-20210823002907048](./assets/image-20210823002907048.png) 
 
 
 
@@ -856,7 +856,7 @@ public List<User> list(User user){
 
 然后再次重启服务，进行测试。
 
-![image-20210823005220230](assets/image-20210823005220230.png) 
+![image-20210823005220230](./assets/image-20210823005220230.png) 
 
 第一次查询时，需要查询数据库，在后续的查询中，就直接查询了缓存，不再查询数据库了。
 
@@ -906,9 +906,9 @@ spring:
 
 重新启动项目，通过postman发送根据id查询数据的请求，然后通过redis的图形化界面工具，查看redis中是否可以正常的缓存数据。
 
-![image-20210823010810680](assets/image-20210823010810680.png)  
+![image-20210823010810680](./assets/image-20210823010810680.png)  
 
-![image-20210823010742530](assets/image-20210823010742530.png)
+![image-20210823010742530](./assets/image-20210823010742530.png)
 
 
 
@@ -970,7 +970,7 @@ spring:
 
 3). 启动类上加入@EnableCaching注解
 
-![image-20210823232419408](assets/image-20210823232419408.png) 
+![image-20210823232419408](./assets/image-20210823232419408.png) 
 
 
 
@@ -1006,9 +1006,9 @@ public R<List<Setmeal>> list(Setmeal setmeal){
 
 缓存数据的代码编写完毕之后，重新启动服务，访问移动端进行测试，我们登陆之后在点餐界面，点击某一个套餐分类，查询套餐列表数据时，服务端报错了，错误信息如下： 
 
-<img src="assets/image-20210823233406888.png" alt="image-20210823233406888" style="zoom:80%;" /> 
+<img src="./assets/image-20210823233406888.png" alt="image-20210823233406888" style="zoom:80%;" /> 
 
-![image-20210823233514356](assets/image-20210823233514356.png) 
+![image-20210823233514356](./assets/image-20210823233514356.png) 
 
 
 
@@ -1016,13 +1016,13 @@ public R<List<Setmeal>> list(Setmeal setmeal){
 
 因为 @Cacheable 会将方法的返回值R缓存在Redis中，而在Redis中存储对象，该对象是需要被序列化的，而对象要想被成功的序列化，就必须得实现 Serializable 接口。而当前我们定义的R，并未实现 Serializable 接口。所以，要解决该异常，只需要让R实现  Serializable 接口即可。如下： 
 
-![image-20210823233904520](assets/image-20210823233904520.png) 
+![image-20210823233904520](./assets/image-20210823233904520.png) 
 
 
 
 修复完毕之后，再次重新测试，访问套餐分类下对应的套餐列表数据后，我们会看到Redis中确实可以缓存对应的套餐列表数据。
 
-![image-20210823234146526](assets/image-20210823234146526.png) 
+![image-20210823234146526](./assets/image-20210823234146526.png) 
 
 
 
@@ -1092,17 +1092,17 @@ public R<String> save(@RequestBody SetmealDto setmealDto){
 
 到目前为止，我们已经在v1.0这个分支中完成了套餐数据的缓存，接下来我们就需要将代码提交并推送到远程仓库。
 
-![image-20210823235612400](assets/image-20210823235612400.png) 
+![image-20210823235612400](./assets/image-20210823235612400.png) 
 
 然后，在idea中切换到master分支，然后将v1.0分支的代码合并到master。
 
-![image-20210823235822139](assets/image-20210823235822139.png) 
+![image-20210823235822139](./assets/image-20210823235822139.png) 
 
 
 
 再将合并后的master分支的代码，推送到远程仓库。
 
-![image-20210824000057260](assets/image-20210824000057260.png) 
+![image-20210824000057260](./assets/image-20210824000057260.png) 
 
 
 

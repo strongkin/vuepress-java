@@ -24,7 +24,7 @@
 
 ### 1.1 软件开发流程
 
-![image-20210725231106363](assets/image-20210725231106363.png) 
+![image-20210725231106363](./assets//image-20210725231106363.png) 
 
 
 
@@ -74,7 +74,7 @@
 
 学习了软件开发的流程之后， 我们还有必要了解一下在整个软件开发过程中涉及到的岗位角色，以及各个角色的职责分工。
 
-![image-20210725234015404](assets/image-20210725234015404.png) 
+![image-20210725234015404](./assets//image-20210725234015404.png) 
 
 | 岗位/角色                           | 职责/分工                                  |
 | ----------------------------------- | ------------------------------------------ |
@@ -94,7 +94,7 @@
 
 ### 1.3 软件环境
 
-![image-20210725234046008](assets/image-20210725234046008.png) 
+![image-20210725234046008](./assets//image-20210725234046008.png) 
 
 在我们日常的软件开发中，会涉及到软件开发中的三套环境， 那么这三套环境分别是: 开发环境、测试环境、生产环境。 接下来，我们分别介绍一下这三套环境的作用和特点。
 
@@ -138,7 +138,7 @@
 
 ### 2.1 项目介绍
 
-![image-20210726000655646](assets/image-20210726000655646.png) 
+![image-20210726000655646](./assets//image-20210726000655646.png) 
 
 
 
@@ -166,7 +166,7 @@
 
 在课程资料的产品原型文件夹下,提供了两份产品原型。
 
-![image-20210726002509573](assets/image-20210726002509573.png) 
+![image-20210726002509573](./assets//image-20210726002509573.png) 
 
 
 
@@ -203,7 +203,7 @@
 
 关于本项目的技术选型, 我们将会从 用户层、网关层、应用层、数据层 这几个方面进行介绍，而对于我们服务端开发工程师来说，在项目开发过程中，我们主要关注应用层及数据层技术的应用。
 
-![image-20210726005437857](assets/image-20210726005437857.png) 
+![image-20210726005437857](./assets//image-20210726005437857.png) 
 
 **1). 用户层**
 
@@ -255,7 +255,7 @@ junit：单元测试工具，开发人员功能实现完毕后，需要通过jun
 
 ### 2.4 功能架构
 
-<img src="assets/image-20210726122825225.png" alt="image-20210726122825225" style="zoom:80%;" /> 
+<img src="./assets//image-20210726122825225.png" alt="image-20210726122825225" style="zoom:80%;" /> 
 
 **1). 移动端前台功能**
 
@@ -293,7 +293,7 @@ junit：单元测试工具，开发人员功能实现完毕后，需要通过jun
 
 **1).图形界面**
 
-<img src="assets/image-20210726123903694.png" alt="image-20210726123903694" style="zoom:80%;" /> 
+<img src="./assets//image-20210726123903694.png" alt="image-20210726123903694" style="zoom:80%;" /> 
 
 注意: 本项目数据库的字符串, 选择 utf8mb4
 
@@ -301,7 +301,7 @@ junit：单元测试工具，开发人员功能实现完毕后，需要通过jun
 
 **2).命令行**
 
-![image-20210726123942443](assets/image-20210726123942443.png) 
+![image-20210726123942443](./assets//image-20210726123942443.png) 
 
 
 
@@ -311,13 +311,13 @@ junit：单元测试工具，开发人员功能实现完毕后，需要通过jun
 
 **1).图形界面**
 
-![image-20210726124752975](assets/image-20210726124752975.png) 
+![image-20210726124752975](./assets//image-20210726124752975.png) 
 
 
 
 **2).命令行**
 
-![image-20210726124818880](assets/image-20210726124818880.png) 
+![image-20210726124818880](./assets//image-20210726124818880.png) 
 
 
 
@@ -355,25 +355,25 @@ junit：单元测试工具，开发人员功能实现完毕后，需要通过jun
 
 **1). 在idea中创建maven project, 项目名称 reggie_take_out** 
 
-<img src="assets/image-20210726172842675.png" alt="image-20210726172842675" style="zoom:80%;" /> 
+<img src="./assets//image-20210726172842675.png" alt="image-20210726172842675" style="zoom:80%;" /> 
 
 
 
 **2). 检查项目编码**
 
-<img src="assets/image-20210726173036263.png" alt="image-20210726173036263" style="zoom:80%;" /> 
+<img src="./assets//image-20210726173036263.png" alt="image-20210726173036263" style="zoom:80%;" /> 
 
 
 
 **3). 检查maven配置**
 
-<img src="assets/image-20210726173116359.png" alt="image-20210726173116359" style="zoom:80%;" /> 
+<img src="./assets//image-20210726173116359.png" alt="image-20210726173116359" style="zoom:80%;" /> 
 
 
 
 **4). 检查JDK版本**
 
-<img src="assets/image-20210726173237154.png" alt="image-20210726173237154" style="zoom:80%;" /> 
+<img src="./assets//image-20210726173237154.png" alt="image-20210726173237154" style="zoom:80%;" /> 
 
 JDK的版本选择1.8;
 
@@ -520,11 +520,11 @@ public class ReggieApplication {
 
 **1). 导入静态资源**
 
-前端资源存放位置为  资料/前端资源 : <img src="assets/image-20210726225948411.png" alt="image-20210726225948411" style="zoom:80%;" /> 
+前端资源存放位置为  资料/前端资源 : <img src="./assets//image-20210726225948411.png" alt="image-20210726225948411" style="zoom:80%;" /> 
 
 将上述两个目录中的静态资源文件, 导入到项目的resources目录下: 
 
-![image-20210726230327313](assets/image-20210726230327313.png) 
+![image-20210726230327313](./assets//image-20210726230327313.png) 
 
 
 
@@ -560,7 +560,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 
 http://localhost:8080/backend/index.html
 
-![image-20210726232859596](assets/image-20210726232859596.png) 
+![image-20210726232859596](./assets//image-20210726232859596.png) 
 
 
 
@@ -572,7 +572,7 @@ http://localhost:8080/backend/index.html
 
 **1). 页面原型展示**
 
-<img src="assets/image-20210726233540703.png" alt="image-20210726233540703" style="zoom: 67%;" />   
+<img src="./assets//image-20210726233540703.png" alt="image-20210726233540703" style="zoom: 67%;" />   
 
 
 
@@ -580,7 +580,7 @@ http://localhost:8080/backend/index.html
 
 登录页面存放目录 /resources/backend/page/login/login.html
 
-<img src="assets/image-20210726233631409.png" alt="image-20210726233631409" style="zoom:80%;" /> 
+<img src="./assets//image-20210726233631409.png" alt="image-20210726233631409" style="zoom:80%;" /> 
 
 
 
@@ -588,29 +588,29 @@ http://localhost:8080/backend/index.html
 
 通过浏览器调试工具（F12），可以发现，点击登录按钮时，页面会发送请求（请求地址为http://localhost:8080/employee/login）并提交参数 username和password, 请求参数为json格式数据 {"username":"admin","password":"123456"}。
 
-![image-20210726234439684](assets/image-20210726234439684.png) 
+![image-20210726234439684](./assets//image-20210726234439684.png) 
 
 > 此时报404，是因为我们的后台系统还没有响应此请求的处理器，所以我们需要创建相关类来处理登录请求 ；
 >
-> <img src="assets/image-20210726234548093.png" alt="image-20210726234548093" style="zoom:80%;" /> 
+> <img src="./assets//image-20210726234548093.png" alt="image-20210726234548093" style="zoom:80%;" /> 
 
 
 
 **4). 数据模型(employee表)**
 
-<img src="assets/image-20210726234915737.png" alt="image-20210726234915737" style="zoom:80%;" /> 
+<img src="./assets//image-20210726234915737.png" alt="image-20210726234915737" style="zoom:80%;" /> 
 
 
 
 **5). 前端页面分析**
 
-![image-20210727000040403](assets/image-20210727000040403.png) 
+![image-20210727000040403](./assets//image-20210727000040403.png) 
 
 
 
 当点击 "登录" 按钮, 会触发Vue中定义的 handleLogin 方法:
 
-<img src="assets/image-20210727000329958.png" alt="image-20210727000329958" style="zoom:80%;" /> 
+<img src="./assets//image-20210727000329958.png" alt="image-20210727000329958" style="zoom:80%;" /> 
 
 在上述的前端代码中, 大家可以看到, 发送登录的异步请求之后, 获取到响应结果, 在响应结果中至少包含三个属性: code、data、msg 。
 
@@ -630,7 +630,7 @@ localStorage.setItem('userInfo',JSON.stringify(res.data))
 
 在进行登录功能的代码实现之前， 首先在我们的工程下创建包结构： 
 
-![image-20210727001117783](assets/image-20210727001117783.png) 
+![image-20210727001117783](./assets//image-20210727001117783.png) 
 
 
 
@@ -800,7 +800,7 @@ B. 如果业务执行结果为失败, 构建R对象时, 只需要调用error 方
 
 #### 4.2.2 登录逻辑分析
 
-<img src="assets/image-20210727003101031.png" alt="image-20210727003101031" style="zoom:80%;" /> 
+<img src="./assets//image-20210727003101031.png" alt="image-20210727003101031" style="zoom:80%;" /> 
 
 处理逻辑如下：
 
@@ -882,7 +882,7 @@ public R<Employee> login(HttpServletRequest request,@RequestBody Employee employ
 
 当我们在进行debug端点调试时, 前端可能会出现如下问题: 前端页面的控制台报出错误-超时;
 
-<img src="assets/image-20210727004455855.png" alt="image-20210727004455855" style="zoom:80%;" /> 
+<img src="./assets//image-20210727004455855.png" alt="image-20210727004455855" style="zoom:80%;" /> 
 
 
 
@@ -890,7 +890,7 @@ public R<Employee> login(HttpServletRequest request,@RequestBody Employee employ
 
 前端进行异步请求时, 默认超时10000ms , 可以将该值调大一些。
 
-<img src="assets/image-20210727004706639.png" alt="image-20210727004706639" style="zoom:80%;" /> 
+<img src="./assets//image-20210727004706639.png" alt="image-20210727004706639" style="zoom:80%;" /> 
 
 
 
@@ -912,17 +912,17 @@ public R<Employee> login(HttpServletRequest request,@RequestBody Employee employ
 
 **1). 退出页面展示**
 
-<img src="assets/image-20210727005437531.png" alt="image-20210727005437531" style="zoom:80%;" /> 
+<img src="./assets//image-20210727005437531.png" alt="image-20210727005437531" style="zoom:80%;" /> 
 
 
 
 **2).前端页面分析**
 
-<img src="assets/image-20210727010054851.png" alt="image-20210727010054851" style="zoom:90%;" />   
+<img src="./assets//image-20210727010054851.png" alt="image-20210727010054851" style="zoom:90%;" />   
 
-点击 ![image-20210727010150207](assets/image-20210727010150207.png) 将会调用一个js方法logout, 在logout的方法中执行如下逻辑: 
+点击 ![image-20210727010150207](./assets//image-20210727010150207.png) 将会调用一个js方法logout, 在logout的方法中执行如下逻辑: 
 
-![image-20210727010422199](assets/image-20210727010422199.png) 
+![image-20210727010422199](./assets//image-20210727010422199.png) 
 
 A. 发起post请求, 调用服务端接口 /employee/logout 执行退出操作 ;
 
@@ -960,13 +960,13 @@ public R<String> logout(HttpServletRequest request){
 
 1). 代码实现完毕后, 重启服务, 访问登录界面 http://localhost:8080/backend/page/login/login.html ;
 
-2). 登录完成之后, 进入到系统首页 backend/index.html, 点击右上角 ![image-20210727011020244](assets/image-20210727011020244.png) 按钮 执行退出操作, 完成后看看是否可以跳转到登录页面 , 并检查localStorage。
+2). 登录完成之后, 进入到系统首页 backend/index.html, 点击右上角 ![image-20210727011020244](./assets//image-20210727011020244.png) 按钮 执行退出操作, 完成后看看是否可以跳转到登录页面 , 并检查localStorage。
 
-![image-20210727011215186](assets/image-20210727011215186.png) 
+![image-20210727011215186](./assets//image-20210727011215186.png) 
 
 
 
-![image-20210727011259297](assets/image-20210727011259297.png) 
+![image-20210727011259297](./assets//image-20210727011259297.png) 
 
 
 

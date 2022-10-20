@@ -10,7 +10,7 @@
 <h3 id="_1-1-上传介绍" tabindex="-1"><a class="header-anchor" href="#_1-1-上传介绍" aria-hidden="true">#</a> 1.1 上传介绍</h3>
 <h4 id="_1-1-1-概述" tabindex="-1"><a class="header-anchor" href="#_1-1-1-概述" aria-hidden="true">#</a> 1.1.1 概述</h4>
 <p>文件上传，也称为upload，是指将本地图片、视频、音频等文件上传到服务器上，可以供其他用户浏览或下载的过程。文件上传在项目中应用非常广泛，我们经常发微博、发微信朋友圈都用到了文件上传功能。</p>
-<img src="assets/image-20210803081955246.png" alt="image-20210803081955246" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210803081955246.png" alt="image-20210803081955246" style="zoom:80%;" /> 
 <p>文件上传时，对页面的form表单有如下要求：</p>
 <table>
 <thead>
@@ -46,7 +46,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>2). ElementUI中提供的upload上传组件</strong></p>
 <p>目前一些前端组件库也提供了相应的上传组件，但是底层原理还是基于form表单的文件上传。</p>
-<p><img src="assets/image-20210803084742416.png" alt="image-20210803084742416"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210803084742416.png" alt="image-20210803084742416"></p>
 <h4 id="_1-1-3-服务端介绍" tabindex="-1"><a class="header-anchor" href="#_1-1-3-服务端介绍" aria-hidden="true">#</a> 1.1.3 服务端介绍</h4>
 <p>服务端要接收客户端页面上传的文件，通常都会使用Apache的两个组件：</p>
 <ul>
@@ -71,20 +71,20 @@
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_1-2-下载介绍" tabindex="-1"><a class="header-anchor" href="#_1-2-下载介绍" aria-hidden="true">#</a> 1.2 下载介绍</h3>
 <p>文件下载，也称为download，是指将文件从服务器传输到本地计算机的过程。通过浏览器进行文件下载，通常有两种表现形式：</p>
 <p><strong>1). 以附件形式下载，弹出保存对话框，将文件保存到指定磁盘目录</strong></p>
-<p><img src="assets/image-20210803123858691.png" alt="image-20210803123858691"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210803123858691.png" alt="image-20210803123858691"></p>
 <p><strong>2). 直接在浏览器中打开</strong></p>
 <p>而我们在今天所需要实现的菜品展示，表现形式为在浏览器中直接打开。</p>
-<p><img src="assets/image-20210803124220869.png" alt="image-20210803124220869"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210803124220869.png" alt="image-20210803124220869"></p>
 <p>通过浏览器进行文件下载，本质上就是服务端将文件以流的形式写回浏览器的过程。</p>
 <h3 id="_1-3-上传代码实现" tabindex="-1"><a class="header-anchor" href="#_1-3-上传代码实现" aria-hidden="true">#</a> 1.3 上传代码实现</h3>
 <h4 id="_1-3-1-前端代码" tabindex="-1"><a class="header-anchor" href="#_1-3-1-前端代码" aria-hidden="true">#</a> 1.3.1 前端代码</h4>
 <p>文件上传，我们作为服务端工程师，主要关注服务端代码实现。对于前端页面，可以使用ElementUI提供的上传组件。可以直接使用资料中提供的上传页面，位置：资料/文件上传下载页面/upload.html，将其拷贝到项目的目录(resources/backend/page/demo)下，启动项目，访问上传页面。</p>
 <p>http://localhost:8080/backend/page/demo/upload.html</p>
-<img src="assets/image-20210803125619732.png" alt="image-20210803125619732" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210803125619732.png" alt="image-20210803125619732" style="zoom:80%;" /> 
 <p>在上述的浏览器抓取的网络请求中，上传文件的调用url，在哪里配置的呢，这个时候，我们需要去看一下前端上传组件。</p>
-<img src="assets/image-20210803125942295.png" alt="image-20210803125942295" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210803125942295.png" alt="image-20210803125942295" style="zoom:80%;" /> 
 <p>虽然上述是ElementUI封装的代码，但是实际上最终还通过file域上传文件，如果未指定上传文件的参数名，默认为file。</p>
-<img src="assets/image-20210803130455590.png" alt="image-20210803130455590" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210803130455590.png" alt="image-20210803130455590" style="zoom:80%;" /> 
 <h4 id="_1-3-2-服务端实现" tabindex="-1"><a class="header-anchor" href="#_1-3-2-服务端实现" aria-hidden="true">#</a> 1.3.2 服务端实现</h4>
 <p><strong>1). application.yml</strong></p>
 <p>需要在application.yml中定义文件存储路径</p>
@@ -152,18 +152,18 @@
 <span class="token punctuation">}</span>    
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_1-3-3-测试" tabindex="-1"><a class="header-anchor" href="#_1-3-3-测试" aria-hidden="true">#</a> 1.3.3 测试</h4>
 <p>代码编写完成之后，我们重新启动项目，访问上传页面 http://localhost:8080/backend/page/demo/upload.html，然后点击上传图片，选择图片上传时，会发现图片并不能正常的上传，而且在浏览器中可以抓取到响应的数据，从图中我们可以判断出需要登录才可以操作。</p>
-<img src="assets/image-20210803232054156.png" alt="image-20210803232054156" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210803232054156.png" alt="image-20210803232054156" style="zoom:80%;" /> 
 <p>而这样的话，就要求我们在测试时，每一次都需要先登录，登录完成后在进行图片上传的测试，为了简化我们的测试，我们可以在 LoginCheckFilter 的doFilter方法中，在不需要处理的请求路径的数组中再加入请求路径 /common/** , 如下:</p>
-<img src="assets/image-20210803232433983.png" alt="image-20210803232433983" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210803232433983.png" alt="image-20210803232433983" style="zoom:80%;" /> 
 <p>然后，我们在测试文件的上传功能时，就不需要登录就可以操作了。</p>
 <p>我们在测试文件上传时，可以通过debug的形式来跟踪上传的整个过程，验证一下临时文件是否存在，以及上传完成之后，临时文件是否会自动删除。</p>
-<p><img src="assets/image-20210805160234154.png" alt="image-20210805160234154"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210805160234154.png" alt="image-20210805160234154"></p>
 <h3 id="_1-4-下载代码实现" tabindex="-1"><a class="header-anchor" href="#_1-4-下载代码实现" aria-hidden="true">#</a> 1.4 下载代码实现</h3>
 <h4 id="_1-4-1-前端代码" tabindex="-1"><a class="header-anchor" href="#_1-4-1-前端代码" aria-hidden="true">#</a> 1.4.1 前端代码</h4>
 <p>文件下载，前端页面可以使用<img>标签展示下载的图片。</p>
 <div class="language-html ext-html line-numbers-mode"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>imageUrl<span class="token punctuation">"</span></span> <span class="token attr-name">:src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>imageUrl<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>avatar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>img</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>那么，通过<img>标签如何展示图片数据呢，接下来我们来解析一下具体的流程：</p>
-<p><img src="assets/image-20210803224818828.png" alt="image-20210803224818828"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210803224818828.png" alt="image-20210803224818828"></p>
 <p>在文件上传成功后，在 handleAvatarSuccess 方法中获取文件上传成功之后返回的数据(文件名)，然后调用 /common/download?name=xxx 进行文件的下载。在这里，我们想让上传的照片能够在页面展示出来，所以我们就需要在服务端将文件以流的形式写回浏览器。</p>
 <h4 id="_1-4-2-服务端代码" tabindex="-1"><a class="header-anchor" href="#_1-4-2-服务端代码" aria-hidden="true">#</a> 1.4.2 服务端代码</h4>
 <p>在 CommonController 中定义方法download，并接收页面传递的参数name，然后读取图片文件的数据，然后以流的形式写回浏览器。</p>
@@ -206,15 +206,15 @@
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_1-4-3-测试" tabindex="-1"><a class="header-anchor" href="#_1-4-3-测试" aria-hidden="true">#</a> 1.4.3 测试</h4>
 <p>访问页面 http://localhost:8080/backend/page/demo/upload.html , 点击上传图片 , 选择图片进行上传, 上传完毕之后, 查看图片是否可以展示出来。</p>
-<img src="assets/image-20210803231134157.png" alt="image-20210803231134157"  /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210803231134157.png" alt="image-20210803231134157"  /> 
 <p>通过F12查询页面发起的请求及响应的数据：</p>
-<p><img src="assets/image-20210803231302464.png" alt="image-20210803231302464"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210803231302464.png" alt="image-20210803231302464"></p>
 <h2 id="_2-菜品新增" tabindex="-1"><a class="header-anchor" href="#_2-菜品新增" aria-hidden="true">#</a> 2. 菜品新增</h2>
 <h3 id="_2-1-需求分析" tabindex="-1"><a class="header-anchor" href="#_2-1-需求分析" aria-hidden="true">#</a> 2.1 需求分析</h3>
 <p>后台系统中可以管理菜品信息，通过 新增功能来添加一个新的菜品，在添加菜品时需要选择当前菜品所属的菜品分类，并且需要上传菜品图片，在移动端会按照菜品分类来展示对应的菜品信息 。</p>
-<p><img src="assets/image-20210803234122966.png" alt="image-20210803234122966"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210803234122966.png" alt="image-20210803234122966"></p>
 <h3 id="_2-2-数据模型" tabindex="-1"><a class="header-anchor" href="#_2-2-数据模型" aria-hidden="true">#</a> 2.2 数据模型</h3>
-<img src="assets/image-20210803235329340.png" alt="image-20210803235329340" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210803235329340.png" alt="image-20210803235329340" style="zoom:80%;" /> 
 <p>新增菜品，其实就是将新增页面录入的菜品信息插入到dish表，如果添加了口味做法，还需要向dish_flavor表插入数据。所以在新增菜品时，涉及到两个表：</p>
 <table>
 <thead>
@@ -235,9 +235,9 @@
 </tbody>
 </table>
 <p><strong>1). 菜品表:dish</strong></p>
-<img src="assets/image-20210803235459347.png" alt="image-20210803235459347" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210803235459347.png" alt="image-20210803235459347" style="zoom:80%;" /> 
 <p><strong>2). 菜品口味表:dish_flavor</strong></p>
-<img src="assets/image-20210803235749393.png" alt="image-20210803235749393" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210803235749393.png" alt="image-20210803235749393" style="zoom:80%;" /> 
 <h3 id="_2-3-准备工作" tabindex="-1"><a class="header-anchor" href="#_2-3-准备工作" aria-hidden="true">#</a> 2.3 准备工作</h3>
 <p>在开发业务功能前，先将需要用到的类和接口基本结构创建好：</p>
 <p><strong>1). 实体类 DishFlavor</strong></p>
@@ -332,15 +332,15 @@
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2-4-前端页面分析" tabindex="-1"><a class="header-anchor" href="#_2-4-前端页面分析" aria-hidden="true">#</a> 2.4 前端页面分析</h3>
 <p>基本的准备工作我们已经做完了，那么接下来我们就需要来实现新增菜品功能，在开发代码之前，需要梳理一下新增菜品时前端页面和服务端的交互过程。</p>
 <p>1). 点击新建菜品按钮, 访问页面(backend/page/food/add.html), 页面加载时发送ajax请求，请求服务端获取菜品分类数据并展示到下拉框中</p>
-<p><img src="assets/image-20210804003343531.png" alt="image-20210804003343531"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210804003343531.png" alt="image-20210804003343531"></p>
 <p>2). 页面发送请求进行图片上传，请求服务端将图片保存到服务器(上传功能已实现)</p>
 <p>3). 页面发送请求进行图片下载，将上传的图片进行回显(下载功能已实现)</p>
-<img src="assets/image-20210804003752632.png" alt="image-20210804003752632" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210804003752632.png" alt="image-20210804003752632" style="zoom:80%;" /> 
 <p>4). 点击保存按钮，发送ajax请求，将菜品相关数据以json形式提交到服务端</p>
 <p>页面代码:</p>
-<img src="assets/image-20210804004529310.png" alt="image-20210804004529310" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210804004529310.png" alt="image-20210804004529310" style="zoom:80%;" /> 
 <p>浏览器抓取请求:</p>
-<img src="assets/image-20210804005030527.png" alt="image-20210804005030527" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210804005030527.png" alt="image-20210804005030527" style="zoom:80%;" /> 
 <p>开发新增菜品功能，其实就是在服务端编写代码去处理前端页面发送的这4次请求(上传、下载已实现)即可。经过上述的分析，我们还需要在服务端实现两块功能：</p>
 <p>A. 菜品分类数据列表查询, 具体请求信息整理如下 :</p>
 <table>
@@ -410,7 +410,7 @@
     <span class="token keyword">return</span> <span class="token class-name">R</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>代码编写完毕之后，我们可以打开新增菜品页面，查看响应的数据，及页面下拉列表的渲染情况：</p>
-<img src="assets/image-20210804180408584.png" alt="image-20210804180408584" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210804180408584.png" alt="image-20210804180408584" style="zoom:80%;" /> 
 <h4 id="_2-5-2-保存菜品信息" tabindex="-1"><a class="header-anchor" href="#_2-5-2-保存菜品信息" aria-hidden="true">#</a> 2.5.2 保存菜品信息</h4>
 <p>在上述的分析中，我们可以看到在保存菜品时，页面传递过来的是json格式数据，格式如下：</p>
 <div class="language-json ext-json line-numbers-mode"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
@@ -545,22 +545,22 @@
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2-6-功能测试" tabindex="-1"><a class="header-anchor" href="#_2-6-功能测试" aria-hidden="true">#</a> 2.6 功能测试</h3>
 <p>代码编写完毕之后，我们重新启动服务，访问项目，然后登陆到系统中，进行菜品的新增测试，在测试时，我们可以通过debug断点跟踪的形式，查看我们传输的数据，及数据的封装。</p>
-<img src="assets/image-20210804174956706.png" alt="image-20210804174956706" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210804174956706.png" alt="image-20210804174956706" style="zoom:80%;" /> 
 <p>debug跟踪数据的封装情况:</p>
-<p><img src="assets/image-20210804175034622.png" alt="image-20210804175034622"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210804175034622.png" alt="image-20210804175034622"></p>
 <p>然后在测试完毕后, 我们可以检查一下数据库中的数据保存情况:</p>
-<p><img src="assets/image-20210804175658010.png" alt="image-20210804175658010"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210804175658010.png" alt="image-20210804175658010"></p>
 <h2 id="_3-菜品分页查询" tabindex="-1"><a class="header-anchor" href="#_3-菜品分页查询" aria-hidden="true">#</a> 3. 菜品分页查询</h2>
 <h3 id="_3-1-需求分析" tabindex="-1"><a class="header-anchor" href="#_3-1-需求分析" aria-hidden="true">#</a> 3.1 需求分析</h3>
 <p>系统中的菜品数据很多的时候，如果在一个页面中全部展示出来会显得比较乱，不便于查看，所以一般的系统中都会以分页的方式来展示列表数据。</p>
-<img src="assets/image-20210804223703893.png" alt="image-20210804223703893" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210804223703893.png" alt="image-20210804223703893" style="zoom:80%;" /> 
 <p>在菜品列表展示时，除了菜品的基本信息(名称、售价、售卖状态、更新时间)外，还有两个字段略微特殊，第一个是图片字段 ，我们从数据库查询出来的仅仅是图片的名字，图片要想在表格中回显展示出来，就需要下载这个图片。第二个是菜品分类，这里展示的是分类名称，而不是分类ID，此时我们就需要根据菜品的分类ID，去分类表中查询分类信息，然后在页面展示。</p>
 <h3 id="_3-2-前端页面分析" tabindex="-1"><a class="header-anchor" href="#_3-2-前端页面分析" aria-hidden="true">#</a> 3.2 前端页面分析</h3>
 <p>在开发代码之前，需要梳理一下菜品分页查询时前端页面和服务端的交互过程：</p>
 <p>1). 访问页面(backend/page/food/list.html)时，发送ajax请求，将分页查询参数(page、pageSize、name)提交到服务端，获取分页数据</p>
 <p>2). 页面发送请求，请求服务端进行图片下载，用于页面图片展示</p>
-<p><img src="assets/image-20210804224842336.png" alt="image-20210804224842336"></p>
-<img src="assets/image-20210804225259854.png" alt="image-20210804225259854" style="zoom:94%;" /> 
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210804224842336.png" alt="image-20210804224842336"></p>
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210804225259854.png" alt="image-20210804225259854" style="zoom:94%;" /> 
 <p>开发菜品信息分页查询功能，其实就是在服务端编写代码去处理前端页面发送的这2次请求即可，而前端发起的请求中， 图片文件下载回显的代码，我们已经实现了。所以，我们只需要开发分页查询的功能即可，分页查询具体的请求信息如下：</p>
 <table>
 <thead>
@@ -653,23 +653,23 @@
 <h3 id="_3-4-功能测试" tabindex="-1"><a class="header-anchor" href="#_3-4-功能测试" aria-hidden="true">#</a> 3.4 功能测试</h3>
 <p>代码编写完毕之后，我们重新启动服务，访问项目，可以通过debug端点的形式跟踪，整个分页查询过程中，数据的转换和封装。</p>
 <p>在测试的过程中，我们发现有一些菜品图片并没有展示出来，如下：</p>
-<p><img src="assets/image-20210805100944028.png" alt="image-20210805100944028"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210805100944028.png" alt="image-20210805100944028"></p>
 <p>这是因为我们在导入sql脚本时，导入了一部分菜品的数据，而菜品的图片在我们的磁盘目录中并不存在，所以才会出现图片展示不出来的情况，而我们后续自己添加的菜品信息是没有问题的。</p>
 <h2 id="_4-菜品修改" tabindex="-1"><a class="header-anchor" href="#_4-菜品修改" aria-hidden="true">#</a> 4. 菜品修改</h2>
 <h3 id="_4-1-需求分析" tabindex="-1"><a class="header-anchor" href="#_4-1-需求分析" aria-hidden="true">#</a> 4.1 需求分析</h3>
 <p>在菜品管理列表页面点击修改按钮，跳转到修改菜品页面，在修改页面回显菜品相关信息并进行修改，最后点击确定按钮完成修改操作。</p>
-<img src="assets/image-20210804232447587.png" alt="image-20210804232447587" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210804232447587.png" alt="image-20210804232447587" style="zoom:80%;" /> 
 <h3 id="_4-2-前端页面分析" tabindex="-1"><a class="header-anchor" href="#_4-2-前端页面分析" aria-hidden="true">#</a> 4.2 前端页面分析</h3>
 <p>在开发代码之前，需要梳理一下修改菜品时前端页面（add.html）和服务端的交互过程：</p>
 <p>1). 点击菜品列表的中的修改按钮，携带菜品id跳转至add.html</p>
-<img src="assets/image-20210804233459252.png" alt="image-20210804233459252" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210804233459252.png" alt="image-20210804233459252" style="zoom:80%;" /> 
 <p>2). 进入add.html，页面发送ajax请求，请求服务端获取分类数据，用于菜品分类下拉框中数据展示(<strong>已实现</strong>)</p>
 <p>3). add.html获取id, 发送ajax请求，请求服务端，根据id查询当前菜品信息，用于菜品信息回显</p>
-<img src="assets/image-20210804234104633.png" alt="image-20210804234104633" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210804234104633.png" alt="image-20210804234104633" style="zoom:80%;" /> 
 <p>4). 页面发送请求，请求服务端进行图片下载，用于页图片回显(<strong>已实现</strong>)</p>
-<p><img src="assets/image-20210804234226201.png" alt="image-20210804234226201"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210804234226201.png" alt="image-20210804234226201"></p>
 <p>5). 点击保存按钮，页面发送ajax请求，将修改后的菜品相关数据以json形式提交到服务端</p>
-<img src="assets/image-20210804234442923.png" alt="image-20210804234442923" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210804234442923.png" alt="image-20210804234442923" style="zoom:80%;" /> 
 <p>经过上述的分析，我们发现，菜品分类下拉框的展示、图片的下载回显功能我们都已经实现了。我们只需要在这里实现两个功能即可，分别是：</p>
 <p><strong>1). 根据ID查询菜品及菜品口味信息</strong></p>
 <p>具体请求信息如下：</p>
@@ -806,7 +806,7 @@
 </blockquote>
 <h5 id="_4-3-1-2-功能测试" tabindex="-1"><a class="header-anchor" href="#_4-3-1-2-功能测试" aria-hidden="true">#</a> 4.3.1.2 功能测试</h5>
 <p>编写完代码后，重启服务进行测试，点击列表的修改按钮，查询数据回显情况。</p>
-<p><img src="assets/image-20210805101812209.png" alt="image-20210805101812209"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day04/assets/image-20210805101812209.png" alt="image-20210805101812209"></p>
 <h4 id="_4-3-2-修改菜品信息" tabindex="-1"><a class="header-anchor" href="#_4-3-2-修改菜品信息" aria-hidden="true">#</a> 4.3.2 修改菜品信息</h4>
 <h5 id="_4-3-2-1-代码实现" tabindex="-1"><a class="header-anchor" href="#_4-3-2-1-代码实现" aria-hidden="true">#</a> 4.3.2.1 代码实现</h5>
 <p>点击保存按钮，页面发送ajax请求，将修改后的菜品相关数据以json形式提交到服务端。在修改菜品信息时需要注意，除了要更新dish菜品表，还需要更新dish_flavor菜品口味表。</p>

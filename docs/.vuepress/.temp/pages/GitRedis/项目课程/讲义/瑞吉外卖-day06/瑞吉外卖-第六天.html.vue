@@ -9,8 +9,8 @@
 <h2 id="_1-用户地址簿功能" tabindex="-1"><a class="header-anchor" href="#_1-用户地址簿功能" aria-hidden="true">#</a> 1. 用户地址簿功能</h2>
 <h3 id="_1-1-需求分析" tabindex="-1"><a class="header-anchor" href="#_1-1-需求分析" aria-hidden="true">#</a> 1.1 需求分析</h3>
 <p>地址簿，指的是移动端消费者用户的地址信息，用户登录成功后可以维护自己的地址信息。同一个用户可以有多个地址信息，但是只能有一个<strong>默认地址</strong>。</p>
-<img src="assets/image-20210812191332892.png" alt="image-20210812191332892" style="zoom: 67%;" />  
-<img src="assets/image-20210812191822693.png" alt="image-20210812191822693" style="zoom:67%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812191332892.png" alt="image-20210812191332892" style="zoom: 67%;" />  
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812191822693.png" alt="image-20210812191822693" style="zoom:67%;" /> 
 <p>对于地址簿管理，我们需要实现以下几个功能：</p>
 <ul>
 <li>新增地址</li>
@@ -21,7 +21,7 @@
 </ul>
 <h3 id="_1-2-数据模型" tabindex="-1"><a class="header-anchor" href="#_1-2-数据模型" aria-hidden="true">#</a> 1.2 数据模型</h3>
 <p>用户的地址信息会存储在address_book表，即地址簿表中。具体表结构如下：</p>
-<p><img src="assets/image-20210812192228678.png" alt="image-20210812192228678"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812192228678.png" alt="image-20210812192228678"></p>
 <p>这里面有一个字段is_default，实际上我们在设置默认地址时，只需要更新这个字段就可以了。</p>
 <h3 id="_1-3-导入功能代码" tabindex="-1"><a class="header-anchor" href="#_1-3-导入功能代码" aria-hidden="true">#</a> 1.3 导入功能代码</h3>
 <p>对于这一类的单表的增删改查，我们已经写过很多了，基本的开发思路都是一样的，那么本小节的用户地址簿管理的增删改查功能，我们就不再一一实现了，基本的代码我们都已经提供了，直接导入进来，做一个测试即可。</p>
@@ -258,41 +258,41 @@
 <p>代码导入进来，并且去阅读了一下地址管理各个功能的逻辑实现，接下来，我们就可以启动项目，进行一个测试。测试过程中，通过debug断点调试观察服务端程序的执行过程，在浏览器中使用调试工具查看页面和服务端的交互过程和请求响应数据。</p>
 <p><strong>1). 新增</strong></p>
 <p>填写表单数据，点击保存地址，查看网络请求。</p>
-<p><img src="assets/image-20210812201636567.png" alt="image-20210812201636567"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812201636567.png" alt="image-20210812201636567"></p>
 <p>测试完毕之后，检查数据库中的数据，是否正常插入。</p>
-<p><img src="assets/image-20210812201845336.png" alt="image-20210812201845336"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812201845336.png" alt="image-20210812201845336"></p>
 <p><strong>2). 列表查询</strong></p>
 <p>当新增地址完成后，页面会再次发送一个请求，来查询该用户的所有地址列表，在界面进行展示。</p>
-<p><img src="assets/image-20210812202430677.png" alt="image-20210812202430677"></p>
-<p><img src="assets/image-20210812202534169.png" alt="image-20210812202534169"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812202430677.png" alt="image-20210812202430677"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812202534169.png" alt="image-20210812202534169"></p>
 <p><strong>3). 设置默认</strong></p>
 <p>在地址列表页面中，勾选 &quot;设为默认地址&quot; ，此时会发送PUT请求，来设置默认地址。</p>
-<p><img src="assets/image-20210812202841250.png" alt="image-20210812202841250"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812202841250.png" alt="image-20210812202841250"></p>
 <p>测试完毕后，我们再次查看数据库表中的数据：</p>
-<p><img src="assets/image-20210812203123499.png" alt="image-20210812203123499"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812203123499.png" alt="image-20210812203123499"></p>
 <h2 id="_2-菜品展示" tabindex="-1"><a class="header-anchor" href="#_2-菜品展示" aria-hidden="true">#</a> 2. 菜品展示</h2>
 <h3 id="_2-1-需求分析" tabindex="-1"><a class="header-anchor" href="#_2-1-需求分析" aria-hidden="true">#</a> 2.1 需求分析</h3>
-<p>用户登录成功后跳转到系统首页，在首页需要根据分类来展示菜品和套餐。如果菜品设置了口味信息，需要展示<img src="assets/image-20210812205330291.png" alt="image-20210812205330291" style="zoom:80%;" />按钮，否则显示<img src="assets/image-20210812205346846.png" alt="image-20210812205346846" style="zoom:80%;" />按钮。</p>
-<p><img src="assets/image-20210812210328249.png" alt="image-20210812210328249"></p>
+<p>用户登录成功后跳转到系统首页，在首页需要根据分类来展示菜品和套餐。如果菜品设置了口味信息，需要展示<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812205330291.png" alt="image-20210812205330291" style="zoom:80%;" />按钮，否则显示<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812205346846.png" alt="image-20210812205346846" style="zoom:80%;" />按钮。</p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812210328249.png" alt="image-20210812210328249"></p>
 <h3 id="_2-2-前端页面分析" tabindex="-1"><a class="header-anchor" href="#_2-2-前端页面分析" aria-hidden="true">#</a> 2.2 前端页面分析</h3>
 <p>在开发代码之前，需要梳理一下前端页面和服务端的交互过程：</p>
 <p><strong>1). 页面(front/index.html)发送ajax请求，获取分类数据（菜品分类和套餐分类）</strong></p>
-<p><img src="assets/image-20210812215624794.png" alt="image-20210812215624794"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812215624794.png" alt="image-20210812215624794"></p>
 <p>该功能在之前的业务开发中，我们都已经实现了。通过请求响应的数据，我们也可以看到数据是可以正确获取到的。</p>
-<p><img src="assets/image-20210812221107947.png" alt="image-20210812221107947"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812221107947.png" alt="image-20210812221107947"></p>
 <p>注意：首页加载时，不仅发送请求获取分类列表，还发送了一次ajax请求用于加载购物车数据，而这两次请求必须全部成功，页面才可以正常渲染，而当前购物车列表查询功能还未实现(报404)，所以列表目前并未渲染。此处可以将这次请求的地址暂时修改一下，从静态json文件获取数据，等后续开发购物车功能时再修改回来，如下：</p>
-<img src="assets/image-20210812221835628.png" alt="image-20210812221835628" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812221835628.png" alt="image-20210812221835628" style="zoom:80%;" /> 
 <p>修改之后，我们再次测试：</p>
-<p><img src="assets/image-20210812222713700.png" alt="image-20210812222713700"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812222713700.png" alt="image-20210812222713700"></p>
 <p>目前该部分的功能我们已经调通，左侧的分类菜单，和右侧的菜品信息我们都可以看到，后续我们只需要将购物车列表的数据改成调用服务端接口查询即可。</p>
 <p><strong>2). 页面发送ajax请求，获取第一个分类下的菜品或者套餐</strong></p>
-<img src="assets/image-20210812224353891.png" alt="image-20210812224353891" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812224353891.png" alt="image-20210812224353891" style="zoom:80%;" /> 
 <p>A. 根据分类ID查询套餐列表：</p>
-<img src="assets/image-20210812224810551.png" alt="image-20210812224810551" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812224810551.png" alt="image-20210812224810551" style="zoom:80%;" /> 
 <p>B. 根据分类ID查询菜品列表：</p>
-<img src="assets/image-20210812224624459.png" alt="image-20210812224624459" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812224624459.png" alt="image-20210812224624459" style="zoom:80%;" /> 
 <p>异步请求，查询分类对应的菜品列表，功能我们已经实现了，但是我们之前查询的只是菜品的基本信息，不包含菜品的口味信息。所以在前端界面中，我们看不到选择菜品分类的信息。</p>
-<p><img src="assets/image-20210812231220115.png" alt="image-20210812231220115"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812231220115.png" alt="image-20210812231220115"></p>
 <p>经过上述的分析，我们可以看到，服务端我们主要提供两个方法， 分别用来：</p>
 <p>A. 根据分类ID查询菜品列表(包含菜品口味列表), 具体请求信息如下:</p>
 <table>
@@ -342,9 +342,10 @@
 </table>
 <font color='red'>该功能在服务端并未实现。</font><h3 id="_2-3-代码开发" tabindex="-1"><a class="header-anchor" href="#_2-3-代码开发" aria-hidden="true">#</a> 2.3 代码开发</h3>
 <h4 id="_2-3-1-查询菜品方法修改" tabindex="-1"><a class="header-anchor" href="#_2-3-1-查询菜品方法修改" aria-hidden="true">#</a> 2.3.1 查询菜品方法修改</h4>
-<p>由于之前我们实现的根据分类查询菜品列表，仅仅查询了菜品的基本信息，未查询菜品口味信息，而移动端用户在点餐时，是需要选择口味信息的，所以我们需要对之前的代码实现进行完善，那么如何完善呢？</p>
-<p>我们需要修改DishController的list方法，原来此方法的返回值类型为：R&lt;List<Dish>&gt;。为了满足移动端对数据的要求(菜品基本信息和菜品对应的口味信息)，现在需要将方法的返回值类型改为：R&lt;List<DishDto>&gt; ，因为在DishDto中封装了菜品对应的口味信息：</p>
-<img src="assets/image-20210812231825043.png" alt="image-20210812231825043" style="zoom:67%;" /> 
+<div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code>由于之前我们实现的根据分类查询菜品列表，仅仅查询了菜品的基本信息，未查询菜品口味信息，而移动端用户在点餐时，是需要选择口味信息的，所以我们需要对之前的代码实现进行完善，那么如何完善呢？
+
+我们需要修改<span class="token class-name">DishController</span>的list方法，原来此方法的返回值类型为：<span class="token class-name">R</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Dish</span><span class="token punctuation">></span><span class="token punctuation">></span></span>。为了满足移动端对数据的要求<span class="token punctuation">(</span>菜品基本信息和菜品对应的口味信息<span class="token punctuation">)</span>，现在需要将方法的返回值类型改为：<span class="token class-name">R</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">DishDto</span><span class="token punctuation">></span><span class="token punctuation">></span></span> ，因为在<span class="token class-name">DishDto</span>中封装了菜品对应的口味信息： 
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210812231825043.png" alt="image-20210812231825043" style="zoom:67%;" /> 
 <p><strong>代码逻辑:</strong></p>
 <p>A. 根据分类ID查询，查询目前正在启售的菜品列表 (已实现)</p>
 <p>B. 遍历菜品列表，并查询菜品的分类信息及菜品的口味列表</p>
@@ -406,20 +407,20 @@
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2-4-功能测试" tabindex="-1"><a class="header-anchor" href="#_2-4-功能测试" aria-hidden="true">#</a> 2.4 功能测试</h3>
 <p>把菜品展示的功能代码完善完成之后，我们重新启动服务，来测试一个菜品展示的功能。测试过程中可以使用浏览器的监控工具查看页面和服务端的数据交互细节。</p>
-<p><img src="assets/image-20210813175554516.png" alt="image-20210813175554516"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210813175554516.png" alt="image-20210813175554516"></p>
 <p>点击分类，根据分类查询菜品列表/套餐列表:</p>
-<p><img src="assets/image-20210813175835304.png" alt="image-20210813175835304"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210813175835304.png" alt="image-20210813175835304"></p>
 <h2 id="_3-购物车" tabindex="-1"><a class="header-anchor" href="#_3-购物车" aria-hidden="true">#</a> 3. 购物车</h2>
 <h3 id="_3-1-需求分析" tabindex="-1"><a class="header-anchor" href="#_3-1-需求分析" aria-hidden="true">#</a> 3.1 需求分析</h3>
-<p>移动端用户可以将菜品或者套餐添加到购物车。对于菜品来说，如果设置了口味信息，则需要选择规格后才能加入购物车;对于套餐来说，可以直接点击<img src="assets/image-20210813181916235.png" alt="image-20210813181916235" style="zoom:67%;" />将当前套餐加入购物车。在购物车中可以修改菜品和套餐的数量，也可以清空购物车。</p>
-<p><img src="assets/image-20210813182828045.png" alt="image-20210813182828045"></p>
+<p>移动端用户可以将菜品或者套餐添加到购物车。对于菜品来说，如果设置了口味信息，则需要选择规格后才能加入购物车;对于套餐来说，可以直接点击<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210813181916235.png" alt="image-20210813181916235" style="zoom:67%;" />将当前套餐加入购物车。在购物车中可以修改菜品和套餐的数量，也可以清空购物车。</p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210813182828045.png" alt="image-20210813182828045"></p>
 <p>这里面我们需要实现的功能包括:</p>
 <p>1). 添加购物车</p>
 <p>2). 查询购物车</p>
 <p>3). 清空购物车</p>
 <h3 id="_3-2-数据模型" tabindex="-1"><a class="header-anchor" href="#_3-2-数据模型" aria-hidden="true">#</a> 3.2 数据模型</h3>
 <p>用户的购物车数据，也是需要保存在数据库中的，购物车对应的数据表为shopping_cart表，具体表结构如下：</p>
-<img src="assets/image-20210813183334933.png" alt="image-20210813183334933" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210813183334933.png" alt="image-20210813183334933" style="zoom:80%;" /> 
 <p>说明：</p>
 <ul>
 <li>购物车数据是关联用户的，在表结构中，我们需要记录，每一个用户的购物车数据是哪些</li>
@@ -427,18 +428,18 @@
 <li>对同一个菜品/套餐，如果选择多份不需要添加多条记录，增加数量number即可</li>
 </ul>
 <p><strong>最终shopping_cart表中存储的数据示例:</strong></p>
-<img src="assets/image-20210815183440051.png" alt="image-20210815183440051" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210815183440051.png" alt="image-20210815183440051" style="zoom:80%;" /> 
 <h3 id="_3-3-前端页面分析" tabindex="-1"><a class="header-anchor" href="#_3-3-前端页面分析" aria-hidden="true">#</a> 3.3 前端页面分析</h3>
 <p>在开发代码之前，需要梳理一下购物车操作时前端页面和服务端的交互过程：</p>
 <p>1). 点击 &quot;加入购物车&quot; 或者 &quot;+&quot; 按钮，页面发送ajax请求，请求服务端，将菜品或者套餐添加到购物车</p>
-<p><img src="assets/image-20210813185414102.png" alt="image-20210813185414102"></p>
-<p><img src="assets/image-20210813185731809.png" alt="image-20210813185731809"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210813185414102.png" alt="image-20210813185414102"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210813185731809.png" alt="image-20210813185731809"></p>
 <p>2). 点击购物车图标，页面发送ajax请求，请求服务端查询购物车中的菜品和套餐</p>
 <p>此时，我们就需要将查询购物车的代码放开，不用再加载静态的json数据了。</p>
-<img src="assets/image-20210813190814766.png" alt="image-20210813190814766" style="zoom:80%;" /> 
-<img src="assets/image-20210813191237556.png" alt="image-20210813191237556" style="zoom:70%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210813190814766.png" alt="image-20210813190814766" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210813191237556.png" alt="image-20210813191237556" style="zoom:70%;" /> 
 <p>3). 点击清空购物车按钮，页面发送ajax请求，请求服务端来执行清空购物车操作</p>
-<p><img src="assets/image-20210813192012994.png" alt="image-20210813192012994"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210813192012994.png" alt="image-20210813192012994"></p>
 <p>经过上述的分析，我们可以看到，对于购物车的功能，我们主要需要开发以下几个功能，具体的请求信息如下：</p>
 <p><strong>1). 加入购物车</strong></p>
 <table>
@@ -686,28 +687,28 @@
 <p>按照前面分析的操作流程进行测试，测试功能以及数据库中的数据是否是否正常。</p>
 <p><strong>1). 添加购物车</strong></p>
 <p>当添加的是菜品信息，而这个用户的购物车中当前并没有这个菜品时，添加一条数据，数量为1。</p>
-<img src="assets/image-20210814070930745.png" alt="image-20210814070930745" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814070930745.png" alt="image-20210814070930745" style="zoom:80%;" /> 
 <p>检查数据库数据，由于是菜品保存的是dish_id。</p>
-<p><img src="assets/image-20210814071113382.png" alt="image-20210814071113382"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814071113382.png" alt="image-20210814071113382"></p>
 <p>这时在页面上，我们可以继续点击+号，在购物车中增加该菜品，此时，应该是对现有的购物车菜品数量加1，而不应该插入新的记录。</p>
-<img src="assets/image-20210814071613706.png" alt="image-20210814071613706" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814071613706.png" alt="image-20210814071613706" style="zoom:80%;" /> 
 <p>检查数据库数据：</p>
-<p><img src="assets/image-20210814071707767.png" alt="image-20210814071707767"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814071707767.png" alt="image-20210814071707767"></p>
 <p>如果添加的是套餐，该套餐在当前用户的购物车中并不存在，则添加一条数据，数量为1。</p>
-<img src="assets/image-20210814071742125.png" alt="image-20210814071742125" style="zoom:80%;" />  
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814071742125.png" alt="image-20210814071742125" style="zoom:80%;" />  
 <p>检查数据库数据：</p>
-<p><img src="assets/image-20210814071850689.png" alt="image-20210814071850689"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814071850689.png" alt="image-20210814071850689"></p>
 <p><strong>2). 查看购物车</strong></p>
 <p>点击页面下面的购物车边栏，查看购物车数据列表是否正常展示。</p>
-<img src="assets/image-20210814071956804.png" alt="image-20210814071956804" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814071956804.png" alt="image-20210814071956804" style="zoom:80%;" /> 
 <p><strong>3). 清空购物车</strong></p>
 <p>在购物车列表展示页中点击&quot;清空&quot;, 查看购物车是否被清空。</p>
- <img src="assets/image-20210814072159568.png" alt="image-20210814072159568" style="zoom:80%;" /> 
+ <img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814072159568.png" alt="image-20210814072159568" style="zoom:80%;" /> 
 <p>并检查数据库中的数据，可以看到数据已经被删除。</p>
 <h2 id="_4-下单" tabindex="-1"><a class="header-anchor" href="#_4-下单" aria-hidden="true">#</a> 4. 下单</h2>
 <h3 id="_4-1-需求分析" tabindex="-1"><a class="header-anchor" href="#_4-1-需求分析" aria-hidden="true">#</a> 4.1 需求分析</h3>
 <p>移动端用户将菜品或者套餐加入购物车后，可以点击购物车中的 &quot;去结算&quot; 按钮，页面跳转到订单确认页面，点击 &quot;去支付&quot; 按钮则完成下单操作。</p>
-<img src="assets/image-20210814072533469.png" alt="image-20210814072533469" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814072533469.png" alt="image-20210814072533469" style="zoom:80%;" /> 
 <p>这里，我们需要说明一下，这里并不会去开发支付功能，因为不论是支付宝的支付，还是微信支付，都是需要企业资质的，而我们大家在测试的时候，是没有办法提供企业资质的，所以这一部分支付功能我们就不去实现了。</p>
 <h3 id="_4-2-数据模型" tabindex="-1"><a class="header-anchor" href="#_4-2-数据模型" aria-hidden="true">#</a> 4.2 数据模型</h3>
 <p>用户下单业务对应的数据表为orders表和order_detail表(一对多关系,一个订单关联多个订单明细)：</p>
@@ -734,25 +735,25 @@
 </table>
 <p>具体的表结构如下:</p>
 <p><strong>A. orders 订单表</strong></p>
-<p><img src="assets/image-20210814095559935.png" alt="image-20210814095559935"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814095559935.png" alt="image-20210814095559935"></p>
 <p><strong>B. order_detail</strong></p>
-<p><img src="assets/image-20210814073544977.png" alt="image-20210814073544977"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814073544977.png" alt="image-20210814073544977"></p>
 <p>数据示例:</p>
-<p><img src="assets/image-20210815224918077.png" alt="image-20210815224918077"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210815224918077.png" alt="image-20210815224918077"></p>
 <p>用户提交订单时，需要往订单表orders中插入一条记录，并且需要往order_detail中插入一条或多条记录。</p>
 <h3 id="_4-3-前端页面分析" tabindex="-1"><a class="header-anchor" href="#_4-3-前端页面分析" aria-hidden="true">#</a> 4.3 前端页面分析</h3>
 <p>在开发代码之前，需要梳理一下用户下单操作时前端页面和服务端的交互过程：</p>
-<p><strong>1). 在购物车中点击<img src="assets/image-20210814073907767.png" alt="image-20210814073907767" style="zoom: 67%;" />按钮，页面跳转到订单确认页面</strong></p>
-<img src="assets/image-20210814075105094.png" alt="image-20210814075105094" style="zoom:67%;" /> 
+<p><strong>1). 在购物车中点击<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814073907767.png" alt="image-20210814073907767" style="zoom: 67%;" />按钮，页面跳转到订单确认页面</strong></p>
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814075105094.png" alt="image-20210814075105094" style="zoom:67%;" /> 
 <p>页面跳转前端已经完成，我们无需操作。</p>
 <p><strong>2). 在订单确认页面，发送ajax请求，请求服务端获取当前登录用户的默认地址</strong></p>
-<img src="assets/image-20210814075454329.png" alt="image-20210814075454329" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814075454329.png" alt="image-20210814075454329" style="zoom:80%;" /> 
 <p>该功能在用户地址簿管理功能开发时，已经实现(导入)，我们无需操作。</p>
 <p><strong>3). 在订单确认页面，发送ajax请求，请求服务端获取当前登录用户的购物车数据</strong></p>
-<img src="assets/image-20210814075635880.png" alt="image-20210814075635880" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814075635880.png" alt="image-20210814075635880" style="zoom:80%;" /> 
 <p>该功能已经实现，我们无需操作。</p>
-<p><strong>4). 在订单确认页面点击<img src="assets/image-20210814075722616.png" alt="image-20210814075722616" style="zoom:67%;" />按钮，发送ajax请求，请求服务端完成下单操作</strong></p>
-<img src="assets/image-20210814080254623.png" alt="image-20210814080254623" style="zoom:80%;" /> 
+<p><strong>4). 在订单确认页面点击<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814075722616.png" alt="image-20210814075722616" style="zoom:67%;" />按钮，发送ajax请求，请求服务端完成下单操作</strong></p>
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814080254623.png" alt="image-20210814080254623" style="zoom:80%;" /> 
 <p>经过上述的分析，我们看到前三步的功能我们都已经实现了，我们主要需要实现最后一步的下单功能，该功能具体的请求信息如下：</p>
 <table>
 <thead>
@@ -1068,14 +1069,14 @@
 </blockquote>
 <h3 id="_4-6-功能测试" tabindex="-1"><a class="header-anchor" href="#_4-6-功能测试" aria-hidden="true">#</a> 4.6 功能测试</h3>
 <p>代码编写完成，我们重新启动服务，按照前面分析的操作流程进行测试，查看数据是否正常即可。在测试过程中，我们可以通过debug的形式来跟踪代码的正常执行。</p>
-<img src="assets/image-20210814084822573.png" alt="image-20210814084822573" style="zoom: 67%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814084822573.png" alt="image-20210814084822573" style="zoom: 67%;" /> 
 <p><strong>检查数据库数据</strong></p>
 <p>订单表插入一条记录：</p>
-<p><img src="assets/image-20210814084925524.png" alt="image-20210814084925524"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814084925524.png" alt="image-20210814084925524"></p>
 <p>订单明细表插入四条记录()：</p>
-<p><img src="assets/image-20210814085019401.png" alt="image-20210814085019401"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814085019401.png" alt="image-20210814085019401"></p>
 <p>同时，购物车的数据被删除：</p>
-<p><img src="assets/image-20210814085058814.png" alt="image-20210814085058814"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day06/assets/image-20210814085058814.png" alt="image-20210814085058814"></p>
 </div></template>
 
 

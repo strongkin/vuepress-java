@@ -31,7 +31,7 @@
 
 用户如果不登录，直接访问系统首页面，照样可以正常访问。 
 
-![image-20210727232226862](assets/image-20210727232226862.png) 
+![image-20210727232226862](./assets//image-20210727232226862.png) 
 
 
 
@@ -39,7 +39,7 @@
 
 上述这种设计并不合理，我们希望看到的效果应该 是，只有登录成功后才可以访问系统中的页面，如果没有登录, 访问系统中的任何界面都直接跳转到登录页面。
 
-<img src="assets/image-20210727232747276.png" alt="image-20210727232747276" style="zoom:80%;" /> 
+<img src="./assets//image-20210727232747276.png" alt="image-20210727232747276" style="zoom:80%;" /> 
 
 
 
@@ -51,7 +51,7 @@
 
 ### 1.2 思路分析
 
-<img src="assets/image-20210727233554707.png" alt="image-20210727233554707" style="zoom:80%;" /> 
+<img src="./assets//image-20210727233554707.png" alt="image-20210727233554707" style="zoom:80%;" /> 
 
 **过滤器具体的处理逻辑如下：**
 
@@ -69,7 +69,7 @@ E. 如果未登录, 则返回未登录结果
 
 如果未登录,我们需要给前端返回什么样的结果呢? 这个时候, 我们可以去看看前端是如何处理的 ?
 
-<img src="assets/image-20210728001324901.png" alt="image-20210728001324901" style="zoom:80%;" /> 
+<img src="./assets//image-20210728001324901.png" alt="image-20210728001324901" style="zoom:80%;" /> 
 
 
 
@@ -213,7 +213,7 @@ public class ReggieApplication {
 
 代码编写完毕之后，我们需要将工程重启一下，然后在浏览器地址栏直接输入系统管理后台首页，然后看看是否可以跳转到登录页面即可。我们也可以通过debug的形式来跟踪一下代码执行的过程。
 
-![image-20210728000838992](assets/image-20210728000838992.png) 
+![image-20210728000838992](./assets//image-20210728000838992.png) 
 
 
 
@@ -221,7 +221,7 @@ public class ReggieApplication {
 
 F12打开浏览器的调试工具, 找到我们前面提到的request.js, 在request.js的响应拦截器位置打上断点。
 
-![image-20210728001929657](assets/image-20210728001929657.png) 
+![image-20210728001929657](./assets//image-20210728001929657.png) 
 
 
 
@@ -239,7 +239,7 @@ F12打开浏览器的调试工具, 找到我们前面提到的request.js, 在req
 
 后台系统中可以管理员工信息，通过新增员工来添加后台系统用户。点击[添加员工]按钮跳转到新增页面，如下：
 
-<img src="assets/image-20210728002442334.png" alt="image-20210728002442334" style="zoom:80%;" /> 
+<img src="./assets//image-20210728002442334.png" alt="image-20210728002442334" style="zoom:80%;" /> 
 
 当填写完表单信息, 点击"保存"按钮后, 会提交该表单的数据到服务端, 在服务端中需要接受数据, 然后将数据保存至数据库中。
 
@@ -249,13 +249,13 @@ F12打开浏览器的调试工具, 找到我们前面提到的request.js, 在req
 
 新增员工，其实就是将我们新增页面录入的员工数据插入到employee表。employee表中的status字段已经设置了默认值1，表示状态正常。
 
-<img src="assets/image-20210728004144521.png" alt="image-20210728004144521" style="zoom:80%;" /> 
+<img src="./assets//image-20210728004144521.png" alt="image-20210728004144521" style="zoom:80%;" /> 
 
 
 
 需要注意，employee表中对username字段加入了唯一约束，因为username是员工的登录账号，必须是唯一的。
 
-<img src="assets/image-20210728004250254.png" alt="image-20210728004250254" style="zoom:80%;" /> 
+<img src="./assets//image-20210728004250254.png" alt="image-20210728004250254" style="zoom:80%;" /> 
 
 
 
@@ -265,7 +265,7 @@ F12打开浏览器的调试工具, 找到我们前面提到的request.js, 在req
 
 在开发代码之前，我们需要结合着前端页面发起的请求， 梳理一下整个程序的执行过程：
 
-<img src="assets/image-20210728005638224.png" alt="image-20210728005638224" style="zoom:80%;" /> 
+<img src="./assets//image-20210728005638224.png" alt="image-20210728005638224" style="zoom:80%;" /> 
 
 
 
@@ -324,11 +324,11 @@ public R<String> save(HttpServletRequest request,@RequestBody Employee employee)
 
 当我们在测试中，添加用户时， 输入了一个已存在的用户名时，前端界面出现错误提示信息： 
 
-<img src="assets/image-20210728010841569.png" alt="image-20210728010841569" style="zoom:80%;" /> 
+<img src="./assets//image-20210728010841569.png" alt="image-20210728010841569" style="zoom:80%;" /> 
 
 而此时，服务端已经报错了， 报错信息如下： 
 
-![image-20210728010938086](assets/image-20210728010938086.png) 
+![image-20210728010938086](./assets//image-20210728010938086.png) 
 
 出现上述的错误， 主要就是因为在 employee 表结构中，我们针对于username字段，建立了唯一索引，添加重复的username数据时，违背该约束，就会报错。但是此时前端提示的信息并不具体，用户并不知道是因为什么原因造成的该异常，我们需要给用户提示详细的错误信息 。
 
@@ -346,7 +346,7 @@ public R<String> save(HttpServletRequest request,@RequestBody Employee employee)
 
 形式如下： 
 
-<img src="assets/image-20210729094125294.png" alt="image-20210729094125294" style="zoom:80%;" /> 
+<img src="./assets//image-20210729094125294.png" alt="image-20210729094125294" style="zoom:80%;" /> 
 
 如果采用这种方式，虽然可以解决，但是存在弊端，需要我们在保存其他业务数据时，也需要在Controller方法中加上try...catch进行处理，代码冗余，不通用。
 
@@ -368,7 +368,7 @@ public R<String> save(HttpServletRequest request,@RequestBody Employee employee)
 > - 解析异常的提示信息, 获取出是那个值违背了唯一约束 
 > - 组装错误信息并返回
 
-<img src="assets/image-20210729100232642.png" alt="image-20210729100232642" style="zoom:80%;" /> 
+<img src="./assets//image-20210729100232642.png" alt="image-20210729100232642" style="zoom:80%;" /> 
 
 
 
@@ -422,7 +422,7 @@ public class  GlobalExceptionHandler {
 >
 > ​	上述使用的两个注解, 也可以合并成为一个注解 @RestControllerAdvice 
 >
-> ​	<img src="assets/image-20210729100052940.png" alt="image-20210729100052940" style="zoom:80%;" /> 
+> ​	<img src="./assets//image-20210729100052940.png" alt="image-20210729100052940" style="zoom:80%;" /> 
 
 
 
@@ -432,7 +432,7 @@ public class  GlobalExceptionHandler {
 
 全局异常处理器编写完毕之后，我们需要将项目重启, 完毕之后直接访问管理系统首页, 点击 "员工管理" 页面中的 "添加员工" 按钮。当我们在测试中，添加用户时， 输入了一个已存在的用户名时，前端界面出现如下错误提示信息：
 
-<img src="assets/image-20210729102220135.png" alt="image-20210729102220135" style="zoom:80%;" /> 
+<img src="./assets//image-20210729102220135.png" alt="image-20210729102220135" style="zoom:80%;" /> 
 
 
 
@@ -452,7 +452,7 @@ public class  GlobalExceptionHandler {
 
 系统中的员工很多的时候，如果在一个页面中全部展示出来会显得比较乱，不便于查看，所以一般的系统中都会以分页的方式来展示列表数据。而在我们的分页查询页面中, 除了分页条件以外，还有一个查询条件 "员工姓名"。
 
-![image-20210729134904625](assets/image-20210729134904625.png) 
+![image-20210729134904625](./assets//image-20210729134904625.png) 
 
 - 请求参数
 
@@ -476,13 +476,13 @@ public class  GlobalExceptionHandler {
 
 A. 点击菜单，打开员工管理页面时，执行查询： 
 
-<img src="assets/image-20210729163400772.png" alt="image-20210729163400772" style="zoom:80%;" /> 
+<img src="./assets//image-20210729163400772.png" alt="image-20210729163400772" style="zoom:80%;" /> 
 
 
 
 B. 搜索栏输入员工姓名,回车,执行查询:
 
-![image-20210729164259997](assets/image-20210729164259997.png) 
+![image-20210729164259997](./assets//image-20210729164259997.png) 
 
 
 
@@ -502,7 +502,7 @@ B. 搜索栏输入员工姓名,回车,执行查询:
 
 1). 访问员工列表页面/member/list.html时, 会触发Vuejs中的钩子方法, 在页面初始化时调用created方法
 
-<img src="assets/image-20210729231639034.png" alt="image-20210729231639034" style="zoom:80%;" /> 
+<img src="./assets//image-20210729231639034.png" alt="image-20210729231639034" style="zoom:80%;" /> 
 
 从上述的前端代码中我们可以看到, 执行完分页查询, 我们需要给前端返回的信息中需要包含两项 : records 中封装结果列表, total中封装总记录数 。
 
@@ -510,7 +510,7 @@ B. 搜索栏输入员工姓名,回车,执行查询:
 
 而在组装请求参数时 , page、pageSize 都是前端分页插件渲染时的参数；
 
-<img src="assets/image-20210729232916380.png" alt="image-20210729232916380" style="zoom:80%;" /> 
+<img src="./assets//image-20210729232916380.png" alt="image-20210729232916380" style="zoom:80%;" /> 
 
 
 
@@ -518,11 +518,11 @@ B. 搜索栏输入员工姓名,回车,执行查询:
 
 2). 在getMemberList方法中, 通过axios发起异步请求
 
-![image-20210729231745143](assets/image-20210729231745143.png) 
+![image-20210729231745143](./assets//image-20210729231745143.png) 
 
 axios发起的异步请求会被声明在 request.js 中的request拦截器拦截, 在其中对get请求进行进一步的封装处理
 
-![image-20210729232036767](assets/image-20210729232036767.png) 
+![image-20210729232036767](./assets//image-20210729232036767.png) 
 
 
 
@@ -577,7 +577,7 @@ public class MybatisPlusConfig {
 
 在上述我们也分析了, 查询返回的结果数据data中应该封装两项信息, 分别为: records 封装分页列表数据, total 中封装符合条件的总记录数。 那么这个时候, 在定义controller方法的返回值类型R时, 我们可以直接将 MybatisPlus 分页查询的结果 Page 直接封装返回, 因为Page中的属性如下: 
 
-<img src="assets/image-20210729235403154.png" alt="image-20210729235403154" style="zoom:80%;" /> 
+<img src="./assets//image-20210729235403154.png" alt="image-20210729235403154" style="zoom:80%;" /> 
 
 
 
@@ -632,13 +632,13 @@ public R<Page> page(int page,int pageSize,String name){
 
 在进行测试时，可以使用浏览器的监控工具查看页面和服务端的数据交互细节。 并借助于debug的形式， 根据服务端参数接收及逻辑执行情况。
 
-![image-20210730000855072](assets/image-20210730000855072.png) 
+![image-20210730000855072](./assets//image-20210730000855072.png) 
 
 
 
 测试过程中可以发现，对于员工状态字段（status）服务端返回的是状态码（1或者0），但是页面上显示的则是“正常”或者“已禁用”，这是因为页面中在展示数据时进行了处理。
 
-<img src="assets/image-20210730010606005.png" alt="image-20210730010606005" style="zoom:80%;" /> 
+<img src="./assets//image-20210730010606005.png" alt="image-20210730010606005" style="zoom:80%;" /> 
 
 
 
@@ -660,13 +660,13 @@ public R<Page> page(int page,int pageSize,String name){
 
 **A. admin 管理员登录**
 
-<img src="assets/image-20210730010858705.png" alt="image-20210730010858705" style="zoom:80%;" /> 
+<img src="./assets//image-20210730010858705.png" alt="image-20210730010858705" style="zoom:80%;" /> 
 
 
 
 **B. 普通用户登录**
 
-<img src="assets/image-20210730010941399.png" alt="image-20210730010941399" style="zoom:80%;" /> 
+<img src="./assets//image-20210730010941399.png" alt="image-20210730010941399" style="zoom:80%;" /> 
 
 
 
@@ -680,13 +680,13 @@ public R<Page> page(int page,int pageSize,String name){
 
 1). 在列表页面(list.html)加载时, 触发钩子函数created, 在钩子函数中, 会从localStorage中获取到用户登录信息, 然后获取到用户名
 
-<img src="assets/image-20210730012044171.png" alt="image-20210730012044171" style="zoom:80%;" /> 
+<img src="./assets//image-20210730012044171.png" alt="image-20210730012044171" style="zoom:80%;" /> 
 
 
 
 2). 在页面中, 通过Vue指令v-if进行判断,如果登录用户为admin将展示 启用/禁用 按钮, 否则不展示
 
-<img src="assets/image-20210730012256779.png" alt="image-20210730012256779" style="zoom:80%;" /> 
+<img src="./assets//image-20210730012256779.png" alt="image-20210730012256779" style="zoom:80%;" /> 
 
 
 
@@ -694,7 +694,7 @@ public R<Page> page(int page,int pageSize,String name){
 
 1). 当管理员admin点击 "启用" 或 "禁用" 按钮时, 调用方法statusHandle
 
-<img src="assets/image-20210730012723560.png" alt="image-20210730012723560" style="zoom:80%;" /> 
+<img src="./assets//image-20210730012723560.png" alt="image-20210730012723560" style="zoom:80%;" /> 
 
 > scope.row : 获取到的是这一行的数据信息 ;
 
@@ -702,9 +702,9 @@ public R<Page> page(int page,int pageSize,String name){
 
 2). statusHandle方法中进行二次确认, 然后发起ajax请求, 传递id、status参数
 
-<img src="assets/image-20210730013011861.png" alt="image-20210730013011861" style="zoom:80%;" /> 
+<img src="./assets//image-20210730013011861.png" alt="image-20210730013011861" style="zoom:80%;" /> 
 
-<img src="assets/image-20210730013210948.png" alt="image-20210730013210948" style="zoom:80%;" /> 
+<img src="./assets//image-20210730013210948.png" alt="image-20210730013210948" style="zoom:80%;" /> 
 
 最终发起异步请求, 请求服务端, 请求信息如下： 
 
@@ -760,17 +760,17 @@ public R<String> update(HttpServletRequest request,@RequestBody Employee employe
 
 代码编写完毕之后，我们需要将工程重启。 然后访问前端页面， 进行 "启用" 或 "禁用" 的测试。
 
-![image-20210730123213103](assets/image-20210730123213103.png) 
+![image-20210730123213103](./assets//image-20210730123213103.png) 
 
 测试过程中没有报错，但是功能并没有实现，查看数据库中的数据也没有变化。但是从控制台输出的日志， 可以看出确实没有更新成功。
 
-![image-20210730123307452](assets/image-20210730123307452.png) 
+![image-20210730123307452](./assets//image-20210730123307452.png) 
 
 
 
 而在我们的数据库表结构中， 并不存在该ID， 数据库中 风清扬 对应的ID为 1420038345634918401
 
-![image-20210730123519468](assets/image-20210730123519468.png) 
+![image-20210730123519468](./assets//image-20210730123519468.png) 
 
 
 
@@ -780,7 +780,7 @@ public R<String> update(HttpServletRequest request,@RequestBody Employee employe
 
 #### 4.5.1 原因分析
 
-![image-20210730123833129](assets/image-20210730123833129.png) 
+![image-20210730123833129](./assets//image-20210730123833129.png) 
 
 通过观察控制台输出的SQL发现页面传递过来的员工id的值和数据库中的id值不一致，这是怎么回事呢？
 
@@ -788,7 +788,7 @@ public R<String> update(HttpServletRequest request,@RequestBody Employee employe
 
 在分页查询时，服务端会将返回的R对象进行json序列化，转换为json格式的数据，而员工的ID是一个Long类型的数据，而且是一个长度为 19 位的长整型数据， 该数据返回给前端是没有问题的。
 
-![image-20210730124036415](assets/image-20210730124036415.png) 
+![image-20210730124036415](./assets//image-20210730124036415.png) 
 
 
 
@@ -836,7 +836,7 @@ public R<String> update(HttpServletRequest request,@RequestBody Employee employe
 
 那么在我们的业务中, 我们只需要让分页查询返回的json格式数据库中, long类型的属性, 不直接转换为数字类型, 转换为字符串类型就可以解决这个问题了 , 最终返回的结果为 : 
 
-![image-20210730125138652](assets/image-20210730125138652.png) 
+![image-20210730125138652](./assets//image-20210730125138652.png) 
 
 
 
@@ -948,7 +948,7 @@ protected void extendMessageConverters(List<HttpMessageConverter<?>> converters)
 
 在员工管理列表页面点击 "编辑" 按钮，跳转到编辑页面，在编辑页面回显员工信息并进行修改，最后点击 "保存" 按钮完成编辑操作。
 
-![image-20210730181733784](assets/image-20210730181733784.png) 
+![image-20210730181733784](./assets//image-20210730181733784.png) 
 
 那么从上述的分析中，我们可以看出当前实现的编辑功能,我们需要实现两个方法:
 
@@ -966,7 +966,7 @@ B. 保存修改
 
 1). 点击编辑按钮时，页面跳转到add.html，并在url中携带参数[员工id]
 
-![image-20210730225514330](assets/image-20210730225514330.png) 
+![image-20210730225514330](./assets//image-20210730225514330.png) 
 
 
 
@@ -976,7 +976,7 @@ B. 保存修改
 
 4). 服务端接收请求，根据员工id查询员工信息，将员工信息以json形式响应给页面
 
-![image-20210730230005437](assets/image-20210730230005437.png) 
+![image-20210730230005437](./assets//image-20210730230005437.png) 
 
 
 
@@ -988,7 +988,7 @@ B. 保存修改
 
 8). 页面接收到服务端响应信息后进行相应处理
 
-<img src="assets/image-20210730230533123.png" alt="image-20210730230533123" style="zoom:80%;" /> 
+<img src="./assets//image-20210730230533123.png" alt="image-20210730230533123" style="zoom:80%;" /> 
 
 
 

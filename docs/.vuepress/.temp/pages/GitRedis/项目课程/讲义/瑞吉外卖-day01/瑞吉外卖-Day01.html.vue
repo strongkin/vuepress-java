@@ -20,7 +20,7 @@
 <h2 id="_1-软件开发整体介绍" tabindex="-1"><a class="header-anchor" href="#_1-软件开发整体介绍" aria-hidden="true">#</a> 1. 软件开发整体介绍</h2>
 <p>作为一名软件开发工程师,我们需要了解在软件开发过程中的开发流程， 以及软件开发过程中涉及到的岗位角色，角色的分工、职责， 并了解软件开发中涉及到的三种软件环境。那么这一小节，我们将从 软件开发流程、角色分工、软件环境 三个方面，来整体上介绍一下软件开发。</p>
 <h3 id="_1-1-软件开发流程" tabindex="-1"><a class="header-anchor" href="#_1-1-软件开发流程" aria-hidden="true">#</a> 1.1 软件开发流程</h3>
-<p><img src="assets/image-20210725231106363.png" alt="image-20210725231106363"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210725231106363.png" alt="image-20210725231106363"></p>
 <p><strong>1). 第1阶段: 需求分析</strong></p>
 <p>完成产品原型、需求规格说明书的编写。</p>
 <p>产品原型，一般是通过网页(html)的形式展示当前的页面展示什么样的数据, 页面的布局是什么样子的，点击某个菜单，打开什么页面，点击某个按钮，出现什么效果，都可以通过产品原型看到。</p>
@@ -38,7 +38,7 @@
 <p>我们作为软件开发工程师， 我们主要的任务是在编码阶段， 但是在一些小的项目组当中， 也会涉及到数据库的设计、测试等方面的工作。</p>
 <h3 id="_1-2-角色分工" tabindex="-1"><a class="header-anchor" href="#_1-2-角色分工" aria-hidden="true">#</a> 1.2 角色分工</h3>
 <p>学习了软件开发的流程之后， 我们还有必要了解一下在整个软件开发过程中涉及到的岗位角色，以及各个角色的职责分工。</p>
-<p><img src="assets/image-20210725234015404.png" alt="image-20210725234015404"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210725234015404.png" alt="image-20210725234015404"></p>
 <table>
 <thead>
 <tr>
@@ -79,7 +79,7 @@
 </table>
 <p>上述我们讲解的角色分工, 是在一个项目组中比较标准的角色分工, 但是在实际的项目中, 有一些项目组由于人员配置紧张, 可能并没有专门的架构师或测试人员, 这个时候可能需要有项目经理或者程序员兼任。</p>
 <h3 id="_1-3-软件环境" tabindex="-1"><a class="header-anchor" href="#_1-3-软件环境" aria-hidden="true">#</a> 1.3 软件环境</h3>
-<p><img src="assets/image-20210725234046008.png" alt="image-20210725234046008"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210725234046008.png" alt="image-20210725234046008"></p>
 <p>在我们日常的软件开发中，会涉及到软件开发中的三套环境， 那么这三套环境分别是: 开发环境、测试环境、生产环境。 接下来，我们分别介绍一下这三套环境的作用和特点。</p>
 <p><strong>1). 开发环境(development)</strong></p>
 <p>我们作为软件开发人员，在开发阶段使用的环境，就是开发环境，一般外部用户无法访问。</p>
@@ -95,7 +95,7 @@
 <h2 id="_2-瑞吉外卖项目介绍" tabindex="-1"><a class="header-anchor" href="#_2-瑞吉外卖项目介绍" aria-hidden="true">#</a> 2. 瑞吉外卖项目介绍</h2>
 <p>在开发瑞吉外卖这个项目之前，我们需要全方位的来介绍一下当前我们学习的这个项目。接下来，我们将从以下的五个方面， 来介绍瑞吉外卖这个项目。</p>
 <h3 id="_2-1-项目介绍" tabindex="-1"><a class="header-anchor" href="#_2-1-项目介绍" aria-hidden="true">#</a> 2.1 项目介绍</h3>
-<p><img src="assets/image-20210726000655646.png" alt="image-20210726000655646"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726000655646.png" alt="image-20210726000655646"></p>
 <p>本项目（瑞吉外卖）是专门为餐饮企业（餐厅、饭店）定制的一款软件产品，包括 系统管理后台 和 移动端应用 两部分。其中系统管理后台主要提供给餐饮企业内部员工使用，可以对餐厅的分类、菜品、套餐、订单、员工等进行管理维护。移动端应用主要提供给消费者使用，可以在线浏览菜品、添加购物车、下单等。</p>
 <p>本项目共分为3期进行开发：</p>
 <table>
@@ -126,7 +126,7 @@
 <p><strong><font color='red'>注意事项：</font></strong> 产品原型主要用于展示项目的功能，并不是最终的页面效果。</p>
 </blockquote>
 <p>在课程资料的产品原型文件夹下,提供了两份产品原型。</p>
-<p><img src="assets/image-20210726002509573.png" alt="image-20210726002509573"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726002509573.png" alt="image-20210726002509573"></p>
 <p><strong>1). 管理端</strong></p>
 <p>餐饮企业内部员工使用。 主要功能有:</p>
 <table>
@@ -197,7 +197,7 @@
 </table>
 <h3 id="_2-3-技术选型" tabindex="-1"><a class="header-anchor" href="#_2-3-技术选型" aria-hidden="true">#</a> 2.3 技术选型</h3>
 <p>关于本项目的技术选型, 我们将会从 用户层、网关层、应用层、数据层 这几个方面进行介绍，而对于我们服务端开发工程师来说，在项目开发过程中，我们主要关注应用层及数据层技术的应用。</p>
-<p><img src="assets/image-20210726005437857.png" alt="image-20210726005437857"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726005437857.png" alt="image-20210726005437857"></p>
 <p><strong>1). 用户层</strong></p>
 <p>本项目中在构建系统管理后台的前端页面，我们会用到H5、Vue.js、ElementUI等技术。而在构建移动端应用时，我们会使用到微信小程序。</p>
 <p><strong>2). 网关层</strong></p>
@@ -218,7 +218,7 @@
 <p>maven: 项目构建工具。</p>
 <p>junit：单元测试工具，开发人员功能实现完毕后，需要通过junit对功能进行单元测试。</p>
 <h3 id="_2-4-功能架构" tabindex="-1"><a class="header-anchor" href="#_2-4-功能架构" aria-hidden="true">#</a> 2.4 功能架构</h3>
-<img src="assets/image-20210726122825225.png" alt="image-20210726122825225" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726122825225.png" alt="image-20210726122825225" style="zoom:80%;" /> 
 <p><strong>1). 移动端前台功能</strong></p>
 <p>手机号登录 , 微信登录 , 收件人地址管理 , 用户历史订单查询 , 菜品规格查询 , 购物车功能 , 下单 , 分类及菜品浏览。</p>
 <p><strong>2). 系统管理后台功能</strong></p>
@@ -252,16 +252,16 @@
 <h4 id="_3-1-1-创建数据库" tabindex="-1"><a class="header-anchor" href="#_3-1-1-创建数据库" aria-hidden="true">#</a> 3.1.1 创建数据库</h4>
 <p>可以通过以下两种方式中的任意一种, 来创建项目的数据库:</p>
 <p><strong>1).图形界面</strong></p>
-<img src="assets/image-20210726123903694.png" alt="image-20210726123903694" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726123903694.png" alt="image-20210726123903694" style="zoom:80%;" /> 
 <p>注意: 本项目数据库的字符串, 选择 utf8mb4</p>
 <p><strong>2).命令行</strong></p>
-<p><img src="assets/image-20210726123942443.png" alt="image-20210726123942443"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726123942443.png" alt="image-20210726123942443"></p>
 <h4 id="_3-1-2-数据库表导入" tabindex="-1"><a class="header-anchor" href="#_3-1-2-数据库表导入" aria-hidden="true">#</a> 3.1.2 数据库表导入</h4>
 <p>项目的数据库创建好了之后, 可以直接将 资料/数据模型/db_reggie.sql 直接导入到数据库中, 也可以通过两种方式实现:</p>
 <p><strong>1).图形界面</strong></p>
-<p><img src="assets/image-20210726124752975.png" alt="image-20210726124752975"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726124752975.png" alt="image-20210726124752975"></p>
 <p><strong>2).命令行</strong></p>
-<p><img src="assets/image-20210726124818880.png" alt="image-20210726124818880"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726124818880.png" alt="image-20210726124818880"></p>
 <blockquote>
 <p><strong><font color='red'>注意:</font></strong> 通过命令导入表结构时，注意sql文件不要放在中文目录中</p>
 </blockquote>
@@ -337,13 +337,13 @@
 <h3 id="_3-2-maven项目搭建" tabindex="-1"><a class="header-anchor" href="#_3-2-maven项目搭建" aria-hidden="true">#</a> 3.2 Maven项目搭建</h3>
 <h4 id="_3-2-1-创建maven项目" tabindex="-1"><a class="header-anchor" href="#_3-2-1-创建maven项目" aria-hidden="true">#</a> 3.2.1 创建maven项目</h4>
 <p><strong>1). 在idea中创建maven project, 项目名称 reggie_take_out</strong></p>
-<img src="assets/image-20210726172842675.png" alt="image-20210726172842675" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726172842675.png" alt="image-20210726172842675" style="zoom:80%;" /> 
 <p><strong>2). 检查项目编码</strong></p>
-<img src="assets/image-20210726173036263.png" alt="image-20210726173036263" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726173036263.png" alt="image-20210726173036263" style="zoom:80%;" /> 
 <p><strong>3). 检查maven配置</strong></p>
-<img src="assets/image-20210726173116359.png" alt="image-20210726173116359" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726173116359.png" alt="image-20210726173116359" style="zoom:80%;" /> 
 <p><strong>4). 检查JDK版本</strong></p>
-<img src="assets/image-20210726173237154.png" alt="image-20210726173237154" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726173237154.png" alt="image-20210726173237154" style="zoom:80%;" /> 
 <p>JDK的版本选择1.8;</p>
 <h4 id="_3-2-2-搭建基础环境" tabindex="-1"><a class="header-anchor" href="#_3-2-2-搭建基础环境" aria-hidden="true">#</a> 3.2.2 搭建基础环境</h4>
 <p>1).在pom.xml中导入依赖</p>
@@ -457,9 +457,9 @@
 <h4 id="_3-2-3-前端静态资源导入" tabindex="-1"><a class="header-anchor" href="#_3-2-3-前端静态资源导入" aria-hidden="true">#</a> 3.2.3 前端静态资源导入</h4>
 <p>我们作为服务端开发工程师， 我们课程学习的重心应该放在后端的业务代码上， 前端的页面我们只需要导入课程资料中的前端资源， 前端页面的代码我们只需要能看懂即可。</p>
 <p><strong>1). 导入静态资源</strong></p>
-<p>前端资源存放位置为  资料/前端资源 : <img src="assets/image-20210726225948411.png" alt="image-20210726225948411" style="zoom:80%;" /></p>
+<p>前端资源存放位置为  资料/前端资源 : <img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726225948411.png" alt="image-20210726225948411" style="zoom:80%;" /></p>
 <p>将上述两个目录中的静态资源文件, 导入到项目的resources目录下:</p>
-<p><img src="assets/image-20210726230327313.png" alt="image-20210726230327313"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726230327313.png" alt="image-20210726230327313"></p>
 <p><strong>2). 创建配置类WebMvcConfig，设置静态资源映射</strong></p>
 <p>用于在Springboot项目中, 默认静态资源的存放目录为 : &quot;classpath:/resources/&quot;, &quot;classpath:/static/&quot;, &quot;classpath:/public/&quot; ; 而在我们的项目中静态资源存放在 backend, front 目录中, 那么这个时候要想访问到静态资源, 就需要设置静态资源映射。</p>
 <div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code><span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span>
@@ -483,34 +483,34 @@
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>3). 访问测试</strong></p>
 <p>http://localhost:8080/backend/index.html</p>
-<p><img src="assets/image-20210726232859596.png" alt="image-20210726232859596"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726232859596.png" alt="image-20210726232859596"></p>
 <h2 id="_4-后台系统登录功能" tabindex="-1"><a class="header-anchor" href="#_4-后台系统登录功能" aria-hidden="true">#</a> 4. 后台系统登录功能</h2>
 <h3 id="_4-1-需求分析" tabindex="-1"><a class="header-anchor" href="#_4-1-需求分析" aria-hidden="true">#</a> 4.1 需求分析</h3>
 <p><strong>1). 页面原型展示</strong></p>
-<img src="assets/image-20210726233540703.png" alt="image-20210726233540703" style="zoom: 67%;" />   
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726233540703.png" alt="image-20210726233540703" style="zoom: 67%;" />   
 <p><strong>2). 登录页面成品展示</strong></p>
 <p>登录页面存放目录 /resources/backend/page/login/login.html</p>
-<img src="assets/image-20210726233631409.png" alt="image-20210726233631409" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726233631409.png" alt="image-20210726233631409" style="zoom:80%;" /> 
 <p><strong>3). 查看登录请求</strong></p>
 <p>通过浏览器调试工具（F12），可以发现，点击登录按钮时，页面会发送请求（请求地址为http://localhost:8080/employee/login）并提交参数 username和password, 请求参数为json格式数据 {&quot;username&quot;:&quot;admin&quot;,&quot;password&quot;:&quot;123456&quot;}。</p>
-<p><img src="assets/image-20210726234439684.png" alt="image-20210726234439684"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726234439684.png" alt="image-20210726234439684"></p>
 <blockquote>
 <p>此时报404，是因为我们的后台系统还没有响应此请求的处理器，所以我们需要创建相关类来处理登录请求 ；</p>
-<img src="assets/image-20210726234548093.png" alt="image-20210726234548093" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726234548093.png" alt="image-20210726234548093" style="zoom:80%;" /> 
 </blockquote>
 <p><strong>4). 数据模型(employee表)</strong></p>
-<img src="assets/image-20210726234915737.png" alt="image-20210726234915737" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210726234915737.png" alt="image-20210726234915737" style="zoom:80%;" /> 
 <p><strong>5). 前端页面分析</strong></p>
-<p><img src="assets/image-20210727000040403.png" alt="image-20210727000040403"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210727000040403.png" alt="image-20210727000040403"></p>
 <p>当点击 &quot;登录&quot; 按钮, 会触发Vue中定义的 handleLogin 方法:</p>
-<img src="assets/image-20210727000329958.png" alt="image-20210727000329958" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210727000329958.png" alt="image-20210727000329958" style="zoom:80%;" /> 
 <p>在上述的前端代码中, 大家可以看到, 发送登录的异步请求之后, 获取到响应结果, 在响应结果中至少包含三个属性: code、data、msg 。</p>
 <p>由前端代码，我们也可以看到，在用户登录成功之后，服务端会返回用户信息，而前端是将这些用户信息，存储在客户端的 localStorage 中了。</p>
 <div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code>localStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span><span class="token string">'userInfo'</span><span class="token punctuation">,</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="_4-2-代码开发" tabindex="-1"><a class="header-anchor" href="#_4-2-代码开发" aria-hidden="true">#</a> 4.2 代码开发</h3>
 <h4 id="_4-2-1-基础准备工作" tabindex="-1"><a class="header-anchor" href="#_4-2-1-基础准备工作" aria-hidden="true">#</a> 4.2.1 基础准备工作</h4>
 <p>在进行登录功能的代码实现之前， 首先在我们的工程下创建包结构：</p>
-<p><img src="assets/image-20210727001117783.png" alt="image-20210727001117783"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210727001117783.png" alt="image-20210727001117783"></p>
 <p><strong>1). 创建实体类Employee</strong></p>
 <p>该实体类主要用于和员工表 employee 进行映射。 该实体类， 也可以直接从资料( 资料/实体类 )中拷贝工程中。</p>
 <p>所属包: com.itheima.reggie.entity</p>
@@ -626,7 +626,7 @@
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>A. 如果业务执行结果为成功, 构建R对象时, 只需要调用 success 方法; 如果需要返回数据传递 object 参数, 如果无需返回, 可以直接传递null。</p>
 <p>B. 如果业务执行结果为失败, 构建R对象时, 只需要调用error 方法, 传递错误提示信息即可。</p>
 <h4 id="_4-2-2-登录逻辑分析" tabindex="-1"><a class="header-anchor" href="#_4-2-2-登录逻辑分析" aria-hidden="true">#</a> 4.2.2 登录逻辑分析</h4>
-<img src="assets/image-20210727003101031.png" alt="image-20210727003101031" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210727003101031.png" alt="image-20210727003101031" style="zoom:80%;" /> 
 <p>处理逻辑如下：</p>
 <p>①. 将页面提交的密码password进行md5加密处理, 得到加密后的字符串</p>
 <p>②. 根据页面提交的用户名username查询数据库中员工数据信息</p>
@@ -680,21 +680,21 @@
 <p>在测试过程中， 可以通过debug断点调试的方式来跟踪程序的执行过程，并且可以查看程序运行时各个对象的具体赋值情况。而且需要注意, 在测试过程中，需要将所有的情况都覆盖到。</p>
 <p><strong>1). 问题说明</strong></p>
 <p>当我们在进行debug端点调试时, 前端可能会出现如下问题: 前端页面的控制台报出错误-超时;</p>
-<img src="assets/image-20210727004455855.png" alt="image-20210727004455855" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210727004455855.png" alt="image-20210727004455855" style="zoom:80%;" /> 
 <p><strong>2). 解决方案</strong></p>
 <p>前端进行异步请求时, 默认超时10000ms , 可以将该值调大一些。</p>
-<img src="assets/image-20210727004706639.png" alt="image-20210727004706639" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210727004706639.png" alt="image-20210727004706639" style="zoom:80%;" /> 
 <p>==由于修改了JS文件，需要手动清理一下浏览器缓存，避免缓存影响，JS不能及时生效。==</p>
 <h2 id="_5-后台系统退出功能" tabindex="-1"><a class="header-anchor" href="#_5-后台系统退出功能" aria-hidden="true">#</a> 5. 后台系统退出功能</h2>
 <h3 id="_5-1-需求分析" tabindex="-1"><a class="header-anchor" href="#_5-1-需求分析" aria-hidden="true">#</a> 5.1 需求分析</h3>
 <p>在后台管理系统中，管理员或者员工，登录进入系统之后，页面跳转到后台系统首页面(backend/index.html)，此时会在系统的右上角显示当前登录用户的姓名。</p>
 <p>如果员工需要退出系统，直接点击右侧的退出按钮即可退出系统，退出系统后页面应跳转回登录页面。</p>
 <p><strong>1). 退出页面展示</strong></p>
-<img src="assets/image-20210727005437531.png" alt="image-20210727005437531" style="zoom:80%;" /> 
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210727005437531.png" alt="image-20210727005437531" style="zoom:80%;" /> 
 <p><strong>2).前端页面分析</strong></p>
-<img src="assets/image-20210727010054851.png" alt="image-20210727010054851" style="zoom:90%;" />   
-<p>点击 <img src="assets/image-20210727010150207.png" alt="image-20210727010150207"> 将会调用一个js方法logout, 在logout的方法中执行如下逻辑:</p>
-<p><img src="assets/image-20210727010422199.png" alt="image-20210727010422199"></p>
+<img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210727010054851.png" alt="image-20210727010054851" style="zoom:90%;" />   
+<p>点击 <img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210727010150207.png" alt="image-20210727010150207"> 将会调用一个js方法logout, 在logout的方法中执行如下逻辑:</p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210727010422199.png" alt="image-20210727010422199"></p>
 <p>A. 发起post请求, 调用服务端接口 /employee/logout 执行退出操作 ;</p>
 <p>B. 删除客户端 localStorage 中存储的用户登录信息, 跳转至登录页面 ;</p>
 <h3 id="_5-2-代码实现" tabindex="-1"><a class="header-anchor" href="#_5-2-代码实现" aria-hidden="true">#</a> 5.2 代码实现</h3>
@@ -714,9 +714,9 @@
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_5-3-功能测试" tabindex="-1"><a class="header-anchor" href="#_5-3-功能测试" aria-hidden="true">#</a> 5.3 功能测试</h3>
 <p>1). 代码实现完毕后, 重启服务, 访问登录界面 http://localhost:8080/backend/page/login/login.html ;</p>
-<p>2). 登录完成之后, 进入到系统首页 backend/index.html, 点击右上角 <img src="assets/image-20210727011020244.png" alt="image-20210727011020244"> 按钮 执行退出操作, 完成后看看是否可以跳转到登录页面 , 并检查localStorage。</p>
-<p><img src="assets/image-20210727011215186.png" alt="image-20210727011215186"></p>
-<p><img src="assets/image-20210727011259297.png" alt="image-20210727011259297"></p>
+<p>2). 登录完成之后, 进入到系统首页 backend/index.html, 点击右上角 <img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210727011020244.png" alt="image-20210727011020244"> 按钮 执行退出操作, 完成后看看是否可以跳转到登录页面 , 并检查localStorage。</p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210727011215186.png" alt="image-20210727011215186"></p>
+<p><img src="@source/gitredis/项目课程/讲义/瑞吉外卖-day01/assets/image-20210727011259297.png" alt="image-20210727011259297"></p>
 </div></template>
 
 

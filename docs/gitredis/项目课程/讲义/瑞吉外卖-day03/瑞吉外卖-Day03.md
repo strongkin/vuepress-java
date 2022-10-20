@@ -18,7 +18,7 @@
 
 前面我们已经完成了后台系统的员工管理功能的开发，在新增员工时需要设置创建时间、创建人、修改时间、修改人等字段，在编辑员工时需要设置修改时间、修改人等字段。这些字段属于公共字段，也就是也就是在我们的系统中很多表中都会有这些字段，如下：
 
-![image-20210801085103062](assets/image-20210801085103062.png) 
+![image-20210801085103062](./assets//image-20210801085103062.png) 
 
 而针对于这些字段，我们的赋值方式为： 
 
@@ -30,9 +30,9 @@ B. 在更新数据时, 将updateTime 设置为当前时间, updateUser设置为�
 
 目前,在我们的项目中处理这些字段都是在每一个业务方法中进行赋值操作,如下:
 
-<img src="assets/image-20210801085615162.png" alt="image-20210801085615162" style="zoom:80%;" /> 
+<img src="./assets//image-20210801085615162.png" alt="image-20210801085615162" style="zoom:80%;" /> 
 
-<img src="assets/image-20210801085715419.png" alt="image-20210801085715419" style="zoom:80%;" /> 
+<img src="./assets//image-20210801085715419.png" alt="image-20210801085715419" style="zoom:80%;" /> 
 
 
 
@@ -73,7 +73,7 @@ Mybatis Plus公共字段自动填充，也就是在插入或者更新的时候�
 
 在员工Employee实体类的公共字段属性上, 加上注解, 指定填充策略。(<font color='red'>ps.在资料中提供的实体类,已经添加了该注解,并指定了填充策略</font>)
 
-<img src="assets/image-20210801092157093.png" alt="image-20210801092157093" style="zoom:80%;" /> 
+<img src="./assets//image-20210801092157093.png" alt="image-20210801092157093" style="zoom:80%;" /> 
 
 > FieldFill.INSERT: 插入时填充该属性值
 >
@@ -136,9 +136,9 @@ public class MyMetaObjecthandler implements MetaObjectHandler {
 
 编写完了元数据对象处理器之后，我们就可以将之前在新增和修改方法中手动赋值的代码删除或注释掉。
 
-<img src="assets/image-20210801093623217.png" alt="image-20210801093623217" style="zoom: 80%;" />  
+<img src="./assets//image-20210801093623217.png" alt="image-20210801093623217" style="zoom: 80%;" />  
 
-<img src="assets/image-20210801093747896.png" alt="image-20210801093747896" style="zoom:80%;" /> 
+<img src="./assets//image-20210801093747896.png" alt="image-20210801093747896" style="zoom:80%;" /> 
 
 
 
@@ -156,7 +156,7 @@ public class MyMetaObjecthandler implements MetaObjectHandler {
 
 大家可能想到，用户登录成功后我们将用户id存入了HttpSession中，现在我从HttpSession中获取不就行了？
 
-<img src="assets/image-20210801131449863.png" alt="image-20210801131449863" style="zoom:80%;" /> 
+<img src="./assets//image-20210801131449863.png" alt="image-20210801131449863" style="zoom:80%;" /> 
 
 注意，我们在MyMetaObjectHandler类中是不能直接获得HttpSession对象的，所以我们需要通过其他方式来获取登录用户id。
 
@@ -164,7 +164,7 @@ public class MyMetaObjecthandler implements MetaObjectHandler {
 
 那么我先搞清楚一点,当我们在修改员工信息时, 我们业务的执行流程是什么样子的,如下图:
 
-<img src="assets/image-20210801133531663.png" alt="image-20210801133531663" style="zoom:80%;" />  
+<img src="./assets//image-20210801133531663.png" alt="image-20210801133531663" style="zoom:80%;" />  
 
 客户端发送的每次http请求，对应的在服务端都会分配一个新的线程来处理，在处理过程中涉及到下面类中的方法都属于相同的一个线程：
 
@@ -183,7 +183,7 @@ log.info("线程id为：{}",id);
 
 执行编辑员工功能进行验证，通过观察控制台输出可以发现，一次请求对应的线程id是相同的：
 
-<img src="assets/image-20210801133827264.png" alt="image-20210801133827264" style="zoom:80%;" />  
+<img src="./assets//image-20210801133827264.png" alt="image-20210801133827264" style="zoom:80%;" />  
 
 
 
@@ -265,7 +265,7 @@ Long empId = (Long) request.getSession().getAttribute("employee");
 BaseContext.setCurrentId(empId);
 ```
 
-<img src="assets/image-20210801162053581.png" alt="image-20210801162053581" style="zoom:80%;" /> 
+<img src="./assets//image-20210801162053581.png" alt="image-20210801162053581" style="zoom:80%;" /> 
 
 
 
@@ -275,9 +275,9 @@ BaseContext.setCurrentId(empId);
 
 将之前在代码中固定的当前登录用户1， 修改为动态调用BaseContext中的getCurrentId方法获取当前登录用户ID
 
-<img src="assets/image-20210801162345846.png" alt="image-20210801162345846" style="zoom:80%;" /> 
+<img src="./assets//image-20210801162345846.png" alt="image-20210801162345846" style="zoom:80%;" /> 
 
-<img src="assets/image-20210801162436740.png" alt="image-20210801162436740" style="zoom:80%;" /> 
+<img src="./assets//image-20210801162436740.png" alt="image-20210801162436740" style="zoom:80%;" /> 
 
 
 
@@ -295,13 +295,13 @@ BaseContext.setCurrentId(empId);
 
 后台系统中可以管理分类信息，分类包括两种类型，分别是 **菜品分类** 和 **套餐分类** 。当我们在后台系统中添加菜品时需要选择一个菜品分类，当我们在后台系统中添加一个套餐时需要选择一个套餐分类，在移动端也会按照菜品分类和套餐分类来展示对应的菜品和套餐。
 
-<img src="assets/image-20210801163745391.png" alt="image-20210801163745391" style="zoom:80%;" /> 
+<img src="./assets//image-20210801163745391.png" alt="image-20210801163745391" style="zoom:80%;" /> 
 
 
 
 在分类管理中,我们新增分类时, 可以选择新增菜品分类(川菜、湘菜、粤菜...), 也可以选择新增套餐分类(营养早餐、超值午餐...)。 在添加套餐的时候, 输入的排序字段, 控制的是移动端套餐列表的展示顺序。
 
-<img src="assets/image-20210801165118745.png" alt="image-20210801165118745" style="zoom:80%;" /> 
+<img src="./assets//image-20210801165118745.png" alt="image-20210801165118745" style="zoom:80%;" /> 
 
 
 
@@ -309,11 +309,11 @@ BaseContext.setCurrentId(empId);
 
 新增分类，其实就是将我们新增窗口录入的分类数据,插入到category表，具体表结构如下：
 
-![image-20210801165801665](assets/image-20210801165801665.png) 
+![image-20210801165801665](./assets//image-20210801165801665.png) 
 
 我们添加的套餐名称，是唯一的，不能够重复的，所以在设计表结构时，已经针对于name字段建立了唯一索引，如下：
 
-![image-20210801165921450](assets/image-20210801165921450.png) 
+![image-20210801165921450](./assets//image-20210801165921450.png) 
 
 
 
@@ -331,7 +331,7 @@ BaseContext.setCurrentId(empId);
 
 可以看到新增菜品分类和新增套餐分类请求的服务端地址和提交的json数据结构相同，所以服务端只需要提供一个方法统一处理即可：
 
-<img src="assets/image-20210801171125255.png" alt="image-20210801171125255" style="zoom:80%;" /> 
+<img src="./assets//image-20210801171125255.png" alt="image-20210801171125255" style="zoom:80%;" /> 
 
 具体请求信息整理如下: 
 
@@ -513,7 +513,7 @@ public class CategoryController {
 
 系统中的分类很多的时候，如果在一个页面中全部展示出来会显得比较乱，不便于查看，所以一般的系统中都会以分页的方式来展示列表数据。
 
-<img src="assets/image-20210801172259439.png" alt="image-20210801172259439" style="zoom:80%;" /> 
+<img src="./assets//image-20210801172259439.png" alt="image-20210801172259439" style="zoom:80%;" /> 
 
 
 
@@ -537,17 +537,17 @@ public class CategoryController {
 
 页面加载时,就会触发Vue声明周期的钩子方法,然后执行分页查询,发送异步请求到服务端,前端代码如下: 
 
-<img src="assets/image-20210801172847501.png" alt="image-20210801172847501" style="zoom:80%;" />  
+<img src="./assets//image-20210801172847501.png" alt="image-20210801172847501" style="zoom:80%;" />  
 
 页面中使用的是ElementUI提供的分页组件进行分页条的展示:
 
-<img src="assets/image-20210801173229949.png" alt="image-20210801173229949" style="zoom:80%;" />  
+<img src="./assets//image-20210801173229949.png" alt="image-20210801173229949" style="zoom:80%;" />  
 
 
 
 我们通过浏览器,也可以抓取到分页查询的请求信息, 如下: 
 
-<img src="assets/image-20210801172951915.png" alt="image-20210801172951915" style="zoom:80%;" /> 
+<img src="./assets//image-20210801172951915.png" alt="image-20210801172951915" style="zoom:80%;" /> 
 
 
 
@@ -595,9 +595,9 @@ public R<Page> page(int page,int pageSize){
 
 测试完毕后，大家会发现，我们查询数据库返回的类型为 1 或者 2， 但是实际展示到页面上的却是 "菜品分类" 或 "套餐分类"，这一块是在前端页面中进行处理的，处理代码如下： 
 
-<img src="assets/image-20210801173758580.png" alt="image-20210801173758580" style="zoom:80%;" /> 
+<img src="./assets//image-20210801173758580.png" alt="image-20210801173758580" style="zoom:80%;" /> 
 
-<img src="assets/image-20210801173850606.png" alt="image-20210801173850606" style="zoom:94%;" /> 
+<img src="./assets//image-20210801173850606.png" alt="image-20210801173850606" style="zoom:94%;" /> 
 
 
 
@@ -609,7 +609,7 @@ public R<Page> page(int page,int pageSize){
 
 在分类管理列表页面，可以对某个分类进行删除操作。需要注意的是当分类关联了菜品或者套餐时，此分类不允许删除。
 
-<img src="assets/image-20210801220637396.png" alt="image-20210801220637396" style="zoom:80%;" /> 
+<img src="./assets//image-20210801220637396.png" alt="image-20210801220637396" style="zoom:80%;" /> 
 
 
 
@@ -617,7 +617,7 @@ public R<Page> page(int page,int pageSize){
 
 在前端页面中，点击 "删除" 按钮，就会触发定义的方法，然后往服务端发送异步请求，并传递参数id，执行删除分类操作。
 
- <img src="assets/image-20210801221049176.png" alt="image-20210801221049176" style="zoom:80%;" />  
+ <img src="./assets//image-20210801221049176.png" alt="image-20210801221049176" style="zoom:80%;" />  
 
 删除操作的具体执行流程如下： 
 
@@ -627,7 +627,7 @@ public R<Page> page(int page,int pageSize){
 
 3). Service调用Mapper操作数据库
 
-<img src="assets/image-20210801221343539.png" alt="image-20210801221343539" style="zoom:80%;" /> 
+<img src="./assets//image-20210801221343539.png" alt="image-20210801221343539" style="zoom:80%;" /> 
 
 
 
@@ -683,9 +683,9 @@ public R<String> delete(Long id){
 
 那么在这里又涉及到我们后面要用到的两张表结构 dish(菜品表) 和 setmeal(套餐表)。具体的表结构，我们目前先了解一下： 
 
-<img src="assets/image-20210802001302912.png" alt="image-20210802001302912" style="zoom:80%;" /> 
+<img src="./assets//image-20210802001302912.png" alt="image-20210802001302912" style="zoom:80%;" /> 
 
-<img src="assets/image-20210802001348928.png" alt="image-20210802001348928" style="zoom:80%;" /> 
+<img src="./assets//image-20210802001348928.png" alt="image-20210802001348928" style="zoom:80%;" /> 
 
 
 
@@ -1011,7 +1011,7 @@ public R<String> delete(Long id){
 
 2). 在数据库表(dish/setmeal)中，找到一个与菜品或套餐关联的分类，然后在页面中执行删除操作，检查是否可以正常的提示出对应的错误信息。
 
-<img src="assets/image-20210801235124007.png" alt="image-20210801235124007" style="zoom:80%;" /> 
+<img src="./assets//image-20210801235124007.png" alt="image-20210801235124007" style="zoom:80%;" /> 
 
 
 
@@ -1023,7 +1023,7 @@ public R<String> delete(Long id){
 
 在分类管理列表页面点击修改按钮，弹出修改窗口，在修改窗口回显分类信息并进行修改，最后点击确定按钮完成修改操作。
 
-<img src="assets/image-20210801235311435.png" alt="image-20210801235311435" style="zoom:80%;" /> 
+<img src="./assets//image-20210801235311435.png" alt="image-20210801235311435" style="zoom:80%;" /> 
 
 
 
@@ -1031,11 +1031,11 @@ public R<String> delete(Long id){
 
 这里面大家会发现，修改功能我们还没有实现，但是当点击 "修改" 按钮的时候，我们并没有开发根据ID查询数据，进行页面回显的功能，但是页面的分类数据确实回显回来了。这是怎么做到的呢，我们来解析一下前端的代码实现(前端代码已经实现)：
 
-<img src="assets/image-20210802000227359.png" alt="image-20210802000227359" style="zoom:80%;" /> 
+<img src="./assets//image-20210802000227359.png" alt="image-20210802000227359" style="zoom:80%;" /> 
 
 那么回显这一步的操作前端已经实现，我们就只需要开发一个方法，修改操作的方法即可。我们可以通过浏览器来抓取一下修改操作的请求信息，如图：
 
-<img src="assets/image-20210802000605946.png" alt="image-20210802000605946" style="zoom:80%;" /> 
+<img src="./assets//image-20210802000605946.png" alt="image-20210802000605946" style="zoom:80%;" /> 
 
 
 

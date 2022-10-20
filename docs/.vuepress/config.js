@@ -333,6 +333,52 @@ export default {
             },
           ],
         },
+        {
+          text: "strongking外卖",
+          children: [
+            {
+              text: "strongking外卖-Day01",
+              link: "/gitredis/项目课程/讲义/瑞吉外卖-day01/瑞吉外卖-Day01.md",
+            },
+            {
+              text: "strongking外卖-Day02",
+              link: "/gitredis/项目课程/讲义/瑞吉外卖-day02/瑞吉外卖-Day02.md",
+            },
+            {
+              text: "strongking外卖-Day03",
+              link: "/gitredis/项目课程/讲义/瑞吉外卖-day03/瑞吉外卖-Day03.md",
+            },
+            {
+              text: "strongking外卖-Day04",
+              link: "/gitredis/项目课程/讲义/瑞吉外卖-day04/瑞吉外卖-Day04.md",
+            },
+            {
+              text: "strongking外卖-Day05",
+              link: "/gitredis/项目课程/讲义/瑞吉外卖-day05/瑞吉外卖-第五天.md",
+            },
+            {
+              text: "strongking外卖-Day06",
+              link: "/gitredis/项目课程/讲义/瑞吉外卖-day06/瑞吉外卖-第六天.md",
+            },
+          ],
+        },
+        {
+          text: "项目优化",
+          children: [
+            {
+              text: "strongking项目优化",
+              link: "/gitredis/项目优化/讲义/瑞吉外卖项目优化-day01/瑞吉外卖项目优化-Day01.md",
+            },
+            {
+              text: "strongking项目优化",
+              link: "/gitredis/项目优化/讲义/瑞吉外卖项目优化-day02/瑞吉外卖项目优化-Day02.md",
+            },
+            {
+              text: "strongking项目优化",
+              link: "/gitredis/项目优化/讲义/瑞吉外卖项目优化-day03/瑞吉外卖项目优化-Day03.md",
+            },
+          ],
+        },
       ],
     },
   }),
