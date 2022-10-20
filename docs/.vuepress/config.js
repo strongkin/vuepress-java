@@ -4,6 +4,7 @@ export default {
   title: "strongking",
   description: "strongking博客",
   base: "/vuepress-java/",
+  head: [["link", { rel: "icon", href: "/images/good.png" }]],
   theme: defaultTheme({
     // sidebar:'auto',
     // Public 文件路径
