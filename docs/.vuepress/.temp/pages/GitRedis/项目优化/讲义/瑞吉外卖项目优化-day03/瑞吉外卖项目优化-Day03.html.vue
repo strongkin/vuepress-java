@@ -1,0 +1,570 @@
+<template><div><h1 id="瑞吉外卖项目优化-day03" tabindex="-1"><a class="header-anchor" href="#瑞吉外卖项目优化-day03" aria-hidden="true">#</a> 瑞吉外卖项目优化-Day03</h1>
+<h2 id="课程内容" tabindex="-1"><a class="header-anchor" href="#课程内容" aria-hidden="true">#</a> 课程内容</h2>
+<ul>
+<li>
+<p>前后端分离开发</p>
+</li>
+<li>
+<p>Yapi</p>
+</li>
+<li>
+<p>Swagger</p>
+</li>
+<li>
+<p>项目部署</p>
+</li>
+</ul>
+<h2 id="前言" tabindex="-1"><a class="header-anchor" href="#前言" aria-hidden="true">#</a> 前言</h2>
+<blockquote>
+<p>当前项目中，前端代码和后端代码混合在一起，是存在问题的，存在什么问题呢？</p>
+</blockquote>
+<p><img src="assets/image-20210831232554721.png" alt="image-20210831232554721"></p>
+<p>主要存在以下几点问题：</p>
+<p>1). 开发人员同时负责前端和后端代码开发，分工不明确</p>
+<p>2). 开发效率低</p>
+<p>3). 前后端代码混合在一个工程中，不便于管理</p>
+<p>4). 对开发人员要求高(既会前端，又会后端)，人员招聘困难</p>
+<p>为了解决上述提到的问题，现在比较主流的开发方式，就是<strong>前后端分离开发</strong>，前端人员开发前端的代码，后端开发人员开发服务端的业务功能，分工明确，各司其职。我们本章节，就是需要将之前的项目进行优化改造，变成前后端分离开发的项目。</p>
+<h2 id="_1-前后端分离开发" tabindex="-1"><a class="header-anchor" href="#_1-前后端分离开发" aria-hidden="true">#</a> 1. 前后端分离开发</h2>
+<h3 id="_1-1-介绍" tabindex="-1"><a class="header-anchor" href="#_1-1-介绍" aria-hidden="true">#</a> 1.1 介绍</h3>
+<p><strong>前后端分离开发</strong>，就是在项目开发过程中，对于前端代码的开发由专门的前端开发人员负责，后端代码则由后端开发人员负责，这样可以做到分工明确、各司其职，提高开发效率，前后端代码并行开发，可以加快项目开发进度。</p>
+<p>目前，前后端分离开发方式已经被越来越多的公司所采用，成为当前项目开发的主流开发方式。</p>
+<p>前后端分离开发后，从工程结构上也会发生变化，即前后端代码不再混合在同一个maven工程中，而是分为 <strong>前端工程</strong> 和 <strong>后端工程</strong> 。</p>
+<p><img src="assets/image-20210901082121874.png" alt="image-20210901082121874"></p>
+<p>前后端分离之后，不仅工程结构变化，后期项目上线部署时，与之前也不同:</p>
+<p>1). 之前: 前后端代码都混合在一起，我们只需要将前端和后端的代码统一打成jar包，直接运行就可以了。</p>
+<p>2). 现在: 拆分为前后端分离的项目后，最终部署时，后端工程会打成一个jar包，运行在Tomcat中(springboot内嵌的tomcat)。前端工程的静态资源，会直接部署在Nginx中进行访问。</p>
+<h3 id="_1-2-开发流程" tabindex="-1"><a class="header-anchor" href="#_1-2-开发流程" aria-hidden="true">#</a> 1.2 开发流程</h3>
+<p>前后端分离开发后，面临一个问题，就是前端开发人员和后端开发人员如何进行配合来共同开发一个项目？可以按照如下流程进行：</p>
+<p><img src="assets/image-20210901084945348.png" alt="image-20210901084945348">            <img src="assets/image-20210901085057990.png" alt="image-20210901085057990"></p>
+<p>1). 定制接口: 这里所说的接口不是我们之前在service， mapper层定义的interface； 这里的接口(API接口)就是一个http的请求地址，主要就是去定义：请求路径、请求方式、请求参数、响应数据等内容。(具体接口文档描述的信息, 如上图)</p>
+<p>2). 前后端并行开发: 依据定义好的接口信息，前端人员开发前端的代码，服务端人员开发服务端的接口； 在开发中前后端都需要进行测试，后端需要通过对应的工具来进行接口的测试，前端需要根据接口定义的参数进行Mock数据模拟测试。</p>
+<p>3). 联调: 当前后端都开发完毕并且自测通过之后，就可以进行前后端的联调测试了，在这一阶段主要就是校验接口的参数格式。</p>
+<p>4). 提测: 前后端联调测试通过之后，就可以将项目部署到测试服务器，进行自动化测试了。</p>
+<h3 id="_1-3-前端技术栈" tabindex="-1"><a class="header-anchor" href="#_1-3-前端技术栈" aria-hidden="true">#</a> 1.3 前端技术栈</h3>
+<p><strong>1). 开发工具</strong></p>
+<p>Visual Studio Code (简称VsCode)</p>
+<p>Hbuilder</p>
+<p><strong>2). 技术框架</strong></p>
+<p>A. Node.js:  Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。(类似于java语言中的JDK)。</p>
+<p>B. Vue : 目前最火的的一个前端javaScript框架。</p>
+<p>C. ElementUI: 一套为开发者、设计师和产品经理准备的基于 Vue 2.0 的桌面端组件库，通过ElementUI组件可以快速构建项目页面。</p>
+<p>D. Mock: 生成随机数据，拦截 Ajax 请求，前端可以借助于Mock生成测试数据进行功能测试。</p>
+<p>E. Webpack: webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Sass，TypeScript等），并将其转换和打包为合适的格式供浏览器使用。</p>
+<h2 id="_2-yapi" tabindex="-1"><a class="header-anchor" href="#_2-yapi" aria-hidden="true">#</a> 2. Yapi</h2>
+<h3 id="_2-1-介绍" tabindex="-1"><a class="header-anchor" href="#_2-1-介绍" aria-hidden="true">#</a> 2.1 介绍</h3>
+<p><img src="assets/image-20210901110936381.png" alt="image-20210901110936381"></p>
+<p>YApi 是高效、易用、功能强大的 api 管理平台，旨在为开发、产品、测试人员提供更优雅的接口管理服务。可以帮助开发者轻松创建、发布、维护 API，YApi 还为用户提供了优秀的交互体验，开发人员只需利用平台提供的接口数据写入工具以及简单的点击操作就可以实现接口的管理。</p>
+<p>YApi让接口开发更简单高效，让接口的管理更具可读性、可维护性，让团队协作更合理。</p>
+<p>源码地址: https://github.com/YMFE/yapi</p>
+<p>官方文档: https://hellosean1025.github.io/yapi/</p>
+<p>要使用YApi，项目组需要自己进行部署，在本项目中我们可以使用课程提供的平台进行测试，域名： https://mock-java.itheima.net/</p>
+<h3 id="_2-2-使用" tabindex="-1"><a class="header-anchor" href="#_2-2-使用" aria-hidden="true">#</a> 2.2 使用</h3>
+<h4 id="_2-2-1-准备" tabindex="-1"><a class="header-anchor" href="#_2-2-1-准备" aria-hidden="true">#</a> 2.2.1 准备</h4>
+<p>注册账号，登录平台</p>
+<p><img src="assets/image-20210901115408908.png" alt="image-20210901115408908"></p>
+<h4 id="_2-2-2-定义接口" tabindex="-1"><a class="header-anchor" href="#_2-2-2-定义接口" aria-hidden="true">#</a> 2.2.2 定义接口</h4>
+<p>登录到Yapi平台之后，我们可以创建项目，在项目下创建接口分类，在对应的分类中添加接口。</p>
+<p>1). 创建项目</p>
+<p><img src="assets/image-20210901123709298.png" alt="image-20210901123709298"></p>
+<p><img src="assets/image-20210901124623325.png" alt="image-20210901124623325"></p>
+<p>2). 添加分类</p>
+<p>在当前项目中,有针对于员工、菜品、套餐、订单的操作，我们在进行接口维护时，可以针对接口进行分类，如果没有对应的分类，我们自己添加分类。</p>
+<p><img src="assets/image-20210901125311166.png" alt="image-20210901125311166"></p>
+<p>3). 添加接口</p>
+<p><img src="assets/image-20210901125517274.png" alt="image-20210901125517274"></p>
+<p>接口基本信息录入之后，添加提交，就可以看到该接口的基本信息：</p>
+<p><img src="assets/image-20210901125617777.png" alt="image-20210901125617777"></p>
+<p>但是目前，接口中我们并未指定请求参数，响应数据等信息，我们可以进一步点击编辑，对该接口 详情进行编辑处理。</p>
+<p><img src="assets/image-20210901140052897.png" alt="image-20210901140052897"></p>
+<p>4). 运行接口</p>
+<p>Yapi也提供了接口测试功能，当我们接口编辑完毕后，后端服务的代码开发完毕，启动服务，就可以使用Yapi进行接口测试了。</p>
+<p><img src="assets/image-20210901140924816.png" alt="image-20210901140924816"></p>
+<font color='red'>注意： 由于菜品分页查询接口，是需要登录后才可以访问的，所以在测试该接口时，需要先请求员工管理接口中的登录接口，登录完成后，再访问该接口。</font><p>在Yapi平台中，将接口文档定义好了之后，前后端开发人员就需要根据接口文档中关于接口的描述进行前端和后端功能的开发。</p>
+<h4 id="_2-2-3-导出接口文档" tabindex="-1"><a class="header-anchor" href="#_2-2-3-导出接口文档" aria-hidden="true">#</a> 2.2.3 导出接口文档</h4>
+<p>在Yapi平台中我们不仅可以在线阅读文档，还可以将Yapi中维护的文档直接导出来，可以导出md，json，html格式，在导出时自行选择即可 。</p>
+<p><img src="assets/image-20210901150153468.png" alt="image-20210901150153468"></p>
+<p>而在导出的html文件或md文件中，主要描述的就是接口的基本信息， 包括： 请求路径、请求方式、接口描述、请求参数、返回数据等信息。展示形式如下：</p>
+<img src="assets/image-20210901150401976.png" alt="image-20210901150401976" style="zoom: 80%;" /> 
+<h4 id="_2-2-4-导入接口文档" tabindex="-1"><a class="header-anchor" href="#_2-2-4-导入接口文档" aria-hidden="true">#</a> 2.2.4 导入接口文档</h4>
+<p>上述我们讲解了接口文档的导出，我们也可以将外部的接口文档导入到Yapi的平台中，这样我们就不用一个接口一个接口的添加了。我们可以将课程资料中提供的json格式的接口文档直接导入Yapi平台中来。</p>
+<img src="assets/image-20210901151127926.png" alt="image-20210901151127926" style="zoom:80%;" /> 
+<p>导入过程中出现的确认弹窗，选择&quot;确认&quot;。</p>
+<img src="assets/image-20210901151508478.png" alt="image-20210901151508478" style="zoom:80%;" /> 
+<p>导入成功之后，我们就可以在Yapi平台查看到已导入的接口。</p>
+<p><img src="assets/image-20210901151721356.png" alt="image-20210901151721356"></p>
+<h2 id="_3-swagger" tabindex="-1"><a class="header-anchor" href="#_3-swagger" aria-hidden="true">#</a> 3. Swagger</h2>
+<h3 id="_3-1-介绍" tabindex="-1"><a class="header-anchor" href="#_3-1-介绍" aria-hidden="true">#</a> 3.1 介绍</h3>
+<p>官网：https://swagger.io/</p>
+<p><img src="assets/image-20210901160434736.png" alt="image-20210901160434736"></p>
+<p>Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。功能主要包含以下几点:</p>
+<p>A. 使得前后端分离开发更加方便，有利于团队协作</p>
+<p>B. 接口文档在线自动生成，降低后端开发人员编写接口文档的负担</p>
+<p>C. 接口功能测试</p>
+<p>使用Swagger只需要按照它的规范去定义接口及接口相关的信息，再通过Swagger衍生出来的一系列项目和工具，就可以做到生成各种格式的接口文档，以及在线接口调试页面等等。</p>
+<p>直接使用Swagger, 需要按照Swagger的规范定义接口, 实际上就是编写Json文件，编写起来比较繁琐、并不方便, 。而在项目中使用，我们一般会选择一些现成的框架来简化文档的编写，而这些框架是基于Swagger的，如knife4j。knife4j是为Java MVC框架集成Swagger生成Api文档的增强解决方案。而我们要使用kinfe4j，需要在pom.xml中引入如下依赖即可：</p>
+<div class="language-xml ext-xml line-numbers-mode"><pre v-pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.github.xiaoymin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>knife4j-spring-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.0.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_3-2-使用方式" tabindex="-1"><a class="header-anchor" href="#_3-2-使用方式" aria-hidden="true">#</a> 3.2 使用方式</h3>
+<p>接下来，我们就将我们的项目集成Knife4j，来自动生成接口文档。这里我们还是需要再创建一个新的分支v1.2，在该分支中进行knife4j的集成，集成测试完毕之后，没有问题，我们再将v1.2分支合并到master。</p>
+<p>使用knife4j，主要需要操作以下几步:</p>
+<p><strong>1). 导入knife4j的maven坐标</strong></p>
+<div class="language-xml ext-xml line-numbers-mode"><pre v-pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.github.xiaoymin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>knife4j-spring-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.0.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>2). 导入knife4j相关配置类</strong></p>
+<p>这里我们就不需要再创建一个新的配置类了，我们直接在WebMvcConfig配置类中声明即可。</p>
+<p>A. 在该配置类中加上两个注解 @EnableSwagger2 @EnableKnife4j ,开启Swagger和Knife4j的功能。</p>
+<p>B. 在配置类中声明一个Docket类型的bean, 通过该bean来指定生成文档的信息。</p>
+<div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Configuration</span>
+<span class="token annotation punctuation">@EnableSwagger2</span>
+<span class="token annotation punctuation">@EnableKnife4j</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">WebMvcConfig</span> <span class="token keyword">extends</span> <span class="token class-name">WebMvcConfigurationSupport</span> <span class="token punctuation">{</span>
+	
+    <span class="token doc-comment comment">/**
+     * 设置静态资源映射
+     * <span class="token keyword">@param</span> <span class="token parameter">registry</span>
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">addResourceHandlers</span><span class="token punctuation">(</span><span class="token class-name">ResourceHandlerRegistry</span> registry<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"开始进行静态资源映射..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        registry<span class="token punctuation">.</span><span class="token function">addResourceHandler</span><span class="token punctuation">(</span><span class="token string">"/backend/**"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addResourceLocations</span><span class="token punctuation">(</span><span class="token string">"classpath:/backend/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        registry<span class="token punctuation">.</span><span class="token function">addResourceHandler</span><span class="token punctuation">(</span><span class="token string">"/front/**"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addResourceLocations</span><span class="token punctuation">(</span><span class="token string">"classpath:/front/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+	
+    <span class="token doc-comment comment">/**
+     * 扩展mvc框架的消息转换器
+     * <span class="token keyword">@param</span> <span class="token parameter">converters</span>
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">extendMessageConverters</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">HttpMessageConverter</span><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">></span><span class="token punctuation">></span></span> converters<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"扩展消息转换器..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//创建消息转换器对象</span>
+        <span class="token class-name">MappingJackson2HttpMessageConverter</span> messageConverter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MappingJackson2HttpMessageConverter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//设置对象转换器，底层使用Jackson将Java对象转为json</span>
+        messageConverter<span class="token punctuation">.</span><span class="token function">setObjectMapper</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">JacksonObjectMapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//将上面的消息转换器对象追加到mvc框架的转换器集合中</span>
+        converters<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>messageConverter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+	
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">Docket</span> <span class="token function">createRestApi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 文档类型</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Docket</span><span class="token punctuation">(</span><span class="token class-name">DocumentationType</span><span class="token punctuation">.</span><span class="token constant">SWAGGER_2</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">apiInfo</span><span class="token punctuation">(</span><span class="token function">apiInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">apis</span><span class="token punctuation">(</span><span class="token class-name">RequestHandlerSelectors</span><span class="token punctuation">.</span><span class="token function">basePackage</span><span class="token punctuation">(</span><span class="token string">"com.itheima.reggie.controller"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">paths</span><span class="token punctuation">(</span><span class="token class-name">PathSelectors</span><span class="token punctuation">.</span><span class="token function">any</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+	
+    <span class="token keyword">private</span> <span class="token class-name">ApiInfo</span> <span class="token function">apiInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ApiInfoBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">title</span><span class="token punctuation">(</span><span class="token string">"瑞吉外卖"</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">version</span><span class="token punctuation">(</span><span class="token string">"1.0"</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">description</span><span class="token punctuation">(</span><span class="token string">"瑞吉外卖接口文档"</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote>
+<p>注意： Docket声明时，指定的有一个包扫描的路径，该路径指定的是Controller所在包的路径。因为Swagger在生成接口文档时，就是根据这里指定的包路径，自动的扫描该包下的@Controller， @RestController， @RequestMapping等SpringMVC的注解，依据这些注解来生成对应的接口文档。</p>
+</blockquote>
+<p><strong>3). 设置静态资源映射</strong></p>
+<p>由于Swagger生成的在线文档中，涉及到很多静态资源，这些静态资源需要添加静态资源映射，否则接口文档页面无法访问。因此需要在 WebMvcConfig类中的addResourceHandlers方法中增加如下配置。</p>
+<div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code>registry<span class="token punctuation">.</span><span class="token function">addResourceHandler</span><span class="token punctuation">(</span><span class="token string">"doc.html"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addResourceLocations</span><span class="token punctuation">(</span><span class="token string">"classpath:/META-INF/resources/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+registry<span class="token punctuation">.</span><span class="token function">addResourceHandler</span><span class="token punctuation">(</span><span class="token string">"/webjars/**"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addResourceLocations</span><span class="token punctuation">(</span><span class="token string">"classpath:/META-INF/resources/webjars/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>4). 在LoginCheckFilter中设置不需要处理的请求路径</strong></p>
+<p>需要将Swagger及Knife4j相关的静态资源直接放行，无需登录即可访问，否则我们就需要登录之后，才可以访问接口文档的页面。</p>
+<p>在原有的不需要处理的请求路径中，再增加如下链接：</p>
+<div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code><span class="token string">"/doc.html"</span><span class="token punctuation">,</span>
+<span class="token string">"/webjars/**"</span><span class="token punctuation">,</span>
+<span class="token string">"/swagger-resources"</span><span class="token punctuation">,</span>
+<span class="token string">"/v2/api-docs"</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><img src="assets/image-20210901171132242.png" alt="image-20210901171132242"></p>
+<h3 id="_3-3-查看接口文档" tabindex="-1"><a class="header-anchor" href="#_3-3-查看接口文档" aria-hidden="true">#</a> 3.3 查看接口文档</h3>
+<p>经过上面的集成配置之后，我们的项目集成Swagger及Knife4j就已经完成了，接下来我们可以重新启动项目，访问接口文档，访问链接为： http://localhost:8080/doc.html</p>
+<p><img src="assets/image-20210901200739975.png" alt="image-20210901200739975"></p>
+<p>我们可以看到，在所有的Controller中提供的所有的业务增删改查的接口，全部都已经自动生成了，我们通过接口文档可以看到请求的url、请求方式、请求参数、请求实例、响应的参数，响应的示例。 并且呢，我们也可以通过这份在线的接口文档，对接口进行测试。</p>
+<p><img src="assets/image-20210901201229838.png" alt="image-20210901201229838"></p>
+<p>注意： 由于我们服务端的Controller中的业务增删改查的方法，都是必须登录之后才可以访问的，所以，我们在测试时候，也是需要先访问登录接口。登录完成之后，我们可以再访问其他接口进行测试。</p>
+<p>我们不仅可以在浏览器浏览生成的接口文档，Knife4j还支持离线文档，对接口文档进行下载，支持下载的格式有：markdown、html、word、openApi。</p>
+<p><img src="assets/image-20210901214706928.png" alt="image-20210901214706928"></p>
+<h3 id="_3-4-常用注解" tabindex="-1"><a class="header-anchor" href="#_3-4-常用注解" aria-hidden="true">#</a> 3.4 常用注解</h3>
+<h4 id="_3-4-1-问题说明" tabindex="-1"><a class="header-anchor" href="#_3-4-1-问题说明" aria-hidden="true">#</a> 3.4.1 问题说明</h4>
+<p>在上面我们直接访问Knife4j的接口文档页面，可以查看到所有的接口文档信息，但是我们发现，这些接口文档分类及接口描述都是Controller的类名(驼峰命名转换而来)及方法名，而且在接口文档中，所有的请求参数，响应数据，都没有中文的描述，并不知道里面参数的含义，接口文档的可读性很差。</p>
+<p><img src="assets/image-20210901215244539.png" alt="image-20210901215244539"></p>
+<h4 id="_3-4-2-注解介绍" tabindex="-1"><a class="header-anchor" href="#_3-4-2-注解介绍" aria-hidden="true">#</a> 3.4.2 注解介绍</h4>
+<p>为了解决上述的问题，Swagger提供了很多的注解，通过这些注解，我们可以更好更清晰的描述我们的接口，包含接口的请求参数、响应数据、数据模型等。核心的注解，主要包含以下几个：</p>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>位置</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@Api</td>
+<td>类</td>
+<td>加载Controller类上,表示对类的说明</td>
+</tr>
+<tr>
+<td>@ApiModel</td>
+<td>类(通常是实体类)</td>
+<td>描述实体类的作用</td>
+</tr>
+<tr>
+<td>@ApiModelProperty</td>
+<td>属性</td>
+<td>描述实体类的属性</td>
+</tr>
+<tr>
+<td>@ApiOperation</td>
+<td>方法</td>
+<td>说明方法的用途、作用</td>
+</tr>
+<tr>
+<td>@ApiImplicitParams</td>
+<td>方法</td>
+<td>表示一组参数说明</td>
+</tr>
+<tr>
+<td>@ApiImplicitParam</td>
+<td>方法</td>
+<td>用在@ApiImplicitParams注解中，指定一个请求参数的各个方面的属性</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_3-4-3-注解测试" tabindex="-1"><a class="header-anchor" href="#_3-4-3-注解测试" aria-hidden="true">#</a> 3.4.3 注解测试</h4>
+<p><strong>1). 实体类</strong></p>
+<blockquote>
+<p>可以通过 @ApiModel , @ApiModelProperty 来描述实体类及属性</p>
+</blockquote>
+<div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code><span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@ApiModel</span><span class="token punctuation">(</span><span class="token string">"套餐"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Setmeal</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> <span class="token number">1L</span><span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span><span class="token string">"主键"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">Long</span> id<span class="token punctuation">;</span>
+    
+    <span class="token comment">//分类id</span>
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span><span class="token string">"分类id"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">Long</span> categoryId<span class="token punctuation">;</span>
+    
+    <span class="token comment">//套餐名称</span>
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span><span class="token string">"套餐名称"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+
+    <span class="token comment">//套餐价格</span>
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span><span class="token string">"套餐价格"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">BigDecimal</span> price<span class="token punctuation">;</span>
+
+    <span class="token comment">//状态 0:停用 1:启用</span>
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span><span class="token string">"状态"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> status<span class="token punctuation">;</span>
+
+    <span class="token comment">//编码</span>
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span><span class="token string">"套餐编号"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> code<span class="token punctuation">;</span>
+
+    <span class="token comment">//描述信息</span>
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span><span class="token string">"描述信息"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> description<span class="token punctuation">;</span>
+
+    <span class="token comment">//图片</span>
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span><span class="token string">"图片"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> image<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@TableField</span><span class="token punctuation">(</span>fill <span class="token operator">=</span> <span class="token class-name">FieldFill</span><span class="token punctuation">.</span><span class="token constant">INSERT</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">LocalDateTime</span> createTime<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@TableField</span><span class="token punctuation">(</span>fill <span class="token operator">=</span> <span class="token class-name">FieldFill</span><span class="token punctuation">.</span><span class="token constant">INSERT_UPDATE</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">LocalDateTime</span> updateTime<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@TableField</span><span class="token punctuation">(</span>fill <span class="token operator">=</span> <span class="token class-name">FieldFill</span><span class="token punctuation">.</span><span class="token constant">INSERT</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">Long</span> createUser<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@TableField</span><span class="token punctuation">(</span>fill <span class="token operator">=</span> <span class="token class-name">FieldFill</span><span class="token punctuation">.</span><span class="token constant">INSERT_UPDATE</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">Long</span> updateUser<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>2). 响应实体R</strong></p>
+<div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code><span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@ApiModel</span><span class="token punctuation">(</span><span class="token string">"返回结果"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">R</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span><span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span><span class="token string">"编码"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> code<span class="token punctuation">;</span> <span class="token comment">//编码：1成功，0和其它数字为失败</span>
+
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span><span class="token string">"错误信息"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> msg<span class="token punctuation">;</span> <span class="token comment">//错误信息</span>
+
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span><span class="token string">"数据"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">T</span> data<span class="token punctuation">;</span> <span class="token comment">//数据</span>
+
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span><span class="token string">"动态数据"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">Map</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//动态数据</span>
+	
+	<span class="token comment">//省略静态方法 ....</span>
+<span class="token punctuation">}</span>    
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>3). Controller类及其中的方法</strong></p>
+<blockquote>
+<p>描述Controller、方法及其方法参数，可以通过注解： @Api， @APIOperation， @ApiImplicitParams, @ApiImplicitParam</p>
+</blockquote>
+<div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code><span class="token annotation punctuation">@RestController</span>
+<span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/setmeal"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Api</span><span class="token punctuation">(</span>tags <span class="token operator">=</span> <span class="token string">"套餐相关接口"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SetmealController</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">SetmealService</span> setmealService<span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">CategoryService</span> categoryService<span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">SetmealDishService</span> setmealDishService<span class="token punctuation">;</span>
+
+    <span class="token doc-comment comment">/**
+     * 新增套餐
+     * <span class="token keyword">@param</span> <span class="token parameter">setmealDto</span>
+     * <span class="token keyword">@return</span>
+     */</span>
+    <span class="token annotation punctuation">@PostMapping</span>
+    <span class="token annotation punctuation">@CacheEvict</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"setmealCache"</span><span class="token punctuation">,</span>allEntries <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@ApiOperation</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"新增套餐接口"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">R</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">save</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestBody</span> <span class="token class-name">SetmealDto</span> setmealDto<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"套餐信息：{}"</span><span class="token punctuation">,</span>setmealDto<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        setmealService<span class="token punctuation">.</span><span class="token function">saveWithDish</span><span class="token punctuation">(</span>setmealDto<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token class-name">R</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token string">"新增套餐成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token doc-comment comment">/**
+     * 套餐分页查询
+     * <span class="token keyword">@param</span> <span class="token parameter">page</span>
+     * <span class="token keyword">@param</span> <span class="token parameter">pageSize</span>
+     * <span class="token keyword">@param</span> <span class="token parameter">name</span>
+     * <span class="token keyword">@return</span>
+     */</span>
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/page"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@ApiOperation</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"套餐分页查询接口"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@ApiImplicitParams</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@ApiImplicitParam</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"page"</span><span class="token punctuation">,</span>value <span class="token operator">=</span> <span class="token string">"页码"</span><span class="token punctuation">,</span>required <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token annotation punctuation">@ApiImplicitParam</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"pageSize"</span><span class="token punctuation">,</span>value <span class="token operator">=</span> <span class="token string">"每页记录数"</span><span class="token punctuation">,</span>required <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token annotation punctuation">@ApiImplicitParam</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"name"</span><span class="token punctuation">,</span>value <span class="token operator">=</span> <span class="token string">"套餐名称"</span><span class="token punctuation">,</span>required <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">R</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Page</span><span class="token punctuation">></span></span> <span class="token function">page</span><span class="token punctuation">(</span><span class="token keyword">int</span> page<span class="token punctuation">,</span><span class="token keyword">int</span> pageSize<span class="token punctuation">,</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">//分页构造器对象</span>
+        <span class="token class-name">Page</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Setmeal</span><span class="token punctuation">></span></span> pageInfo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Page</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>page<span class="token punctuation">,</span>pageSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Page</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">SetmealDto</span><span class="token punctuation">></span></span> dtoPage <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Page</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">LambdaQueryWrapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Setmeal</span><span class="token punctuation">></span></span> queryWrapper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LambdaQueryWrapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//添加查询条件，根据name进行like模糊查询</span>
+        queryWrapper<span class="token punctuation">.</span><span class="token function">like</span><span class="token punctuation">(</span>name <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">,</span><span class="token class-name">Setmeal</span><span class="token operator">::</span><span class="token function">getName</span><span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//添加排序条件，根据更新时间降序排列</span>
+        queryWrapper<span class="token punctuation">.</span><span class="token function">orderByDesc</span><span class="token punctuation">(</span><span class="token class-name">Setmeal</span><span class="token operator">::</span><span class="token function">getUpdateTime</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        setmealService<span class="token punctuation">.</span><span class="token function">page</span><span class="token punctuation">(</span>pageInfo<span class="token punctuation">,</span>queryWrapper<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//对象拷贝</span>
+        <span class="token class-name">BeanUtils</span><span class="token punctuation">.</span><span class="token function">copyProperties</span><span class="token punctuation">(</span>pageInfo<span class="token punctuation">,</span>dtoPage<span class="token punctuation">,</span><span class="token string">"records"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Setmeal</span><span class="token punctuation">></span></span> records <span class="token operator">=</span> pageInfo<span class="token punctuation">.</span><span class="token function">getRecords</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">SetmealDto</span><span class="token punctuation">></span></span> list <span class="token operator">=</span> records<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token punctuation">{</span>
+            <span class="token class-name">SetmealDto</span> setmealDto <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SetmealDto</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">//对象拷贝</span>
+            <span class="token class-name">BeanUtils</span><span class="token punctuation">.</span><span class="token function">copyProperties</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>setmealDto<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">//分类id</span>
+            <span class="token class-name">Long</span> categoryId <span class="token operator">=</span> item<span class="token punctuation">.</span><span class="token function">getCategoryId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">//根据分类id查询分类对象</span>
+            <span class="token class-name">Category</span> category <span class="token operator">=</span> categoryService<span class="token punctuation">.</span><span class="token function">getById</span><span class="token punctuation">(</span>categoryId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>category <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token comment">//分类名称</span>
+                <span class="token class-name">String</span> categoryName <span class="token operator">=</span> category<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                setmealDto<span class="token punctuation">.</span><span class="token function">setCategoryName</span><span class="token punctuation">(</span>categoryName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> setmealDto<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">toList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        dtoPage<span class="token punctuation">.</span><span class="token function">setRecords</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token class-name">R</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>dtoPage<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token doc-comment comment">/**
+     * 删除套餐
+     * <span class="token keyword">@param</span> <span class="token parameter">ids</span>
+     * <span class="token keyword">@return</span>
+     */</span>
+    <span class="token annotation punctuation">@DeleteMapping</span>
+    <span class="token annotation punctuation">@CacheEvict</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"setmealCache"</span><span class="token punctuation">,</span>allEntries <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@ApiOperation</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"套餐删除接口"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">R</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestParam</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Long</span><span class="token punctuation">></span></span> ids<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"ids:{}"</span><span class="token punctuation">,</span>ids<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        setmealService<span class="token punctuation">.</span><span class="token function">removeWithDish</span><span class="token punctuation">(</span>ids<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token class-name">R</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token string">"套餐数据删除成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token doc-comment comment">/**
+     * 根据条件查询套餐数据
+     * <span class="token keyword">@param</span> <span class="token parameter">setmeal</span>
+     * <span class="token keyword">@return</span>
+     */</span>
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/list"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@Cacheable</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"setmealCache"</span><span class="token punctuation">,</span>key <span class="token operator">=</span> <span class="token string">"#setmeal.categoryId + '_' + #setmeal.status"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@ApiOperation</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"套餐条件查询接口"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">R</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Setmeal</span><span class="token punctuation">></span><span class="token punctuation">></span></span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token class-name">Setmeal</span> setmeal<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">LambdaQueryWrapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Setmeal</span><span class="token punctuation">></span></span> queryWrapper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LambdaQueryWrapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        queryWrapper<span class="token punctuation">.</span><span class="token function">eq</span><span class="token punctuation">(</span>setmeal<span class="token punctuation">.</span><span class="token function">getCategoryId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">,</span><span class="token class-name">Setmeal</span><span class="token operator">::</span><span class="token function">getCategoryId</span><span class="token punctuation">,</span>setmeal<span class="token punctuation">.</span><span class="token function">getCategoryId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        queryWrapper<span class="token punctuation">.</span><span class="token function">eq</span><span class="token punctuation">(</span>setmeal<span class="token punctuation">.</span><span class="token function">getStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">,</span><span class="token class-name">Setmeal</span><span class="token operator">::</span><span class="token function">getStatus</span><span class="token punctuation">,</span>setmeal<span class="token punctuation">.</span><span class="token function">getStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        queryWrapper<span class="token punctuation">.</span><span class="token function">orderByDesc</span><span class="token punctuation">(</span><span class="token class-name">Setmeal</span><span class="token operator">::</span><span class="token function">getUpdateTime</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Setmeal</span><span class="token punctuation">></span></span> list <span class="token operator">=</span> setmealService<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span>queryWrapper<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token class-name">R</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>4). 重启服务测试</strong></p>
+<p>我们上述通过Swagger的注解，对实体类及实体类中的属性，以及Controller和Controller的方法进行描述，接下来，我们重新启动服务，然后看一下自动生成的接口文档有何变化。</p>
+<p><img src="assets/image-20210901221213897.png" alt="image-20210901221213897"></p>
+<p>在接口文档的页面中，我们可以看到接口的中文描述，清晰的看到每一个接口是做什么的，接口方法参数什么含义，参数是否是必填的，响应结果的参数是什么含义等，都可以清楚的描述出来。</p>
+<p>总之，我们要想清晰的描述一个接口，就需要借助于Swagger给我们提供的注解。</p>
+<h2 id="_4-项目部署" tabindex="-1"><a class="header-anchor" href="#_4-项目部署" aria-hidden="true">#</a> 4. 项目部署</h2>
+<p>在本章节，我们要做的是项目的部署，包含前端项目的部署，及后端项目的部署。</p>
+<h3 id="_4-1-部署架构" tabindex="-1"><a class="header-anchor" href="#_4-1-部署架构" aria-hidden="true">#</a> 4.1 部署架构</h3>
+<p><img src="assets/image-20210901221425159.png" alt="image-20210901221425159"></p>
+<p>PC端： 主要是为餐厅的员工及管理员使用的后台管理系统，对分类、菜品、套餐信息进行维护。</p>
+<p>移动端： 可以基于微信公众号或小程序实现，我们课上并未实现，这部分的工作是前端开发人员需要开发的。</p>
+<p>前端部署服务器： Nginx</p>
+<p>后端部署服务器： Tomcat(内嵌)</p>
+<h3 id="_4-2-环境说明" tabindex="-1"><a class="header-anchor" href="#_4-2-环境说明" aria-hidden="true">#</a> 4.2 环境说明</h3>
+<p>由于我们的服务器数量有限，就使用这三台服务器，具体的软件规划如下:</p>
+<table>
+<thead>
+<tr>
+<th>服务器</th>
+<th>软件</th>
+<th>名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.138.100</td>
+<td>Nginx(部署前端项目、配置反向代理)，MySQL(主从复制的主库)</td>
+<td>服务器A</td>
+</tr>
+<tr>
+<td>192.168.138.101</td>
+<td>JDK1.8、Git、Maven、jar(项目jar包基于内嵌Tomcat运行)、MySQL(主从复制的从库)</td>
+<td>服务器B</td>
+</tr>
+<tr>
+<td>172.17.2.94</td>
+<td>Redis(缓存中间件)</td>
+<td>服务器C</td>
+</tr>
+</tbody>
+</table>
+<p>由于我们前面的课程中Nginx、MySQL的主从复制、Redis、JDK、Git、Maven都已经演示过安装及配置了，这里我们就不再演示软件的安装了。</p>
+<h3 id="_4-3-前端部署" tabindex="-1"><a class="header-anchor" href="#_4-3-前端部署" aria-hidden="true">#</a> 4.3 前端部署</h3>
+<p><strong>1). 在服务器A(192.168.138.100)中安装Nginx，将课程资料中的dist目录上传到Nginx的html目录下</strong></p>
+<p><img src="assets/image-20210901231943256.png" alt="image-20210901231943256"></p>
+<p>将整个dist目录上传至/usr/local/nginx/html目录下</p>
+<p><img src="assets/image-20210901231924028.png" alt="image-20210901231924028"></p>
+<p><strong>2). 修改Nginx配置文件nginx.conf</strong></p>
+<p>将nginx.conf配置文件中，将原有的监听80, 82, 8080端口号 的虚拟主机注释掉，引入如下的配置信息：</p>
+<div class="language-properties ext-properties line-numbers-mode"><pre v-pre class="language-properties"><code><span class="token key attr-name">    server</span> <span class="token value attr-value">{</span>
+<span class="token key attr-name">        listen</span> <span class="token value attr-value">      80;</span>
+<span class="token key attr-name">        server_name</span> <span class="token value attr-value"> localhost;</span>
+
+<span class="token key attr-name">        location</span> <span class="token value attr-value">/ {</span>
+<span class="token key attr-name">            root</span> <span class="token value attr-value">  html/dist;</span>
+<span class="token key attr-name">            index</span> <span class="token value attr-value"> index.html;</span>
+        }
+		
+<span class="token key attr-name">		location</span> <span class="token value attr-value">^~ /api/ {</span>
+<span class="token key attr-name">			rewrite</span> <span class="token value attr-value">^/api/(.*)$ /$1 break;</span>
+<span class="token key attr-name">			proxy_pass</span> <span class="token value attr-value">http://192.168.138.101:8080;</span>
+		}
+		
+<span class="token key attr-name">        location</span> <span class="token punctuation">=</span> <span class="token value attr-value">/50x.html {</span>
+<span class="token key attr-name">            root</span> <span class="token value attr-value">  html;</span>
+        }
+    }
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><img src="assets/image-20210901232931577.png" alt="image-20210901232931577"></p>
+<p><strong>3). 通过nginx访问前端工程</strong></p>
+<p>http://192.168.138.100</p>
+<p><img src="assets/image-20210901233135468.png" alt="image-20210901233135468"></p>
+<h3 id="_4-4-反向代理配置" tabindex="-1"><a class="header-anchor" href="#_4-4-反向代理配置" aria-hidden="true">#</a> 4.4 反向代理配置</h3>
+<p>前端工程部署完成之后，我们可以正常的访问到系统的登录页面，点击登录按钮，可以看到服务端发起的请求，请求信息如下：</p>
+<p><img src="assets/image-20210901234142706.png" alt="image-20210901234142706"></p>
+<p>而大家知道，在我们之前开发的工程中，是没有/api这个前缀的,那这个时候,在不修改服务端代码的情况下，如何处理该请求呢?</p>
+<p>实际上，通过nginx的就可以轻松解决这个问题。</p>
+<p>在上述我们配置的nginx.conf中，除了配置了静态资源的加载目录以外，我们还配置了一段反向代理的配置，配置信息如下：</p>
+<div class="language-properties ext-properties line-numbers-mode"><pre v-pre class="language-properties"><code><span class="token key attr-name">location</span> <span class="token value attr-value">^~ /api/ {</span>
+<span class="token key attr-name">    rewrite</span> <span class="token value attr-value">^/api/(.*)$ /$1 break;</span>
+<span class="token key attr-name">    proxy_pass</span> <span class="token value attr-value">http://192.168.138.101:8080;</span>
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这一段配置代表，如果请求当前nginx，并且请求的路径如果是 /api/ 开头，将会被该location处理。而在该location中，主要配置了两块儿信息： rewrite(url重写) 和 proxy_pass(反向代理)。 接下来我们就来解析一下这两项的配置。</p>
+<p><strong>1). 路径重写rewrite</strong></p>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>rewrite ^/api/(.*)$ /$1 break;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>这里写的是一个正则表达式，代表如果请求路径是以 <code v-pre>/api/</code> 开头，后面的请求路径任意，此时将原始的url路径重写为 <code v-pre>/$1</code>，这里的<code v-pre>$1</code>指代的就是通配符 .* 这一块的内容。比如：</p>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>/api/employee/login ------> ^/api/(.*)$ --------> 此时 (.*) 匹配的就是 employee/login ------> 最终重写为/$1 : /employee/login
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p><strong>2). 反向代理</strong></p>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>proxy_pass http://192.168.138.101:8080;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>路径重写后的请求，将会转发到后端的 http://192.168.138.101:8080 服务器中。 而这台服务器中，就部署的是我们的后端服务。</p>
+<h3 id="_4-5-服务端部署" tabindex="-1"><a class="header-anchor" href="#_4-5-服务端部署" aria-hidden="true">#</a> 4.5 服务端部署</h3>
+<p><strong>1). 在服务器B(192.168.138.101)中安装jdk、git、maven、MySQL，使用git clone命令将git远程仓库的代码克隆下来</strong></p>
+<p>A. 确认JDK环境</p>
+<p><img src="assets/image-20210902002307537.png" alt="image-20210902002307537"></p>
+<p>B. 确认Git环境</p>
+<p><img src="assets/image-20210902002328883.png" alt="image-20210902002328883"></p>
+<p>C. 确认Maven环境</p>
+<p><img src="assets/image-20210902002357900.png" alt="image-20210902002357900"></p>
+<p>D. 将我们开发完成的代码推送至远程仓库,并在服务器B中克隆下来</p>
+<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token comment">#创建java代码存放目录</span>
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /usr/local/javaapp
+
+<span class="token comment">#切换目录</span>
+<span class="token builtin class-name">cd</span> /usr/local/javaapp
+
+<span class="token comment">#克隆代码 , 需要使用自己的远程仓库</span>
+<span class="token function">git</span> clone https://gitee.com/ChuanZhiBoKe/reggie_take_out.git 
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><img src="assets/image-20210902004033417.png" alt="image-20210902004033417"></p>
+<p><strong>2). 将资料中提供的reggieStart.sh文件上传到服务器B，通过chmod命令设置执行权限</strong></p>
+<p><img src="assets/image-20210902004308106.png" alt="image-20210902004308106"></p>
+<p><strong>3). 执行reggieStart.sh脚本文件，自动部署项目</strong></p>
+<p><img src="assets/image-20210902005320980.png" alt="image-20210902005320980"></p>
+<p>执行完shell脚本之后，我们可以通过 ps -ef|grep java 指令，查看服务是否启动。</p>
+<p><img src="assets/image-20210902005450399.png" alt="image-20210902005450399"></p>
+<p><strong>4). 访问系统测试</strong></p>
+<p>http://192.168.138.101/</p>
+<p><img src="assets/image-20210902005640875.png" alt="image-20210902005640875"></p>
+<h3 id="_4-6-图片展示问题处理" tabindex="-1"><a class="header-anchor" href="#_4-6-图片展示问题处理" aria-hidden="true">#</a> 4.6 图片展示问题处理</h3>
+<p>在上述的测试中，我们发现菜品的图片无法正常展示。原因是因为，在我们的配置文件中，图片信息依然是从 D:/img 中加载的，但是在Linux服务器中，是不存在D盘的。</p>
+<p><img src="assets/image-20210902005957772.png" alt="image-20210902005957772"></p>
+<p><strong>1). 修改文件存储目录</strong></p>
+<p>将文件存储目录修改为：</p>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>reggie:
+  path: /usr/local/img/
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>修改完成之后，需要将变动的代码提交到本地仓库，并推送至远程仓库。</p>
+<p><img src="assets/image-20210902010223733.png" alt="image-20210902010223733"></p>
+<p><strong>2). 执行shell脚本,进行自动化部署</strong></p>
+<p><img src="assets/image-20210902010440908.png" alt="image-20210902010440908"></p>
+<p><strong>3). 将本地的测试图片文件夹img(整个文件夹)上传到服务器B的/usr/local目录下</strong></p>
+<p><img src="assets/image-20210902010704691.png" alt="image-20210902010704691"></p>
+<p><strong>4).访问测试</strong></p>
+<p>http://192.168.138.101/</p>
+<p><img src="assets/image-20210902010952388.png" alt="image-20210902010952388"></p>
+</div></template>
+
+

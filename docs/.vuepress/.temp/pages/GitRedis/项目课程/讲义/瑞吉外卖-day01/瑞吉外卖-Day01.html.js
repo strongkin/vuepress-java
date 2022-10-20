@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-3d6507e3\",\"path\":\"/gitredis/%E9%A1%B9%E7%9B%AE%E8%AF%BE%E7%A8%8B/%E8%AE%B2%E4%B9%89/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-day01/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-Day01.html\",\"title\":\"瑞吉外卖-Day01\",\"lang\":\"en-US\",\"frontmatter\":{},\"excerpt\":\"\",\"headers\":[{\"level\":2,\"title\":\"课程内容\",\"slug\":\"课程内容\",\"link\":\"#课程内容\",\"children\":[]},{\"level\":2,\"title\":\"1. 软件开发整体介绍\",\"slug\":\"_1-软件开发整体介绍\",\"link\":\"#_1-软件开发整体介绍\",\"children\":[{\"level\":3,\"title\":\"1.1 软件开发流程\",\"slug\":\"_1-1-软件开发流程\",\"link\":\"#_1-1-软件开发流程\",\"children\":[]},{\"level\":3,\"title\":\"1.2 角色分工\",\"slug\":\"_1-2-角色分工\",\"link\":\"#_1-2-角色分工\",\"children\":[]},{\"level\":3,\"title\":\"1.3 软件环境\",\"slug\":\"_1-3-软件环境\",\"link\":\"#_1-3-软件环境\",\"children\":[]}]},{\"level\":2,\"title\":\"2. 瑞吉外卖项目介绍\",\"slug\":\"_2-瑞吉外卖项目介绍\",\"link\":\"#_2-瑞吉外卖项目介绍\",\"children\":[{\"level\":3,\"title\":\"2.1 项目介绍\",\"slug\":\"_2-1-项目介绍\",\"link\":\"#_2-1-项目介绍\",\"children\":[]},{\"level\":3,\"title\":\"2.2 产品原型\",\"slug\":\"_2-2-产品原型\",\"link\":\"#_2-2-产品原型\",\"children\":[]},{\"level\":3,\"title\":\"2.3 技术选型\",\"slug\":\"_2-3-技术选型\",\"link\":\"#_2-3-技术选型\",\"children\":[]},{\"level\":3,\"title\":\"2.4 功能架构\",\"slug\":\"_2-4-功能架构\",\"link\":\"#_2-4-功能架构\",\"children\":[]},{\"level\":3,\"title\":\"2.5 角色\",\"slug\":\"_2-5-角色\",\"link\":\"#_2-5-角色\",\"children\":[]}]},{\"level\":2,\"title\":\"3. 开发环境搭建\",\"slug\":\"_3-开发环境搭建\",\"link\":\"#_3-开发环境搭建\",\"children\":[{\"level\":3,\"title\":\"3.1 数据库环境搭建\",\"slug\":\"_3-1-数据库环境搭建\",\"link\":\"#_3-1-数据库环境搭建\",\"children\":[]},{\"level\":3,\"title\":\"3.2 Maven项目搭建\",\"slug\":\"_3-2-maven项目搭建\",\"link\":\"#_3-2-maven项目搭建\",\"children\":[]}]},{\"level\":2,\"title\":\"4. 后台系统登录功能\",\"slug\":\"_4-后台系统登录功能\",\"link\":\"#_4-后台系统登录功能\",\"children\":[{\"level\":3,\"title\":\"4.1 需求分析\",\"slug\":\"_4-1-需求分析\",\"link\":\"#_4-1-需求分析\",\"children\":[]},{\"level\":3,\"title\":\"4.2 代码开发\",\"slug\":\"_4-2-代码开发\",\"link\":\"#_4-2-代码开发\",\"children\":[]},{\"level\":3,\"title\":\"4.3 功能测试\",\"slug\":\"_4-3-功能测试\",\"link\":\"#_4-3-功能测试\",\"children\":[]}]},{\"level\":2,\"title\":\"5. 后台系统退出功能\",\"slug\":\"_5-后台系统退出功能\",\"link\":\"#_5-后台系统退出功能\",\"children\":[{\"level\":3,\"title\":\"5.1 需求分析\",\"slug\":\"_5-1-需求分析\",\"link\":\"#_5-1-需求分析\",\"children\":[]},{\"level\":3,\"title\":\"5.2 代码实现\",\"slug\":\"_5-2-代码实现\",\"link\":\"#_5-2-代码实现\",\"children\":[]},{\"level\":3,\"title\":\"5.3 功能测试\",\"slug\":\"_5-3-功能测试\",\"link\":\"#_5-3-功能测试\",\"children\":[]}]}],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"gitredis/项目课程/讲义/瑞吉外卖-day01/瑞吉外卖-Day01.md\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

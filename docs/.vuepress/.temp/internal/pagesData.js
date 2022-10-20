@@ -1,12 +1,18 @@
 export const pagesData = {
   // path: /
   "v-8daa1a0e": () => import(/* webpackChunkName: "v-8daa1a0e" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/index.html.js").then(({ data }) => data),
+  // path: /gitredis/
+  "v-01f2098d": () => import(/* webpackChunkName: "v-01f2098d" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/gitredis/index.html.js").then(({ data }) => data),
   // path: /interview/
   "v-71b3ae87": () => import(/* webpackChunkName: "v-71b3ae87" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/interview/index.html.js").then(({ data }) => data),
   // path: /java/
   "v-14c69af4": () => import(/* webpackChunkName: "v-14c69af4" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/index.html.js").then(({ data }) => data),
   // path: /java/01-02java/
   "v-ea86509a": () => import(/* webpackChunkName: "v-ea86509a" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/index.html.js").then(({ data }) => data),
+  // path: /gitredis/Git%E8%AF%BE%E7%A8%8B/%E8%AE%B2%E4%B9%89/Git%E8%AF%BE%E7%A8%8B%E8%AE%B2%E4%B9%89.html
+  "v-720d5e18": () => import(/* webpackChunkName: "v-720d5e18" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/gitredis/Git课程/讲义/Git课程讲义.html.js").then(({ data }) => data),
+  // path: /gitredis/Redis%E8%AF%BE%E7%A8%8B/%E8%AE%B2%E4%B9%89/Redis%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B%E8%AE%B2%E4%B9%89.html
+  "v-932e7cc0": () => import(/* webpackChunkName: "v-932e7cc0" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/gitredis/Redis课程/讲义/Redis基础课程讲义.html.js").then(({ data }) => data),
   // path: /interview/day01-%E5%9F%BA%E7%A1%80%E7%AF%87/%E8%AE%B2%E4%B9%89/%E5%9F%BA%E7%A1%80%E7%AF%87%E8%AE%B2%E4%B9%89.html
   "v-4d4b2564": () => import(/* webpackChunkName: "v-4d4b2564" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/interview/day01-基础篇/讲义/基础篇讲义.html.js").then(({ data }) => data),
   // path: /interview/day02-%E5%B9%B6%E5%8F%91%E7%AF%87/%E8%AE%B2%E4%B9%89/%E5%B9%B6%E5%8F%91%E7%AF%87%E8%AE%B2%E4%B9%89.html
@@ -17,12 +23,36 @@ export const pagesData = {
   "v-08316051": () => import(/* webpackChunkName: "v-08316051" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/interview/day04-框架篇/讲义/框架篇讲义.html.js").then(({ data }) => data),
   // path: /interview/day05-%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%AE%B2%E4%B9%89/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AF%87.html
   "v-6f13aed6": () => import(/* webpackChunkName: "v-6f13aed6" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/interview/day05-数据库/讲义/数据库篇.html.js").then(({ data }) => data),
-  // path: /interview/day06-%E7%BC%93%E5%AD%98%E7%AF%87/%E8%AE%B2%E4%B9%89/%E7%BC%93%E5%AD%98%E7%AF%87%E8%AE%B2%E4%B9%89.html
-  "v-7a4d561a": () => import(/* webpackChunkName: "v-7a4d561a" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/interview/day06-缓存篇/讲义/缓存篇讲义.html.js").then(({ data }) => data),
   // path: /interview/day07-%E5%88%86%E5%B8%83%E5%BC%8F/%E8%AE%B2%E4%B9%89/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%B2%E4%B9%89.html
   "v-5ed3f814": () => import(/* webpackChunkName: "v-5ed3f814" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/interview/day07-分布式/讲义/分布式讲义.html.js").then(({ data }) => data),
+  // path: /interview/day06-%E7%BC%93%E5%AD%98%E7%AF%87/%E8%AE%B2%E4%B9%89/%E7%BC%93%E5%AD%98%E7%AF%87%E8%AE%B2%E4%B9%89.html
+  "v-7a4d561a": () => import(/* webpackChunkName: "v-7a4d561a" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/interview/day06-缓存篇/讲义/缓存篇讲义.html.js").then(({ data }) => data),
   // path: /java/01-02java/Java1/EADME.html
   "v-b65938a8": () => import(/* webpackChunkName: "v-b65938a8" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/Java1/EADME.html.js").then(({ data }) => data),
+  // path: /gitredis/Linux%E8%AF%BE%E7%A8%8B/%E8%AE%B2%E4%B9%89/day01/Linux-Day01.html
+  "v-31cfdb70": () => import(/* webpackChunkName: "v-31cfdb70" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/gitredis/Linux课程/讲义/day01/Linux-Day01.html.js").then(({ data }) => data),
+  // path: /gitredis/Linux%E8%AF%BE%E7%A8%8B/%E8%AE%B2%E4%B9%89/day02/Linux-Day02.html
+  "v-a54265f4": () => import(/* webpackChunkName: "v-a54265f4" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/gitredis/Linux课程/讲义/day02/Linux-Day02.html.js").then(({ data }) => data),
+  // path: /gitredis/Linux%E8%AF%BE%E7%A8%8B/%E8%AE%B2%E4%B9%89/Vmware%E5%AE%89%E8%A3%85Linux%E9%97%AE%E9%A2%98/Vmware%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html
+  "v-f8f4cefc": () => import(/* webpackChunkName: "v-f8f4cefc" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/gitredis/Linux课程/讲义/Vmware安装Linux问题/Vmware虚拟机问题解决方案.html.js").then(({ data }) => data),
+  // path: /gitredis/%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/%E8%AE%B2%E4%B9%89/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96-day01/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96-Day01.html
+  "v-37358a64": () => import(/* webpackChunkName: "v-37358a64" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/gitredis/项目优化/讲义/瑞吉外卖项目优化-day01/瑞吉外卖项目优化-Day01.html.js").then(({ data }) => data),
+  // path: /gitredis/%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/%E8%AE%B2%E4%B9%89/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96-day02/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96-Day02.html
+  "v-1e525ef8": () => import(/* webpackChunkName: "v-1e525ef8" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/gitredis/项目优化/讲义/瑞吉外卖项目优化-day02/瑞吉外卖项目优化-Day02.html.js").then(({ data }) => data),
+  // path: /gitredis/%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/%E8%AE%B2%E4%B9%89/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96-day03/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96-Day03.html
+  "v-ab0fd2b8": () => import(/* webpackChunkName: "v-ab0fd2b8" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/gitredis/项目优化/讲义/瑞吉外卖项目优化-day03/瑞吉外卖项目优化-Day03.html.js").then(({ data }) => data),
+  // path: /gitredis/%E9%A1%B9%E7%9B%AE%E8%AF%BE%E7%A8%8B/%E8%AE%B2%E4%B9%89/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-day01/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-Day01.html
+  "v-3d6507e3": () => import(/* webpackChunkName: "v-3d6507e3" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/gitredis/项目课程/讲义/瑞吉外卖-day01/瑞吉外卖-Day01.html.js").then(({ data }) => data),
+  // path: /gitredis/%E9%A1%B9%E7%9B%AE%E8%AF%BE%E7%A8%8B/%E8%AE%B2%E4%B9%89/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-day02/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-Day02.html
+  "v-3ea37a83": () => import(/* webpackChunkName: "v-3ea37a83" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/gitredis/项目课程/讲义/瑞吉外卖-day02/瑞吉外卖-Day02.html.js").then(({ data }) => data),
+  // path: /gitredis/%E9%A1%B9%E7%9B%AE%E8%AF%BE%E7%A8%8B/%E8%AE%B2%E4%B9%89/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-day03/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-Day03.html
+  "v-3fe1ed23": () => import(/* webpackChunkName: "v-3fe1ed23" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/gitredis/项目课程/讲义/瑞吉外卖-day03/瑞吉外卖-Day03.html.js").then(({ data }) => data),
+  // path: /gitredis/%E9%A1%B9%E7%9B%AE%E8%AF%BE%E7%A8%8B/%E8%AE%B2%E4%B9%89/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-day04/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-Day04.html
+  "v-41205fc3": () => import(/* webpackChunkName: "v-41205fc3" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/gitredis/项目课程/讲义/瑞吉外卖-day04/瑞吉外卖-Day04.html.js").then(({ data }) => data),
+  // path: /gitredis/%E9%A1%B9%E7%9B%AE%E8%AF%BE%E7%A8%8B/%E8%AE%B2%E4%B9%89/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-day05/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-%E7%AC%AC%E4%BA%94%E5%A4%A9.html
+  "v-5142a7a3": () => import(/* webpackChunkName: "v-5142a7a3" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/gitredis/项目课程/讲义/瑞吉外卖-day05/瑞吉外卖-第五天.html.js").then(({ data }) => data),
+  // path: /gitredis/%E9%A1%B9%E7%9B%AE%E8%AF%BE%E7%A8%8B/%E8%AE%B2%E4%B9%89/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-day06/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96-%E7%AC%AC%E5%85%AD%E5%A4%A9.html
+  "v-a8630f22": () => import(/* webpackChunkName: "v-a8630f22" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/gitredis/项目课程/讲义/瑞吉外卖-day06/瑞吉外卖-第六天.html.js").then(({ data }) => data),
   // path: /java/java-03/day01/%E8%AE%B2%E4%B9%89/mysql%E5%9F%BA%E7%A1%80.html
   "v-15dcdee6": () => import(/* webpackChunkName: "v-15dcdee6" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/java-03/day01/讲义/mysql基础.html.js").then(({ data }) => data),
   // path: /java/java-03/day02/%E8%AE%B2%E4%B9%89/mysql%E9%AB%98%E7%BA%A7.html
@@ -71,10 +101,10 @@ export const pagesData = {
   "v-3afb9ad6": () => import(/* webpackChunkName: "v-3afb9ad6" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/11.网络编程/day15-网络编程day01/笔记/day14-网络编程.html.js").then(({ data }) => data),
   // path: /java/01-02java/12.%E5%9F%BA%E7%A1%80%E5%8A%A0%E5%BC%BA/day25-%E5%9F%BA%E7%A1%80%E5%8A%A0%E5%BC%BA01/%E7%AC%94%E8%AE%B0/day16-%E5%9F%BA%E7%A1%80%E5%8A%A0%E5%BC%BA01.html
   "v-1660a3ac": () => import(/* webpackChunkName: "v-1660a3ac" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/12.基础加强/day25-基础加强01/笔记/day16-基础加强01.html.js").then(({ data }) => data),
-  // path: /java/01-02java/12.%E5%9F%BA%E7%A1%80%E5%8A%A0%E5%BC%BA/day26-%E5%9F%BA%E7%A1%80%E5%8A%A0%E5%BC%BA02/%E7%AC%94%E8%AE%B0/day17-%E5%9F%BA%E7%A1%80%E5%8A%A0%E5%BC%BA02.html
-  "v-a9dc372c": () => import(/* webpackChunkName: "v-a9dc372c" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/12.基础加强/day26-基础加强02/笔记/day17-基础加强02.html.js").then(({ data }) => data),
   // path: /java/01-02java/12.%E5%9F%BA%E7%A1%80%E5%8A%A0%E5%BC%BA/day27_%E5%9F%BA%E7%A1%80%E5%8A%A0%E5%BC%BA03/%E7%AC%94%E8%AE%B0/day18-%E5%9F%BA%E7%A1%80%E5%8A%A0%E5%BC%BA03.html
   "v-35d58190": () => import(/* webpackChunkName: "v-35d58190" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/12.基础加强/day27_基础加强03/笔记/day18-基础加强03.html.js").then(({ data }) => data),
+  // path: /java/01-02java/12.%E5%9F%BA%E7%A1%80%E5%8A%A0%E5%BC%BA/day26-%E5%9F%BA%E7%A1%80%E5%8A%A0%E5%BC%BA02/%E7%AC%94%E8%AE%B0/day17-%E5%9F%BA%E7%A1%80%E5%8A%A0%E5%BC%BA02.html
+  "v-a9dc372c": () => import(/* webpackChunkName: "v-a9dc372c" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/12.基础加强/day26-基础加强02/笔记/day17-基础加强02.html.js").then(({ data }) => data),
   // path: /java/01-02java/2.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/day07_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/%E8%AE%B2%E4%B9%89-md%E7%89%88%E6%9C%AC/day07%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html
   "v-5cb49ff0": () => import(/* webpackChunkName: "v-5cb49ff0" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/2.面向对象基础/day07_面向对象基础/讲义-md版本/day07 面向对象.html.js").then(({ data }) => data),
   // path: /java/01-02java/3.API%E5%9F%BA%E7%A1%80/day08_%E5%B8%B8%E7%94%A8API/%E8%AE%B2%E4%B9%89-md%E7%89%88%E6%9C%AC/day08%20%E5%B8%B8%E7%94%A8API.html

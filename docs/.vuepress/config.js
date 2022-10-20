@@ -17,6 +17,7 @@ export default {
       { text: "首页", link: "/" },
       { text: "java", link: "/java/" },
       { text: "java面试", link: "/interview/" },
+      { text: "GitRedis", link: "/gitredis/" },
     ],
     sidebar: {
       "/java/": [
@@ -301,6 +302,34 @@ export default {
             {
               text: "分布式讲义",
               link: "/interview/day07-分布式/讲义/分布式讲义.md",
+            },
+          ],
+        },
+      ],
+      "/gitredis/": [
+        {
+          text: "java5",
+          // link: "/gitredis/Git课程/讲义/Git课程讲义.md",
+          children: [
+            {
+              text: "Git课程讲义",
+              link: "/gitredis/Git课程/讲义/Git课程讲义.md",
+            },
+            {
+              text: "Linux-1",
+              link: "/gitredis/Linux课程/讲义/day01/Linux-Day01.md",
+            },
+            {
+              text: "Linux-2",
+              link: "/gitredis/Linux课程/讲义/day02/Linux-Day02.md",
+            },
+            {
+              text: "Vmware虚拟机问题解决方案",
+              link: "/gitredis/Linux课程/讲义/Vmware安装Linux问题/Vmware虚拟机问题解决方案.md",
+            },
+            {
+              text: "Redis基础课程讲义",
+              link: "/gitredis/Redis课程/讲义/Redis基础课程讲义.md",
             },
           ],
         },
