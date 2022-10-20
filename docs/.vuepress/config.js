@@ -386,6 +386,22 @@ export default {
           text: "java分布式",
           children: [
             {
+              text: "SpringCloud01",
+              link: "/java8-9/day01-SpringCloud01/讲义/SpringCloud01.md",
+            },
+            {
+              text: "SpringCloud02",
+              link: "/java8-9/SpringCloud02/讲义/md/SpringCloud实用篇02.md",
+            },
+            {
+              text: "Docker实用篇",
+              link: "/java8-9/day03-Docker/讲义/Docker实用篇.md",
+            },
+            {
+              text: "RabbitMQ",
+              link: "/java8-9/day04-MQ/讲义/RabbitMQ.md",
+            },
+            {
               text: "微服务",
               link: "/java8-9/day01-微服务保护/讲义/微服务保护.md",
             },
