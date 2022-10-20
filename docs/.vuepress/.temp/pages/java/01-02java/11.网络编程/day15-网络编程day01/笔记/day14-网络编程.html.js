@@ -1,14 +1,1 @@
 export const data = JSON.parse("{\"key\":\"v-3afb9ad6\",\"path\":\"/java/01-02java/11.%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day15-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8Bday01/%E7%AC%94%E8%AE%B0/day14-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B.html\",\"title\":\"\",\"lang\":\"en-US\",\"frontmatter\":{},\"excerpt\":\"\",\"headers\":[{\"level\":2,\"title\":\"1.网络编程入门\",\"slug\":\"_1-网络编程入门\",\"link\":\"#_1-网络编程入门\",\"children\":[{\"level\":3,\"title\":\"1.1 网络编程概述【理解】\",\"slug\":\"_1-1-网络编程概述【理解】\",\"link\":\"#_1-1-网络编程概述【理解】\",\"children\":[]},{\"level\":3,\"title\":\"1.2 网络编程三要素【理解】\",\"slug\":\"_1-2-网络编程三要素【理解】\",\"link\":\"#_1-2-网络编程三要素【理解】\",\"children\":[]},{\"level\":3,\"title\":\"1.3 IP地址【理解】\",\"slug\":\"_1-3-ip地址【理解】\",\"link\":\"#_1-3-ip地址【理解】\",\"children\":[]},{\"level\":3,\"title\":\"1.4 InetAddress【应用】\",\"slug\":\"_1-4-inetaddress【应用】\",\"link\":\"#_1-4-inetaddress【应用】\",\"children\":[]},{\"level\":3,\"title\":\"1.5 端口和协议【理解】\",\"slug\":\"_1-5-端口和协议【理解】\",\"link\":\"#_1-5-端口和协议【理解】\",\"children\":[]}]},{\"level\":2,\"title\":\"2.UDP通信程序\",\"slug\":\"_2-udp通信程序\",\"link\":\"#_2-udp通信程序\",\"children\":[{\"level\":3,\"title\":\"2.1 UDP发送数据【应用】\",\"slug\":\"_2-1-udp发送数据【应用】\",\"link\":\"#_2-1-udp发送数据【应用】\",\"children\":[]},{\"level\":3,\"title\":\"2.2UDP接收数据【应用】\",\"slug\":\"_2-2udp接收数据【应用】\",\"link\":\"#_2-2udp接收数据【应用】\",\"children\":[]},{\"level\":3,\"title\":\"2.3UDP通信程序练习【应用】\",\"slug\":\"_2-3udp通信程序练习【应用】\",\"link\":\"#_2-3udp通信程序练习【应用】\",\"children\":[]},{\"level\":3,\"title\":\"2.4UDP三种通讯方式【理解】\",\"slug\":\"_2-4udp三种通讯方式【理解】\",\"link\":\"#_2-4udp三种通讯方式【理解】\",\"children\":[]},{\"level\":3,\"title\":\"2.5UDP组播实现【理解】\",\"slug\":\"_2-5udp组播实现【理解】\",\"link\":\"#_2-5udp组播实现【理解】\",\"children\":[]},{\"level\":3,\"title\":\"2.6UDP广播实现【理解】\",\"slug\":\"_2-6udp广播实现【理解】\",\"link\":\"#_2-6udp广播实现【理解】\",\"children\":[]}]},{\"level\":2,\"title\":\"3.TCP通信程序\",\"slug\":\"_3-tcp通信程序\",\"link\":\"#_3-tcp通信程序\",\"children\":[{\"level\":3,\"title\":\"3.1TCP发送数据【应用】\",\"slug\":\"_3-1tcp发送数据【应用】\",\"link\":\"#_3-1tcp发送数据【应用】\",\"children\":[]},{\"level\":3,\"title\":\"3.2TCP接收数据【应用】\",\"slug\":\"_3-2tcp接收数据【应用】\",\"link\":\"#_3-2tcp接收数据【应用】\",\"children\":[]},{\"level\":3,\"title\":\"3.3TCP程序练习【应用】\",\"slug\":\"_3-3tcp程序练习【应用】\",\"link\":\"#_3-3tcp程序练习【应用】\",\"children\":[]},{\"level\":3,\"title\":\"3.4TCP程序文件上传练习【应用】\",\"slug\":\"_3-4tcp程序文件上传练习【应用】\",\"link\":\"#_3-4tcp程序文件上传练习【应用】\",\"children\":[]}]}],\"git\":{\"updatedTime\":1666263254000,\"contributors\":[{\"name\":\"橘橙天下\",\"email\":\"2279345175@qq.com\",\"commits\":1}]},\"filePathRelative\":\"java/01-02java/11.网络编程/day15-网络编程day01/笔记/day14-网络编程.md\"}")
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}
