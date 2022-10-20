@@ -16,6 +16,7 @@ export default {
     navbar: [
       { text: "首页", link: "/" },
       { text: "java", link: "/java/" },
+      { text: "java面试", link: "/interview/" },
     ],
     sidebar: {
       "/java/": [
@@ -264,6 +265,42 @@ export default {
             {
               text: "Maven进阶笔记",
               link: "/java/java-04/5-maven/day01/讲义/Maven进阶笔记.md",
+            },
+          ],
+        },
+      ],
+      "/interview/": [
+        {
+          text: "java面试部分",
+          // link: "/interview/day01-基础篇/讲义/基础篇讲义.md",
+          children: [
+            {
+              text: "基础篇讲义",
+              link: "/interview/day01-基础篇/讲义/基础篇讲义.md",
+            },
+            {
+              text: "并发篇讲义",
+              link: "/interview/day02-并发篇/讲义/并发篇讲义.md",
+            },
+            {
+              text: "虚拟机篇讲义",
+              link: "/interview/day03-虚拟机/讲义/虚拟机篇讲义.md",
+            },
+            {
+              text: "框架篇讲义",
+              link: "/interview/day04-框架篇/讲义/框架篇讲义.md",
+            },
+            {
+              text: "数据库篇",
+              link: "/interview/day05-数据库/讲义/数据库篇.md",
+            },
+            {
+              text: "缓存篇讲义",
+              link: "/interview/day06-缓存篇/讲义/缓存篇讲义.md",
+            },
+            {
+              text: "分布式讲义",
+              link: "/interview/day07-分布式/讲义/分布式讲义.md",
             },
           ],
         },

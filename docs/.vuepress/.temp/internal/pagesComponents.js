@@ -3,10 +3,26 @@ import { defineAsyncComponent } from 'vue'
 export const pagesComponents = {
   // path: /
   "v-8daa1a0e": defineAsyncComponent(() => import(/* webpackChunkName: "v-8daa1a0e" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/index.html.vue")),
+  // path: /interview/
+  "v-71b3ae87": defineAsyncComponent(() => import(/* webpackChunkName: "v-71b3ae87" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/interview/index.html.vue")),
   // path: /java/
   "v-14c69af4": defineAsyncComponent(() => import(/* webpackChunkName: "v-14c69af4" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/index.html.vue")),
   // path: /java/01-02java/
   "v-ea86509a": defineAsyncComponent(() => import(/* webpackChunkName: "v-ea86509a" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/index.html.vue")),
+  // path: /interview/day01-%E5%9F%BA%E7%A1%80%E7%AF%87/%E8%AE%B2%E4%B9%89/%E5%9F%BA%E7%A1%80%E7%AF%87%E8%AE%B2%E4%B9%89.html
+  "v-4d4b2564": defineAsyncComponent(() => import(/* webpackChunkName: "v-4d4b2564" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/interview/day01-基础篇/讲义/基础篇讲义.html.vue")),
+  // path: /interview/day02-%E5%B9%B6%E5%8F%91%E7%AF%87/%E8%AE%B2%E4%B9%89/%E5%B9%B6%E5%8F%91%E7%AF%87%E8%AE%B2%E4%B9%89.html
+  "v-53cf0722": defineAsyncComponent(() => import(/* webpackChunkName: "v-53cf0722" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/interview/day02-并发篇/讲义/并发篇讲义.html.vue")),
+  // path: /interview/day03-%E8%99%9A%E6%8B%9F%E6%9C%BA/%E8%AE%B2%E4%B9%89/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87%E8%AE%B2%E4%B9%89.html
+  "v-a2974686": defineAsyncComponent(() => import(/* webpackChunkName: "v-a2974686" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/interview/day03-虚拟机/讲义/虚拟机篇讲义.html.vue")),
+  // path: /interview/day04-%E6%A1%86%E6%9E%B6%E7%AF%87/%E8%AE%B2%E4%B9%89/%E6%A1%86%E6%9E%B6%E7%AF%87%E8%AE%B2%E4%B9%89.html
+  "v-08316051": defineAsyncComponent(() => import(/* webpackChunkName: "v-08316051" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/interview/day04-框架篇/讲义/框架篇讲义.html.vue")),
+  // path: /interview/day05-%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%AE%B2%E4%B9%89/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AF%87.html
+  "v-6f13aed6": defineAsyncComponent(() => import(/* webpackChunkName: "v-6f13aed6" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/interview/day05-数据库/讲义/数据库篇.html.vue")),
+  // path: /interview/day06-%E7%BC%93%E5%AD%98%E7%AF%87/%E8%AE%B2%E4%B9%89/%E7%BC%93%E5%AD%98%E7%AF%87%E8%AE%B2%E4%B9%89.html
+  "v-7a4d561a": defineAsyncComponent(() => import(/* webpackChunkName: "v-7a4d561a" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/interview/day06-缓存篇/讲义/缓存篇讲义.html.vue")),
+  // path: /interview/day07-%E5%88%86%E5%B8%83%E5%BC%8F/%E8%AE%B2%E4%B9%89/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%B2%E4%B9%89.html
+  "v-5ed3f814": defineAsyncComponent(() => import(/* webpackChunkName: "v-5ed3f814" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/interview/day07-分布式/讲义/分布式讲义.html.vue")),
   // path: /java/01-02java/Java1/EADME.html
   "v-b65938a8": defineAsyncComponent(() => import(/* webpackChunkName: "v-b65938a8" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/Java1/EADME.html.vue")),
   // path: /java/java-03/day01/%E8%AE%B2%E4%B9%89/mysql%E5%9F%BA%E7%A1%80.html
@@ -51,6 +67,8 @@ export const pagesComponents = {
   "v-0b7f032c": defineAsyncComponent(() => import(/* webpackChunkName: "v-0b7f032c" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/09.IO流/day12-IO流day02/笔记/day11IO流02.html.vue")),
   // path: /java/01-02java/10.%E5%A4%9A%E7%BA%BF%E7%A8%8B/day13-%E5%A4%9A%E7%BA%BF%E7%A8%8Bday01/%E7%AC%94%E8%AE%B0/day12-%E5%A4%9A%E7%BA%BF%E7%A8%8B01.html
   "v-3fe84ac5": defineAsyncComponent(() => import(/* webpackChunkName: "v-3fe84ac5" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/10.多线程/day13-多线程day01/笔记/day12-多线程01.html.vue")),
+  // path: /java/01-02java/10.%E5%A4%9A%E7%BA%BF%E7%A8%8B/day14-%E5%A4%9A%E7%BA%BF%E7%A8%8Bday02/%E7%AC%94%E8%AE%B0/day12%20%E5%A4%9A%E7%BA%BF%E7%A8%8B02.html
+  "v-830dc60c": defineAsyncComponent(() => import(/* webpackChunkName: "v-830dc60c" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/10.多线程/day14-多线程day02/笔记/day12 多线程02.html.vue")),
   // path: /java/01-02java/11.%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day15-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8Bday01/%E7%AC%94%E8%AE%B0/day14-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B.html
   "v-3afb9ad6": defineAsyncComponent(() => import(/* webpackChunkName: "v-3afb9ad6" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/11.网络编程/day15-网络编程day01/笔记/day14-网络编程.html.vue")),
   // path: /java/01-02java/12.%E5%9F%BA%E7%A1%80%E5%8A%A0%E5%BC%BA/day25-%E5%9F%BA%E7%A1%80%E5%8A%A0%E5%BC%BA01/%E7%AC%94%E8%AE%B0/day16-%E5%9F%BA%E7%A1%80%E5%8A%A0%E5%BC%BA01.html
@@ -61,12 +79,10 @@ export const pagesComponents = {
   "v-35d58190": defineAsyncComponent(() => import(/* webpackChunkName: "v-35d58190" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/12.基础加强/day27_基础加强03/笔记/day18-基础加强03.html.vue")),
   // path: /java/01-02java/2.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/day07_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/%E8%AE%B2%E4%B9%89-md%E7%89%88%E6%9C%AC/day07%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html
   "v-5cb49ff0": defineAsyncComponent(() => import(/* webpackChunkName: "v-5cb49ff0" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/2.面向对象基础/day07_面向对象基础/讲义-md版本/day07 面向对象.html.vue")),
-  // path: /java/01-02java/10.%E5%A4%9A%E7%BA%BF%E7%A8%8B/day14-%E5%A4%9A%E7%BA%BF%E7%A8%8Bday02/%E7%AC%94%E8%AE%B0/day12%20%E5%A4%9A%E7%BA%BF%E7%A8%8B02.html
-  "v-830dc60c": defineAsyncComponent(() => import(/* webpackChunkName: "v-830dc60c" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/10.多线程/day14-多线程day02/笔记/day12 多线程02.html.vue")),
-  // path: /java/01-02java/4.%E9%9B%86%E5%90%88%E5%9F%BA%E7%A1%80/day09_%E5%AD%A6%E7%94%9F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E8%AE%B2%E4%B9%89-md%E7%89%88%E6%9C%AC/day09%20ArrayList&%E5%AD%A6%E7%94%9F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.html
-  "v-f4f11d38": defineAsyncComponent(() => import(/* webpackChunkName: "v-f4f11d38" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/4.集合基础/day09_学生管理系统/讲义-md版本/day09 ArrayList&学生管理系统.html.vue")),
   // path: /java/01-02java/3.API%E5%9F%BA%E7%A1%80/day08_%E5%B8%B8%E7%94%A8API/%E8%AE%B2%E4%B9%89-md%E7%89%88%E6%9C%AC/day08%20%E5%B8%B8%E7%94%A8API.html
   "v-48c02662": defineAsyncComponent(() => import(/* webpackChunkName: "v-48c02662" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/3.API基础/day08_常用API/讲义-md版本/day08 常用API.html.vue")),
+  // path: /java/01-02java/4.%E9%9B%86%E5%90%88%E5%9F%BA%E7%A1%80/day09_%E5%AD%A6%E7%94%9F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/%E8%AE%B2%E4%B9%89-md%E7%89%88%E6%9C%AC/day09%20ArrayList&%E5%AD%A6%E7%94%9F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.html
+  "v-f4f11d38": defineAsyncComponent(() => import(/* webpackChunkName: "v-f4f11d38" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/4.集合基础/day09_学生管理系统/讲义-md版本/day09 ArrayList&学生管理系统.html.vue")),
   // path: /java/01-02java/5.Git/day10_Git/%E7%AC%94%E8%AE%B0/day01Git.html
   "v-7a087ade": defineAsyncComponent(() => import(/* webpackChunkName: "v-7a087ade" */"D:/Users/shuangjian/Desktop/vue/vuepress-java/docs/.vuepress/.temp/pages/java/01-02java/5.Git/day10_Git/笔记/day01Git.html.vue")),
   // path: /java/01-02java/Java1/day01_Java/%E7%AC%94%E8%AE%B0/day01-java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.html
