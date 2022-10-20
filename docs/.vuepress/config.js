@@ -3,7 +3,7 @@ import { defineUserConfig,defaultTheme } from "vuepress"
 export default {
   title: "strongking",
   description: "strongking博客",
-  base: "/",
+  // base: "./",
   theme: defaultTheme({
     // sidebar:'auto',
     // Public 文件路径
