@@ -76,12 +76,18 @@
 </li>
 <li>
 <p>文档声明必须是第一行第一列</p>
-<?xml version=“1.0” encoding=“UTF-8” standalone=“yes”?>
-<p>version：该属性是必须存在的
-encoding：该属性不是必须的</p>
-<p>​	打开当前xml文件的时候应该是使用什么字符编码表(一般取值都是UTF-8)</p>
-<p>standalone: 该属性不是必须的，描述XML文件是否依赖其他的xml文件，取值为yes/no</p>
 </li>
+</ul>
+</li>
+</ul>
+<div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code>    <span class="token operator">&lt;</span><span class="token operator">?</span>xml version<span class="token operator">=</span>“<span class="token number">1.0</span>” encoding<span class="token operator">=</span>“<span class="token constant">UTF</span><span class="token operator">-</span><span class="token number">8</span>” standalone<span class="token operator">=</span>“yes”<span class="token operator">?</span><span class="token operator">></span>
+    version：该属性是必须存在的
+    encoding：该属性不是必须的
+
+    ​	打开当前xml文件的时候应该是使用什么字符编码表<span class="token punctuation">(</span>一般取值都是<span class="token constant">UTF</span><span class="token operator">-</span><span class="token number">8</span><span class="token punctuation">)</span>
+
+    standalone<span class="token operator">:</span> 该属性不是必须的，描述<span class="token constant">XML</span>文件是否依赖其他的xml文件，取值为yes<span class="token operator">/</span>no
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li>
 <p>必须存在一个根标签，有且只能有一个</p>
 </li>
@@ -98,10 +104,10 @@ encoding：该属性不是必须的</p>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
 <li>
 <p>XML文件中可以存在CDATA区</p>
-<![CDATA[ …内容… ]]>
 </li>
 </ul>
-</li>
+<div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code>    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token punctuation">[</span><span class="token constant">CDATA</span><span class="token punctuation">[</span> …内容… <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">></span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
 <li>
 <p>示例代码</p>
 <div class="language-xml ext-xml line-numbers-mode"><pre v-pre class="language-xml"><code><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8" ?></span>
@@ -316,23 +322,21 @@ encoding：该属性不是必须的</p>
 <li>
 <p>编写DTD约束</p>
 <ul>
-<li>
-<p>步骤</p>
-<ol>
-<li>
-<p>创建一个文件，这个文件的后缀名为.dtd</p>
+<li>步骤</li>
+</ul>
 </li>
-<li>
-<p>看xml文件中使用了哪些元素</p>
-<!ELEMENT> 可以定义元素
-</li>
-<li>
-<p>判断元素是简单元素还是复杂元素</p>
-<p>简单元素：没有子元素。
-复杂元素：有子元素的元素；</p>
-</li>
-</ol>
-</li>
+</ul>
+<div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code>    <span class="token number">1.</span> 创建一个文件，这个文件的后缀名为<span class="token punctuation">.</span>dtd
+
+    <span class="token number">2.</span> 看xml文件中使用了哪些元素
+
+       <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token constant">ELEMENT</span><span class="token operator">></span> 可以定义元素
+
+    <span class="token number">3.</span> 判断元素是简单元素还是复杂元素
+
+       简单元素：没有子元素。
+       复杂元素：有子元素的元素；
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li>
 <p>代码实现</p>
 <div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token class-name">ELEMENT</span> persons <span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token operator">></span>
@@ -342,7 +346,7 @@ encoding：该属性不是必须的</p>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
 </ul>
 <div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></li>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
 <li>
 <p>引入DTD约束</p>
 <ul>
@@ -424,30 +428,41 @@ encoding：该属性不是必须的</p>
 <li>
 <p>DTD语法</p>
 <ul>
-<li>
-<p>定义元素</p>
-<p>定义一个元素的格式为：<!ELEMENT 元素名 元素类型>
-简单元素：</p>
-<p>​	EMPTY: 表示标签体为空</p>
-<p>​	ANY: 表示标签体可以为空也可以不为空</p>
-<p>​	PCDATA: 表示该元素的内容部分为字符串</p>
-<p>复杂元素：
-​	直接写子元素名称. 多个子元素可以使用&quot;,&quot;或者&quot;|&quot;隔开；
-​	&quot;,&quot;表示定义子元素的顺序 ; &quot;|&quot;: 表示子元素只能出现任意一个
-​	&quot;?&quot;零次或一次, &quot;+&quot;一次或多次, &quot;*&quot;零次或多次;如果不写则表示出现一次</p>
-<p><img src="@source/java/01-02java/12.基础加强/day26-基础加强02/笔记/img/03.png" alt="03_DTD语法定义元素"></p>
+<li>定义元素</li>
+</ul>
 </li>
+</ul>
+<div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code>    定义一个元素的格式为：<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token constant">ELEMENT</span> 元素名 元素类型<span class="token operator">></span>
+    简单元素：
+
+    ​	<span class="token constant">EMPTY</span><span class="token operator">:</span> 表示标签体为空
+
+    ​	<span class="token constant">ANY</span><span class="token operator">:</span> 表示标签体可以为空也可以不为空
+
+    ​	<span class="token constant">PCDATA</span><span class="token operator">:</span> 表示该元素的内容部分为字符串
+
+    复杂元素：
+    ​	直接写子元素名称<span class="token punctuation">.</span> 多个子元素可以使用<span class="token string">","</span>或者<span class="token string">"|"</span>隔开；
+    ​	<span class="token string">","</span>表示定义子元素的顺序 <span class="token punctuation">;</span> <span class="token string">"|"</span><span class="token operator">:</span> 表示子元素只能出现任意一个
+    ​	<span class="token string">"?"</span>零次或一次<span class="token punctuation">,</span> <span class="token string">"+"</span>一次或多次<span class="token punctuation">,</span> <span class="token string">"*"</span>零次或多次<span class="token punctuation">;</span>如果不写则表示出现一次
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><pre><code>![03](./img/03.png)
+</code></pre>
+<ul>
 <li>
 <p>定义属性</p>
 <p>格式</p>
-<p>定义一个属性的格式为：<!ATTLIST 元素名称 属性名称 属性的类型 属性的约束>
-属性的类型：
-​	CDATA类型：普通的字符串</p>
-<p>属性的约束:</p>
-<p>​	// #REQUIRED： 必须的
-​	// #IMPLIED： 属性不是必需的
-​	// #FIXED value：属性值是固定的</p>
 </li>
+</ul>
+<div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code>    定义一个属性的格式为：<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token constant">ATTLIST</span> 元素名称 属性名称 属性的类型 属性的约束<span class="token operator">></span>
+    属性的类型：
+    ​	<span class="token constant">CDATA</span>类型：普通的字符串
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><pre><code>属性的约束:
+
+​	// #REQUIRED： 必须的
+​	// #IMPLIED： 属性不是必需的
+​	// #FIXED value：属性值是固定的
+</code></pre>
+<ul>
 <li>
 <p>代码实现</p>
 <div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token class-name">ELEMENT</span> persons <span class="token punctuation">(</span>person<span class="token operator">+</span><span class="token punctuation">)</span><span class="token operator">></span>
@@ -473,8 +488,6 @@ encoding：该属性不是必须的</p>
 <span class="token operator">&lt;</span><span class="token operator">/</span>persons<span class="token operator">></span>
 ​```
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
-</ul>
-</li>
 </ul>
 <h3 id="_1-6schema约束【理解】" tabindex="-1"><a class="header-anchor" href="#_1-6schema约束【理解】" aria-hidden="true">#</a> 1.6schema约束【理解】</h3>
 <ul>

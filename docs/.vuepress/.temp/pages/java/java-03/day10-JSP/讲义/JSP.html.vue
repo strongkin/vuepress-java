@@ -27,7 +27,7 @@
 <p>上图的用户名是动态展示，也就是谁登陆就展示谁的用户名。只用 <code v-pre>servlet</code> 如何实现呢？在今天的资料里已经提供好了一个 <code v-pre>LoginServlet</code> ，该 <code v-pre>servlet</code> 就是实现这个功能的，现将资料中的 <code v-pre>LoginServlet.java</code> 拷贝到 <code v-pre>request-demo</code> 项目中来演示。接下来启动服务器并访问登陆页面</p>
 <img src="@source/java/java-03/day10-JSP/讲义/assets/image-20210818102205544.png" alt="image-20210818102205544" style="zoom:80%;" />
 <p>输入了 <code v-pre>zhangsan</code> 用户的登陆信息后点击 <code v-pre>登陆</code> 按钮，就能看到如下图效果</p>
-<p><img src="assets/image-20210818102313898.png" alt="image-20210818102313898"></p>
+<p><img src="@source/java/java-03/day10-JSP/讲义/assets/image-20210818102313898.png" alt="image-20210818102313898"></p>
 <p>当然如果是 <code v-pre>lisi</code> 登陆的，在该页面展示的就是 <code v-pre>lisi,欢迎您</code>，动态的展示效果就实现了。那么 <code v-pre>LoginServlet</code> 到底是如何实现的，我们看看它里面的内容</p>
 <img src="@source/java/java-03/day10-JSP/讲义/assets/image-20210818102506754.png" alt="image-20210818102506754" style="zoom:70%;" />
 <p>上面的代码有大量使用到 <code v-pre>writer</code> 对象向页面写标签内容，这样我们的代码就显得很麻烦；将来如果展示的效果出现了问题，排错也显得有点力不从心。而 JSP 是如何解决这个问题的呢？在资料中也提供了一个 <code v-pre>login.jsp</code> 页面，该页面也能实现该功能，现将该页面拷贝到项目的 <code v-pre>webapp</code>下，需要修改 <code v-pre>login.html</code> 中表单数据提交的路径为下图</p>
@@ -1028,7 +1028,7 @@
     
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mapper</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_8-2-查询所有" tabindex="-1"><a class="header-anchor" href="#_8-2-查询所有" aria-hidden="true">#</a> 8.2  查询所有</h3>
-<p><img src="assets/image-20210818174441917.png" alt="image-20210818174441917"></p>
+<p><img src="@source/java/java-03/day10-JSP/讲义/assets/image-20210818174441917.png" alt="image-20210818174441917"></p>
 <p>当我们点击 <code v-pre>index.html</code> 页面中的 <code v-pre>查询所有</code> 这个超链接时，就能查询到上图右半部分的数据。</p>
 <p>对于上述的功能，点击 <code v-pre>查询所有</code> 超链接是需要先请后端的 <code v-pre>servlet</code> ，由 <code v-pre>servlet</code> 跳转到对应的页面进行数据的动态展示。而整个流程如下图：</p>
 <img src="@source/java/java-03/day10-JSP/讲义/assets/image-20210818174800783.png" alt="image-20210818174800783" style="zoom:60%;" />
@@ -1160,7 +1160,7 @@
 &lt;/html&gt;
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_8-2-6-测试" tabindex="-1"><a class="header-anchor" href="#_8-2-6-测试" aria-hidden="true">#</a> 8.2.6  测试</h4>
 <p>启动服务器，并在浏览器输入 <code v-pre>http://localhost:8080/brand-demo/index.html</code>，看到如下 <code v-pre>查询所有</code> 的超链接，点击该链接就可以查询出所有的品牌数据</p>
-<p><img src="assets/image-20210818182952394.png" alt="image-20210818182952394"></p>
+<p><img src="@source/java/java-03/day10-JSP/讲义/assets/image-20210818182952394.png" alt="image-20210818182952394"></p>
 <p>为什么出现这个问题呢？是因为查询到的字段名和实体类对象的属性名没有一一对应。相比看到这大家一定会解决了，就是在映射配置文件中使用 <code v-pre>resultMap</code> 标签定义映射关系。映射配置文件内容如下：</p>
 <div class="language-xml ext-xml line-numbers-mode"><pre v-pre class="language-xml"><code><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8" ?></span>
 <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">mapper</span>
@@ -1182,11 +1182,11 @@
 <span class="token annotation punctuation">@ResultMap</span><span class="token punctuation">(</span><span class="token string">"brandResultMap"</span><span class="token punctuation">)</span>
 <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Brand</span><span class="token punctuation">></span></span> <span class="token function">selectAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>重启服务器，再次访问就能看到我们想要的数据了</p>
-<p><img src="assets/image-20210819190221889.png" alt="image-20210819190221889"></p>
+<p><img src="@source/java/java-03/day10-JSP/讲义/assets/image-20210819190221889.png" alt="image-20210819190221889"></p>
 <h3 id="_8-3-添加" tabindex="-1"><a class="header-anchor" href="#_8-3-添加" aria-hidden="true">#</a> 8.3  添加</h3>
-<p><img src="assets/image-20210819192049571.png" alt="image-20210819192049571"></p>
+<p><img src="@source/java/java-03/day10-JSP/讲义/assets/image-20210819192049571.png" alt="image-20210819192049571"></p>
 <p>上图是做 添加 功能流程。点击 <code v-pre>新增</code> 按钮后，会先跳转到 <code v-pre>addBrand.jsp</code> 新增页面，在该页面输入要添加的数据，输入完毕后点击 <code v-pre>提交</code> 按钮，需要将数据提交到后端，而后端进行数据添加操作，并重新将所有的数据查询出来。整个流程如下：</p>
-<p><img src="assets/image-20210819192737982.png" alt="image-20210819192737982"></p>
+<p><img src="@source/java/java-03/day10-JSP/讲义/assets/image-20210819192737982.png" alt="image-20210819192737982"></p>
 <p>接下来我们根据流程来实现功能：</p>
 <h4 id="_8-3-1-编写brandmapper方法" tabindex="-1"><a class="header-anchor" href="#_8-3-1-编写brandmapper方法" aria-hidden="true">#</a> 8.3.1  编写BrandMapper方法</h4>
 <p>在 <code v-pre>BrandMapper</code> 接口，在接口中定义 <code v-pre>add(Brand brand)</code> 方法</p>
@@ -1302,15 +1302,15 @@
 <p>点击 <code v-pre>brand.jsp</code> 页面的 <code v-pre>新增</code> 按钮，会跳转到 <code v-pre>addBrand.jsp</code>页面</p>
 <img src="@source/java/java-03/day10-JSP/讲义/assets/image-20210819220701121.png" alt="image-20210819220701121" style="zoom:70%;" />
 <p>点击 <code v-pre>提交</code> 按钮，就能看到如下页面，里面就包含我们刚添加的数据</p>
-<p><img src="assets/image-20210819220738074.png" alt="image-20210819220738074"></p>
+<p><img src="@source/java/java-03/day10-JSP/讲义/assets/image-20210819220738074.png" alt="image-20210819220738074"></p>
 <h3 id="_8-4-修改" tabindex="-1"><a class="header-anchor" href="#_8-4-修改" aria-hidden="true">#</a> 8.4  修改</h3>
-<p><img src="assets/image-20210819223202473.png" alt="image-20210819223202473"></p>
+<p><img src="@source/java/java-03/day10-JSP/讲义/assets/image-20210819223202473.png" alt="image-20210819223202473"></p>
 <p>点击每条数据后面的 <code v-pre>编辑</code> 按钮会跳转到修改页面，如下图：</p>
-<p><img src="assets/image-20210819223314230.png" alt="image-20210819223314230"></p>
+<p><img src="@source/java/java-03/day10-JSP/讲义/assets/image-20210819223314230.png" alt="image-20210819223314230"></p>
 <p>在该修改页面我们可以看到将 <code v-pre>编辑</code> 按钮所在行的数据 ==回显== 到表单，然后需要修改那个数据在表单中进行修改，然后点击 <code v-pre>提交</code> 的按钮将数据提交到后端，后端再将数据存储到数据库中。</p>
 <p>从上面的例子我们知道 <code v-pre>修改</code> 功能需要从两方面进行实现，数据回显和修改操作。</p>
 <h4 id="_8-4-1-回显数据" tabindex="-1"><a class="header-anchor" href="#_8-4-1-回显数据" aria-hidden="true">#</a> 8.4.1  回显数据</h4>
-<p><img src="assets/image-20210819223830713.png" alt="image-20210819223830713"></p>
+<p><img src="@source/java/java-03/day10-JSP/讲义/assets/image-20210819223830713.png" alt="image-20210819223830713"></p>
 <p>上图就是回显数据的效果。要实现这个效果，那当点击 <code v-pre>修改</code> 按钮时不能直接跳转到 <code v-pre>update.jsp</code> 页面，而是需要先带着当前行数据的 <code v-pre>id</code> 请求后端程序，后端程序根据 <code v-pre>id</code> 查询数据，将数据存储到域对象中跳转到 <code v-pre>update.jsp</code> 页面进行数据展示。整体流程如下</p>
 <img src="@source/java/java-03/day10-JSP/讲义/assets/image-20210819224243778.png" alt="image-20210819224243778" style="zoom:70%;" />
 <h5 id="_8-4-1-1-编写brandmapper方法" tabindex="-1"><a class="header-anchor" href="#_8-4-1-1-编写brandmapper方法" aria-hidden="true">#</a> 8.4.1.1  编写BrandMapper方法</h5>
@@ -1437,7 +1437,7 @@
 &lt;/html&gt;
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_8-4-2-修改数据" tabindex="-1"><a class="header-anchor" href="#_8-4-2-修改数据" aria-hidden="true">#</a> 8.4.2  修改数据</h4>
 <p>做完回显数据后，接下来我们要做修改数据了，而下图是修改数据的效果：</p>
-<p><img src="assets/image-20210819225948187.png" alt="image-20210819225948187"></p>
+<p><img src="@source/java/java-03/day10-JSP/讲义/assets/image-20210819225948187.png" alt="image-20210819225948187"></p>
 <p>在修改页面进行数据修改，点击 <code v-pre>提交</code> 按钮，会将数据提交到后端程序，后端程序会对表中的数据进行修改操作，然后重新进行数据的查询操作。整体流程如下：</p>
 <img src="@source/java/java-03/day10-JSP/讲义/assets/image-20210819230242938.png" alt="image-20210819230242938" style="zoom:70%;" />
 <h5 id="_8-4-2-1-编写brandmapper方法" tabindex="-1"><a class="header-anchor" href="#_8-4-2-1-编写brandmapper方法" aria-hidden="true">#</a> 8.4.2.1  编写BrandMapper方法</h5>

@@ -130,7 +130,7 @@ export default {
               children: [
                 {
                   text: "IO流",
-                  link: "/java/01-02java/09.IO流/day11-IO流day01/笔记/day10IO流01,md",
+                  link: "/java/01-02java/09.IO流/day11-IO流day01/笔记/day10IO流01.md",
                 },
                 {
                   text: "IO流",
@@ -240,7 +240,7 @@ export default {
             },
             {
               text: "SpringMVC第一天",
-              link: "/java/java-04/2-springmvc/day01/讲义/SpringMVC第一天,md",
+              link: "/java/java-04/2-springmvc/day01/讲义/SpringMVC第一天.md",
             },
             {
               text: "SpringMVC第二天",

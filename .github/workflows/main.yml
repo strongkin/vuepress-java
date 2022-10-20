@@ -1,13 +1,12 @@
-著作权归https://www.duktig.cn所有。
-链接：http://www.duktig.cn/2022/01/21/基于vuepress搭建博客系统及优化过程-持续更新/
 
 name: Deploy GitHub Pages
 
 # 触发条件：在 push 到 master 分支后
 on:
    push:
-      branches:
-         - main
+      branches: [ main ]
+  
+  workflow_dispatch:
 
 # 任务
 jobs:
@@ -23,7 +22,7 @@ jobs:
 
          # 生成静态文件（export NODE_OPTIONS=--max_old_space_size=4096  解决JavaScript heap out of memory问题）
          - name: Build
-           run: npm install && export NODE_OPTIONS=--max_old_space_size=4096 && npm run build
+           run: yarn  && export NODE_OPTIONS=--max_old_space_size=4096 && yarn run build
 
          # 部署到 GitHub Pages
          - name: Deploy

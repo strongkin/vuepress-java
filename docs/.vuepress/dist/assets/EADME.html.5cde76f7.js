@@ -1,0 +1,1 @@
+const a=JSON.parse('{"key":"v-b65938a8","path":"/java/01-02java/Java1/EADME.html","title":"","lang":"en-US","frontmatter":{},"excerpt":"","headers":[],"git":{"updatedTime":1666263254000,"contributors":[{"name":"\u6A58\u6A59\u5929\u4E0B","email":"2279345175@qq.com","commits":1}]},"filePathRelative":"java/01-02java/Java1/EADME.md"}');export{a as data};

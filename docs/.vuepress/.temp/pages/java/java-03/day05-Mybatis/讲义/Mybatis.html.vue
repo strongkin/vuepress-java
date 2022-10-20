@@ -380,17 +380,12 @@
 <p>以后肯定会在SQL语句中写一下特殊字符，比如某一个字段大于某个值，如下图</p>
 <img src="@source/java/java-03/day05-Mybatis/讲义/assets/image-20210729184756094.png" alt="image-20210729184756094" style="zoom:80%;" />
 <p>可以看出报错了，因为映射配置文件是xml类型的问题，而 &gt; &lt; 等这些字符在xml中有特殊含义，所以此时我们需要将这些符号进行转义，可以使用以下两种方式进行转义</p>
-<ul>
-<li>
-<p>转义字符</p>
-<p>下图的 <code v-pre>&amp;lt;</code> 就是 <code v-pre>&lt;</code> 的转义字符。</p>
-<img src="@source/java/java-03/day05-Mybatis/讲义/assets/image-20210729185128686.png" alt="image-20210729185128686" style="zoom:60%;" />
-</li>
-<li>
-<![CDATA[内容]]>
-<img src="@source/java/java-03/day05-Mybatis/讲义/assets/image-20210729185030318.png" alt="image-20210729185030318" style="zoom:60%;" />
-</li>
-</ul>
+<div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code><span class="token operator">*</span> 转义字符
+
+  下图的 `<span class="token operator">&amp;</span>lt<span class="token punctuation">;</span>` 就是 `<span class="token operator">&lt;</span>` 的转义字符。
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>  <img src="@source/java/java-03/day05-Mybatis/讲义/assets/image-20210729185128686.png" alt="image-20210729185128686" style="zoom:60%;" />
+<!-- * <![CDATA[内容]]> -->
+  <img src="@source/java/java-03/day05-Mybatis/讲义/assets/image-20210729185030318.png" alt="image-20210729185030318" style="zoom:60%;" />
 <h3 id="_1-4-多条件查询" tabindex="-1"><a class="header-anchor" href="#_1-4-多条件查询" aria-hidden="true">#</a> 1.4  多条件查询</h3>
 <p><img src="@source/java/java-03/day05-Mybatis/讲义/assets/image-20210729203804276.png" alt="image-20210729203804276"></p>
 <p>我们经常会遇到如上图所示的多条件查询，将多条件查询的结果展示在下方的数据列表中。而我们做这个功能需要分析最终的SQL语句应该是什么样，思考两个问题</p>
