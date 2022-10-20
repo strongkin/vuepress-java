@@ -1,0 +1,15 @@
+{
+  "name": "vuepress-java",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:strongkin/vuepress-java.git",
+  "author": "橘橙天下 <2279345175@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.51"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
