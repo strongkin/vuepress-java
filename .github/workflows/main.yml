@@ -1,33 +1,87 @@
 
-name: Deploy GitHub Pages
+# name: Deploy GitHub Pages
 
-# 触发条件：在 push 到 master 分支后
-on:
-   push:
-      branches: [ main ]
+# # 触发条件：在 push 到 master 分支后
+# on:
+#    push:
+#       branches: [ main ]
   
+#   workflow_dispatch:
+
+# # 任务
+# jobs:
+#    build-and-deploy:
+#       # 服务器环境：最新版 Ubuntu
+#       runs-on: ubuntu-latest
+#       steps:
+#          # 拉取代码
+#          - name: Checkout
+#            uses: actions/checkout@v2
+#            with:
+#               persist-credentials: false
+
+#          # 生成静态文件（export NODE_OPTIONS=--max_old_space_size=4096  解决JavaScript heap out of memory问题）
+#          - name: Build
+#            run: yarn  && export NODE_OPTIONS=--max_old_space_size=4096 && yarn run build
+
+#          # 部署到 GitHub Pages
+#          - name: Deploy
+#            uses: JamesIves/github-pages-deploy-action@releases/v3
+#            with:
+#               ACCESS_TOKEN: ${{ secrets.JAVA_TOKEN }}
+#               BRANCH: gh-pages
+#               FOLDER: .vuepress/dist # 静态资源目录
+# This is a basic workflow to help you get started with Actions
+
+name: Build and deploy
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# 任务
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-   build-and-deploy:
-      # 服务器环境：最新版 Ubuntu
-      runs-on: ubuntu-latest
-      steps:
-         # 拉取代码
-         - name: Checkout
-           uses: actions/checkout@v2
-           with:
-              persist-credentials: false
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
 
-         # 生成静态文件（export NODE_OPTIONS=--max_old_space_size=4096  解决JavaScript heap out of memory问题）
-         - name: Build
-           run: yarn  && export NODE_OPTIONS=--max_old_space_size=4096 && yarn run build
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
 
-         # 部署到 GitHub Pages
-         - name: Deploy
-           uses: JamesIves/github-pages-deploy-action@releases/v3
-           with:
-              ACCESS_TOKEN: ${{ secrets.JAVA_TOKEN }}
-              BRANCH: gh-pages
-              FOLDER: .vuepress/dist # 静态资源目录
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+          
+      # 缓存 node_modules
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+            
+      # 如果缓存没有命中，安装依赖，根据实际来改，也可以是npm，这里是用的yarn
+      - name: Install dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn && yarn docs:build
+ 
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.JAVA_TOKEN }}
+          # 部署到 gh-pages 分支
+          BRANCH: gh-pages
+          # 部署目录为 VuePress 的默认输出目录，这里需要根据项目的目录进行修改
+          FOLDER: docs/.vuepress/dist
