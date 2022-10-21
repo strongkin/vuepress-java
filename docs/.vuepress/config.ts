@@ -16,7 +16,7 @@ export default {
     docsRepo: "https://github.com/strongkin/vuepress-java",
     // docsBranch: "main",
     docsDir: "docs",
-    editLinkPattern: ":repo/-/edit/:branch/:path",
+    editLinkPattern: ":repo/edit/:branch/:path",
     // URL
     // logo: "https://vuejs.org/images/logo.png",
     navbar: [
