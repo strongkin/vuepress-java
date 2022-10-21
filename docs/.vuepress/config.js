@@ -4,7 +4,7 @@ export default {
   title: "strongking",
   description: "strongking博客",
   base: "/vuepress-java/",
-  head: [["link", { rel: "icon", href: "/images/good.png" }]],
+  head: [["link", { rel: "icon", href: "/images/logut.png" }]],
   theme: defaultTheme({
     // sidebar:'auto',
     // Public 文件路径
@@ -420,6 +420,51 @@ export default {
             {
               text: "RabbitMQ-高级篇",
               link: "/java8-9/day05/讲义/RabbitMQ-高级篇.md",
+            },
+          ],
+        },
+        {
+          text: "交友软件",
+          children: [
+            {
+              text: "项目介绍以及实现登录功能",
+              link: "/java8-9/探花交友/day01-项目介绍以及实现登录功能/讲义-md版本/day01-项目介绍以及实现登录功能.md",
+            },
+              {
+              text: "完善个人信息与MongoDB入门",
+              link: "/java8-9/探花交友/day02-完善个人信息与MongoDB入门/讲义-md版本/day02-完善个人信息与MongoDB入门.md",
+            },
+              {
+              text: "今日佳人功能实现",
+              link: "/java8-9/探花交友/day03-今日佳人功能实现/讲义-md版本/day03-今日佳人功能实现.md",
+            },
+              {
+              text: "圈子功能实现",
+              link: "/java8-9/探花交友/day04-圈子功能实现/讲义-md版本/day04-圈子功能实现.md",
+            },
+              {
+              text: "圈子、小视频功能实现",
+              link: "/java8-9/探花交友/day05-圈子、小视频功能实现/讲义-md版本/day05-圈子、小视频功能实现.md",
+            },
+              {
+              text: "完善小视频功能以及即时通讯",
+              link: "/java8-9/探花交友/day06-完善小视频功能以及即时通讯/讲义-md版本/day06-完善小视频功能以及即时通讯.md",
+            },
+              {
+              text: "完善消息功能以及个人主页",
+              link: "/java8-9/探花交友/day07-完善消息功能以及个人主页/讲义-md版本/day07-完善消息功能以及个人主页.md",
+            },
+              {
+              text: "搜附近以及探花功能实现",
+              link: "/java8-9/探花交友/day08-搜附近以及探花功能实现/讲义-md版本/day08-搜附近以及探花功能实现.md",
+            },
+              {
+              text: "我的功能实现",
+              link: "/java8-9/探花交友/day09-我的功能实现/讲义-md版本/day09-我的功能实现.md",
+            },
+            {
+              text: "实现推荐功能",
+              link: "/java8-9/探花交友/day10-实现推荐功能/讲义-md版本/day10-实现推荐功能.md",
             },
           ],
         },
