@@ -359,7 +359,7 @@
     vue "^3.2.37"
     vue-router "^4.1.4"
 
-"@vuepress/plugin-back-to-top@2.0.0-beta.51":
+"@vuepress/plugin-back-to-top@2.0.0-beta.51", "@vuepress/plugin-back-to-top@^2.0.0-beta.51":
   version "2.0.0-beta.51"
   resolved "https://registry.npmmirror.com/@vuepress/plugin-back-to-top/-/plugin-back-to-top-2.0.0-beta.51.tgz#69a9a12139f7951942a9dd078c70bf67bca59558"
   integrity sha512-VwTkJ9iV5vUFz93RURzk/4wnPPgq0OO4KUB4b9WCWlGg+4iD7Yo2zXnqaGe7Gh7hkQjbrysuPbZdtggbmnxMdg==
